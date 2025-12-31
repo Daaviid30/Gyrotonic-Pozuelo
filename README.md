@@ -1,16 +1,31 @@
-# React + Vite
+# Gyrotonic Pozuelo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación web moderna y responsiva desarrollada con React y Vite para un estudio de Gyrotonic. El proyecto presenta un diseño elegante con secciones informativas para presentar el estudio y sus servicios.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Diseño Responsivo:** Adaptado a dispositivos móviles y de escritorio.
+- **Secciones Interactivas:**
+  - **Hero:** Presentación visual impactante.
+  - **Sobre Nosotros:** Información sobre el estudio.
+  - **Servicios:** Detalles de las clases y métodos.
+  - **Equipo:** Presentación de los instructores.
+  - **Testimonios:** Opiniones de clientes.
+  - **Precios:** Tarifas y paquetes.
+  - **Contacto:** Formulario e información de ubicación.
+- **Tecnologías:**
+  - React
+  - Vite
+  - Framer Motion (para animaciones)
+  - Lucide React (iconos)
+  - CSS Modules / Custom CSS
 
-## React Compiler
+## Despliegue
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[URL_DESPLIEGUE_PENDIENTE]
 
-## Expanding the ESLint configuration
+## Configuración Local
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  Clonar el repositorio.
+2.  Instalar dependencias: `npm install`
+3.  Iniciar servidor de desarrollo: `npm run dev`
