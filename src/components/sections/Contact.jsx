@@ -46,8 +46,18 @@ const Contact = () => {
                         </div>
 
                         {/* Map Placeholder */}
-                        <div className="map-placeholder">
-                            <p>Mapa de Ubicación</p>
+                        {/* Map Container */}
+                        <div className="map-container">
+                            <iframe
+                                title="Ubicación Gyrotonic Pozuelo"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.567087877953!2d-3.805526323450989!3d40.44061897143573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41890696955555%3A0x6969696969696969!2sAv.%20de%20Europa%2C%207%2C%2028224%20Pozuelo%20de%20Alarc%C3%B3n%2C%20Madrid!5e0!3m2!1ses!2ses!4v1703600000000!5m2!1ses!2ses"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
                         </div>
                     </div>
 
