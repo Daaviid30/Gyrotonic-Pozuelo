@@ -6,7 +6,7 @@ import './Hero.css';
 const Hero = () => {
     // Placeholder image that looks like a clean studio or movement
     // In production, this should be replaced with a real studio photo/video
-    const heroBg = "images/clase.jpg";
+    const heroBg = "/images/clase.jpg";
 
     return (
         <section className="hero-section" id="home">
