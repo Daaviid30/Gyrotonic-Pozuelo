@@ -1,0 +1,264 @@
+.team-page {
+    background-color: var(--color-bg-light);
+    min-height: 100vh;
+}
+
+/* Introducción */
+.team-intro {
+    padding: 4rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Perfiles del Equipo */
+.team-profiles {
+    padding: 2rem 0;
+}
+
+.profile-section {
+    margin-bottom: 5rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.profile-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.profile-image-wrapper {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    color: white;
+}
+
+.profile-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.profile-role {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.profile-content {
+    padding: 3rem;
+}
+
+.profile-story {
+    margin-bottom: 3rem;
+}
+
+.story-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.profile-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.detail-box {
+    background-color: var(--color-bg-off-white);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-accent);
+}
+
+.detail-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-list li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-main);
+}
+
+.detail-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.philosophy-box {
+    background: linear-gradient(135deg, var(--color-accent-soft) 0%, rgba(243, 240, 235, 0.7) 100%);
+    padding: 2.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(13, 148, 136, 0.2);
+}
+
+.philosophy-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.philosophy-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-main);
+    font-style: italic;
+}
+
+/* Valores */
+.values-section {
+    padding: 5rem 0;
+    background-color: var(--color-bg-off-white);
+    margin: 4rem -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.value-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: all var(--transition-smooth);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.value-icon {
+    color: var(--color-accent);
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.value-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.value-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-main);
+}
+
+/* CTA */
+.team-cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 700px;
+    margin: 4rem auto;
+    background: linear-gradient(135deg, var(--color-accent-soft) 0%, rgba(243, 240, 235, 0.5) 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-intro {
+        padding: 2rem 0;
+    }
+
+    .profile-section {
+        margin-bottom: 3rem;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .profile-image-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-name {
+        font-size: 2rem;
+    }
+
+    .profile-role {
+        font-size: 1.1rem;
+    }
+
+    .profile-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .story-paragraph {
+        text-align: left;
+    }
+
+    .profile-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .values-section {
+        margin: 2rem -1.5rem;
+        padding: 3rem 1.5rem;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-cta {
+        padding: 2.5rem 1.5rem;
+        margin: 2rem auto;
+    }
+}

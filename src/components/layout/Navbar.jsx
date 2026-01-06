@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from '../ui/Button';
 import './Navbar.css';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,6 +25,29 @@ const Navbar = () => {
         { name: 'Precios', href: '#pricing' },
         { name: 'Contacto', href: '#contact' },
     ];
+
+    const handleNavClick = (e, href) => {
+        e.preventDefault();
+
+        // Si no estamos en la página principal, navegar primero a home
+        if (location.pathname !== '/') {
+            navigate('/');
+            // Esperar un poco para que la página cargue antes de hacer scroll
+            setTimeout(() => {
+                const element = document.querySelector(href);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            // Si ya estamos en home, solo hacer scroll
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        setIsMobileMenuOpen(false);
+    };
 
     return (
         <header className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`}>
@@ -42,11 +67,23 @@ const Navbar = () => {
                     <ul className="nav-links">
                         {navLinks.map((link) => (
                             <li key={link.name}>
-                                <a href={link.href} className="nav-link">{link.name}</a>
+                                <a
+                                    href={link.href}
+                                    className="nav-link"
+                                    onClick={(e) => handleNavClick(e, link.href)}
+                                >
+                                    {link.name}
+                                </a>
                             </li>
                         ))}
                     </ul>
-                    <Button href="#contact" variant="primary">Reserva Ahora</Button>
+                    <a
+                        href="#contact"
+                        className="btn btn-primary"
+                        onClick={(e) => handleNavClick(e, '#contact')}
+                    >
+                        Reserva Ahora
+                    </a>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
@@ -65,16 +102,20 @@ const Navbar = () => {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        onClick={(e) => handleNavClick(e, link.href)}
                                     >
                                         {link.name}
                                     </a>
                                 </li>
                             ))}
                             <li>
-                                <Button href="#contact" variant="primary" onClick={() => setIsMobileMenuOpen(false)}>
+                                <a
+                                    href="#contact"
+                                    className="btn btn-primary"
+                                    onClick={(e) => handleNavClick(e, '#contact')}
+                                >
                                     Reserva Ahora
-                                </Button>
+                                </a>
                             </li>
                         </ul>
                     </div>

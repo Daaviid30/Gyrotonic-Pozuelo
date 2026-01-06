@@ -1,28 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { briefTestimonials } from '../../constants/testimonials';
 import './Testimonials.css';
-
-const reviews = [
-    {
-        name: "María Garcia",
-        role: "Paciente de Rehabilitación",
-        text: "Llegué con dolores lumbares crónicos y en pocas sesiones noté una diferencia abismal. El enfoque sin impacto es justo lo que necesitaba.",
-        stars: 5
-    },
-    {
-        name: "Pablo Rodríguez",
-        role: "Corredor Amateur",
-        text: "Mejora mi flexibilidad y mi respiración. Siento que corro con más ligereza y menos tensión.",
-        stars: 5
-    },
-    {
-        name: "Ana Martínez",
-        role: "Oficinista",
-        text: "Después de estar sentada todo el día, las clases son un respiro. Me siento más alta y descomprimida al salir.",
-        stars: 5
-    }
-];
 
 const Testimonials = () => {
     return (
@@ -34,7 +15,7 @@ const Testimonials = () => {
                 </div>
 
                 <div className="testimonials-grid">
-                    {reviews.map((review, index) => (
+                    {briefTestimonials.map((review, index) => (
                         <motion.div
                             key={index}
                             className="testimonial-card"
@@ -56,6 +37,18 @@ const Testimonials = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                <motion.div
+                    className="section-cta"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                >
+                    <Link to="/testimonials" className="btn btn-outline">
+                        Lee Más Historias de Éxito
+                    </Link>
+                </motion.div>
             </div>
         </section>
     );

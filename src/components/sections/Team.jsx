@@ -1,22 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
+import { instructors } from '../../constants/team';
 import './Team.css';
-
-const instructors = [
-    {
-        name: "Mª José Cruz",
-        role: "Co-Directora e Instructora",
-        bio: "Bailarina profesional y experta en movimiento. Tras sufrir lesiones en su carrera, encontró en Gyrotonic la clave para rehabilitarse y potenciar el rendimiento. Su pasión es ayudarte a comprender tu cuerpo para que vivas sin dolor.",
-        image: "/images/maria_jose.jpg"
-    },
-    {
-        name: "Antonio Castro",
-        role: "Co-Director y Entrenador",
-        bio: "Del fútbol profesional a la osteopatía. Antonio combina su visión de entrenador deportivo con terapias manuales. Su enfoque es técnico y rehabilitador, buscando el máximo potencial físico de cada alumno.",
-        image: "/images/antonio.jpg"
-    }
-];
 
 const Team = () => {
     return (
@@ -57,6 +44,18 @@ const Team = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                <motion.div
+                    className="section-cta"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                >
+                    <Link to="/team" className="btn btn-outline">
+                        Conoce Más sobre Nuestro Equipo
+                    </Link>
+                </motion.div>
             </div>
         </section>
     );

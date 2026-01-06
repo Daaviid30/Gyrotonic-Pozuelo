@@ -36,6 +36,7 @@
 .about-section .container {
     position: relative;
     z-index: 1;
+    margin-bottom: 3rem;
 }
 
 .mb-16 {
@@ -115,4 +116,15 @@
     color: var(--color-text-muted);
     font-size: 1rem;
     line-height: 1.7;
+}
+
+/* Section CTA */
+.section-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.section-cta .btn {
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
 }
