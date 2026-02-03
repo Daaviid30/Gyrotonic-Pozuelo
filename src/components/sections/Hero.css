@@ -149,7 +149,7 @@
 
 .scroll-indicator {
     position: absolute;
-    bottom: 15px;
+    bottom: -100px;
     /* Moved lower as requested */
     /* Position inside the wave separator */
     left: 50%;

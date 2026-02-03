@@ -135,6 +135,10 @@
     margin-top: 0.2rem;
 }
 
+.feature-title-bold {
+    font-weight: 600;
+}
+
 .service-meta {
     display: flex;
     flex-direction: column;

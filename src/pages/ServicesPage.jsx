@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, Users2, HeartPulse, Wind, Clock, Target, CheckCircle } from 'lucide-react';
+import { User, Users2, HeartPulse, Wind, Clock, Target, CheckCircle, ClipboardCheck } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
 import './ServicesPage.css';
@@ -13,95 +13,72 @@ const ServicesPage = () => {
 
     const services = [
         {
-            icon: <User size={48} />,
-            title: "Clases Individuales",
-            subtitle: "Atención 100% Personalizada",
-            description: "Las sesiones individuales son la forma más profunda y efectiva de experimentar GYROTONIC®. Tu instructor diseña cada clase específicamente para ti, adaptándose a tus necesidades, objetivos y ritmo de progreso.",
+            icon: <ClipboardCheck size={48} />,
+            title: "Pack de Iniciación",
+            subtitle: "Comienza tu Viaje con Sólidas Bases",
+            description: "Es el punto de partida obligatorio y esencial para todos los nuevos alumnos. Antes de unirte a un grupo, necesitamos que tu cuerpo entienda el lenguaje de la máquina y los principios del movimiento. Es un periodo de aprendizaje y autodescubrimiento.",
             features: [
-                "Evaluación inicial completa de tu postura y movimiento",
-                "Programa personalizado según tus objetivos",
-                "Corrección detallada en tiempo real",
-                "Progresión adaptada a tu ritmo",
-                "Ideal para principiantes o necesidades específicas",
-                "Máxima atención a la técnica y seguridad"
+                "1 Clase de Prueba + 4 Sesiones Fundamentales: Un recorrido completo por los básicos del sistema.",
+                "Diagnóstico Corporal: Analizamos tu postura, lesiones previas y condición física actual para personalizar tu futuro entrenamiento.",
+                "Manejo de la Pulley Tower: Aprenderás a usar la máquina y a moverte con seguridad.",
+                "Atención 1 a 1: Un instructor dedicado exclusivamente a ti durante este proceso."
             ],
             duration: "60 minutos",
-            idealFor: "Personas con lesiones, objetivos específicos, o que buscan la máxima personalización",
+            idealFor: "Cualquier persona que se inicie en GYROTONIC®, independientemente de su nivel previo en otros deportes.",
             image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop"
         },
         {
-            icon: <Users2 size={48} />,
-            title: "Clases Dúo",
-            subtitle: "Comparte la Experiencia",
-            description: "Entrena con un amigo, pareja o familiar en un formato semi-privado. Mantiene la atención personalizada mientras creas un ambiente dinámico y motivador compartido.",
+            icon: <User size={48} />,
+            title: "Clases Privadas",
+            subtitle: "Máxima Precisión y Personalización",
+            description: "La experiencia premium de GYROTONIC®. En estas sesiones, toda la atención del instructor está centrada en ti. Es el espacio donde pulimos detalles, tratamos dolencias específicas y avanzamos más rápido hacia tus objetivos.",
             features: [
-                "Máximo 2 personas por sesión",
-                "Programa adaptado a ambos participantes",
-                "Atención personalizada para cada uno",
-                "Motivación compartida",
-                "Ideal para parejas o amistades",
-                "Precio más accesible que las individuales"
+                "Diseño a Medida: Cada ejercicio se selecciona según cómo te sientas ese día y tus metas a largo plazo.",
+                "Enfoque Terapéutico: Ideal si necesitas rehabilitar lesiones (hernias, post-operatorios) o aliviar dolores crónicos.",
+                "Corrección Milimétrica: Ajustes táctiles constantes para asegurar la máxima eficacia del movimiento.",
+                "Horario Flexible: Adaptado totalmente a tu agenda."
             ],
             duration: "60 minutos",
-            idealFor: "Parejas, amigos o familiares que quieren entrenar juntos",
+            idealFor: "Quienes buscan rehabilitación, atletas que quieren mejorar técnica, o personas que prefieren la exclusividad y privacidad.",
             image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop"
         },
         {
-            icon: <HeartPulse size={48} />,
-            title: "Rehabilitación",
-            subtitle: "Recupera tu Movilidad",
-            description: "Enfoque terapéutico especializado para recuperación de lesiones, post-operatorios y dolor crónico. Trabajamos en colaboración con tu tratamiento médico para acelerar tu recuperación de forma segura.",
+            icon: <Users2 size={48} />,
+            title: "Clases en Grupo",
+            subtitle: "Fluidez y Energía Compartida",
+            description: "Una vez completado el Pack de Iniciación, puedes unirte a nuestras clases grupales reducidas. Aquí el ritmo es más continuo y dinámico, permitiéndote disfrutar del movimiento en un ambiente motivador.",
             features: [
-                "Enfoque sin impacto ideal para lesiones",
-                "Trabajo específico en áreas problemáticas",
-                "Descompresión articular y alivio del dolor",
-                "Recuperación progresiva y segura",
-                "Complementa tratamientos de fisioterapia",
-                "Especialmente efectivo en columna, hombros y caderas"
+                "Grupos Reducidos: Pocos alumnos por sesión para no perder la calidad de la supervisión.",
+                "Ritmo y Coreografía: Clases más fluidas donde el movimiento no se detiene, aumentando el trabajo cardiovascular.",
+                "Autonomía Guiada: Ya conoces la máquina, por lo que el instructor te guía verbalmente y con toques puntuales.",
+                "Comunidad: La energía del grupo te impulsa a dar un poco más en cada sesión."
             ],
             duration: "60 minutos (sesiones individuales)",
-            idealFor: "Personas con lesiones de espalda, hernias, post-operatorios, dolores crónicos",
+            idealFor: "Alumnos que ya han superado la fase de iniciación, no tienen lesiones agudas que requieran atención exclusiva y disfrutan de la dinámica grupal.",
             image: "https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=800&auto=format&fit=crop"
-        },
-        {
-            icon: <Wind size={48} />,
-            title: "GYROKINESIS®",
-            subtitle: "Fluidez sin Máquinas",
-            description: "El formato original del método creado por Juliu Horvath. Clases grupales donde el propio cuerpo es la resistencia. Movimientos fluidos en taburete y suelo sincronizados con la respiración.",
-            features: [
-                "Clases grupales (máximo 8 personas)",
-                "No requiere equipamiento especializado",
-                "Secuencias rítmicas y meditativas",
-                "Énfasis en respiración consciente",
-                "Mejora flexibilidad y movilidad articular",
-                "Fortalecimiento del core y estabilidad"
-            ],
-            duration: "75 minutos",
-            idealFor: "Personas que buscan clases grupales, movilidad funcional y bienestar integral",
-            image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=800&auto=format&fit=crop"
         }
     ];
 
     const process = [
         {
             step: "1",
-            title: "Primera Consulta",
-            description: "Conversamos sobre tus objetivos, historial médico y necesidades específicas. Esta consulta es gratuita y sin compromiso."
+            title: "Contacto y Bienvenida",
+            description: "Escríbenos o llámanos. Resolveremos tus dudas iniciales y agendaremos tu primera cita para el Pack de Iniciación."
         },
         {
             step: "2",
-            title: "Evaluación Inicial",
-            description: "En tu primera sesión, evaluamos tu postura, movilidad y patrones de movimiento para crear tu programa personalizado."
+            title: "Tu Primera Sesión",
+            description: "En la primera clase del pack de iniciación, no solo nos movemos. Evaluamos tu postura y rango de movimiento para entender \"el mapa\" de tu cuerpo y sus necesidades."
         },
         {
             step: "3",
-            title: "Programa Personalizado",
-            description: "Diseñamos un plan de entrenamiento adaptado a ti, con objetivos claros y progresión estructurada."
+            title: "Aprendizaje y Diagnóstico",
+            description: "Durante las siguientes sesiones del pack, te enseñamos a \"respirar\" el método y a usar la máquina. Es vital para garantizar tu aprendizaje y confianza."
         },
         {
             step: "4",
-            title: "Seguimiento Continuo",
-            description: "Ajustamos y evolucionamos tu programa según tu progreso, asegurando resultados constantes."
+            title: "Elige tu Continuidad",
+            description: "Al finalizar el pack, tu instructor te asesorará: ¿Estás listo para la dinámica de las Clases Grupales o tu cuerpo agradecería continuar con Clases Privadas un tiempo más? Tú decides cómo seguir."
         }
     ];
 
@@ -123,9 +100,9 @@ const ServicesPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="section-title-page">Elige Tu Camino</h2>
+                    <h2 className="section-title-page">Experiencias a Tú Medida</h2>
                     <p className="intro-text">
-                        Ofrecemos diferentes formatos para que encuentres el que mejor se adapte a tus necesidades, objetivos y estilo de vida. Todos nuestros servicios están impartidos por instructores certificados con años de experiencia.
+                        Hemos diseñado una estructura progresiva para garantizar tu aprendizaje y seguridad. Tanto si buscas recuperarte de una lesión como si quieres potenciar tu rendimiento, tenemos el formato perfecto para ti.
                     </p>
                 </motion.section>
 
@@ -154,12 +131,20 @@ const ServicesPage = () => {
                                 <div className="service-features">
                                     <h4 className="features-title">¿Qué incluye?</h4>
                                     <ul className="features-list">
-                                        {service.features.map((feature, i) => (
-                                            <li key={i} className="feature-item">
-                                                <CheckCircle size={18} />
-                                                <span>{feature}</span>
-                                            </li>
-                                        ))}
+                                        {service.features.map((feature, i) => {
+                                            const [title, ...rest] = feature.split(':');
+                                            const description = rest.join(':');
+
+                                            return (
+                                                <li key={i} className="feature-item">
+                                                    <CheckCircle size={18} />
+                                                    <span>
+                                                        <span className="feature-title-bold">{title}</span>
+                                                        {description && `:${description}`}
+                                                    </span>
+                                                </li>
+                                            );
+                                        })}
                                     </ul>
                                 </div>
 

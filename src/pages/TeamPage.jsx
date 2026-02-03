@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, GraduationCap, Heart, Target, Mail, Phone } from 'lucide-react';
+import { Award, GraduationCap, Heart, Target, Mail, Phone, HeartHandshake, Fingerprint, Infinity } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
 import './TeamPage.css';
@@ -16,19 +16,18 @@ const TeamPage = () => {
             name: "Mª José Cruz",
             role: "Co-Directora e Instructora Certificada",
             image: "/images/maria_jose.jpg",
-            bio: "María José descubrió GYROTONIC® durante su carrera como bailarina profesional. Tras años de entrenamiento intensivo en danza contemporánea y ballet, sufrió lesiones recurrentes que amenazaban su carrera artística.",
-            story: "Fue entonces cuando conoció el método GYROTONIC® y experimentó una transformación completa. No solo se rehabilitó completamente, sino que descubrió un rendimiento físico que nunca antes había alcanzado. Esta experiencia la llevó a certificarse como instructora, dedicando su vida a ayudar a otros a comprender su cuerpo y moverse sin dolor.",
+            bio: "La trayectoria de María José es un testimonio de reinvención. Durante su carrera como bailarina profesional de Ballet clásico, se enfrentó a la cara oculta del alto rendimiento: el dolor crónico y las lesiones recurrentes. En su búsqueda de soluciones, encontró en GYROTONIC® mucho más que una rehabilitación: descubrió un sistema que le permitió moverse con una libertad y potencia desconocidas hasta entonces. Hoy, vuelca toda esa sensibilidad artística y experiencia personal en sus alumnos, ayudándoles a reconectar con su cuerpo desde la amabilidad y no desde la exigencia dolorosa.",
             specialties: [
-                "Rehabilitación de lesiones de columna",
                 "Trabajo con bailarines y atletas",
                 "Mejora del rendimiento artístico",
-                "Consciencia corporal y movimiento"
+                "Consciencia corporal y movimiento",
+                "Salud pélvica y de la mujer"
             ],
             certifications: [
-                "GYROTONIC® Level 2 Certified Trainer",
-                "GYROKINESIS® Certified Instructor",
-                "Formación en Anatomía del Movimiento",
-                "Especialización en Rehabilitación Funcional"
+                "GYROTONIC® Trainer Level 1",
+                "GYROTONIC®: Pelvic Girdle y Jumping Stretching Board",
+                "Licenciada en Arte Dramático y Danza",
+                "Instructora de Pilates: Suelo, Máquinas y Rehabilitación."
             ],
             philosophy: "Creo que cada cuerpo tiene su propia historia y su propio potencial. Mi misión es ayudarte a descubrirlo, respetando tu ritmo y celebrando cada pequeño avance."
         },
@@ -39,16 +38,16 @@ const TeamPage = () => {
             bio: "Antonio llegó a GYROTONIC® desde el mundo del fútbol profesional y la osteopatía. Como jugador, experimentó de primera mano las limitaciones de los métodos de entrenamiento tradicionales y las lesiones que estos pueden causar.",
             story: "Tras retirarse del fútbol, estudió osteopatía y terapias manuales, buscando formas más inteligentes de entrenar y recuperar el cuerpo. Al descubrir GYROTONIC®, encontró el eslabón perdido: un sistema que combina fuerza, movilidad y recuperación en un solo método. Su enfoque técnico y rehabilitador ayuda a que cada alumno alcance su máximo potencial físico de forma segura.",
             specialties: [
-                "Rehabilitación deportiva",
+                "Visión Osteopática",
                 "Prevención de lesiones",
                 "Optimización del rendimiento físico",
-                "Trabajo postural y biomecánico"
+                "Entrenamiento funcional y de fuerza"
             ],
             certifications: [
-                "GYROTONIC® Certified Trainer",
-                "Diplomado en Osteopatía",
-                "Certificación en Terapias Manuales",
-                "Entrenador Personal Certificado"
+                "GYROTONIC® Trainer Level 1 & Level 2",
+                "Diplomado en Osteopatía: Escuela Diaphragma",
+                "Instructor de Pilates Terapéutico",
+                "Certificado en Quiromasaje, Drenaje Linfático y Kinesiotape."
             ],
             philosophy: "El cuerpo es increíblemente inteligente cuando le das las herramientas adecuadas. Mi trabajo es guiarte hacia un movimiento que sea fuerte, eficiente y sostenible en el tiempo."
         }
@@ -56,24 +55,24 @@ const TeamPage = () => {
 
     const values = [
         {
-            icon: <Heart size={40} />,
-            title: "Pasión por el Bienestar",
-            description: "Creemos profundamente en el poder transformador del movimiento consciente"
+            icon: <HeartHandshake size={40} />,
+            title: "Empatía en Movimiento",
+            description: "Entendemos el dolor y la frustración porque hemos estado ahí. No juzgamos tu punto de partida; nos comprometemos con tu destino."
         },
         {
-            icon: <Target size={40} />,
+            icon: <Fingerprint size={40} />,
             title: "Atención Personalizada",
-            description: "Cada persona es única y merece un enfoque adaptado a sus necesidades"
+            description: "Huimos de las rutinas estandarizadas. Cada cuerpo es un puzle único y diseñamos cada sesión como un traje a medida para tus necesidades de ese día."
         },
         {
             icon: <Award size={40} />,
-            title: "Excelencia Profesional",
-            description: "Formación continua y compromiso con los más altos estándares de calidad"
+            title: "Rigor Técnico",
+            description: "La pasión no basta; se necesita conocimiento. Nos formamos continuamente para ofrecerte un servicio basado en la excelencia."
         },
         {
-            icon: <GraduationCap size={40} />,
-            title: "Educación Continua",
-            description: "Aprender y evolucionar constantemente para ofrecer lo mejor a nuestros alumnos"
+            icon: <Infinity size={40} />,
+            title: "Salud Sostenible",
+            description: "No buscamos \"arreglos rápidos\" ni cuerpos de verano, sino construir una base sólida que te permita vivir con vitalidad y autonomía durante décadas."
         }
     ];
 
@@ -97,7 +96,7 @@ const TeamPage = () => {
                 >
                     <h2 className="section-title-page">Experiencia y Dedicación</h2>
                     <p className="intro-text">
-                        Nuestro equipo está formado por profesionales certificados internacionalmente, con años de experiencia tanto en la práctica del método como en la enseñanza. Cada uno de nosotros ha experimentado personalmente el poder transformador de GYROTONIC®, y esa pasión es lo que nos impulsa a compartirlo contigo.
+                        Nuestro equipo está formado por profesionales certificados, con años de experiencia tanto en la práctica del método como en la enseñanza. Cada uno de nosotros ha experimentado personalmente el poder transformador de GYROTONIC®, y esa pasión es lo que nos impulsa a compartirlo contigo.
                     </p>
                 </motion.section>
 
@@ -125,7 +124,6 @@ const TeamPage = () => {
                             <div className="profile-content">
                                 <div className="profile-story">
                                     <p className="story-paragraph">{member.bio}</p>
-                                    <p className="story-paragraph">{member.story}</p>
                                 </div>
 
                                 <div className="profile-details-grid">

@@ -7,7 +7,7 @@ import './About.css';
 
 const About = () => {
     return (
-        <section id="method" className="section about-section">
+        <section id="method" className="section about-section" itemScope itemType="https://schema.org/Service">
             <div className="container">
                 <div className="text-center mb-16">
                     <TextReveal className="section-title">
@@ -19,6 +19,7 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
+                        itemProp="description"
                     >
                         Es un método único que fusiona la fluidez de la danza, la relajación del taichí y la fuerza de la gimnasia deportiva para trabajar tu cuerpo de forma integral.
                     </motion.p>

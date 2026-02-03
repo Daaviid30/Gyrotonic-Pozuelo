@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Users, Sparkles, BookOpen, Heart, TrendingUp } from 'lucide-react';
+import { Target, Users, Sparkles, BookOpen, Heart, TrendingUp, Minimize2, Expand, AlignVerticalJustifyCenter, Music, Waves, Wind, Settings2, HeartPulse, Medal, Sun, Laptop } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
+import SEOHead from '../components/seo/SEOHead';
+import SchemaMarkup from '../components/seo/SchemaMarkup';
 import './MethodPage.css';
 
 const MethodPage = () => {
@@ -15,23 +17,34 @@ const MethodPage = () => {
         {
             icon: <Target size={40} />,
             title: "Movimiento Esférico",
-            description: "A diferencia de los ejercicios lineales tradicionales, GYROTONIC® trabaja en todas las direcciones del espacio. Los movimientos circulares y espirales imitan la forma natural en que el cuerpo humano está diseñado para moverse, creando una experiencia tridimensional única."
+            description: "Rompemos la rigidez lineal. Trabajamos en círculos, espirales y ondas, imitando la biomecánica natural de tus articulaciones para desbloquear el cuerpo en todas las direcciones del espacio."
         },
         {
-            icon: <Heart size={40} />,
-            title: "Sin Compresión Articular",
-            description: "El sistema utiliza resistencia constante y controlada que descomprime las articulaciones mientras las fortalece. Esto significa que puedes desarrollar fuerza sin el desgaste típico del entrenamiento convencional, siendo ideal para personas de todas las edades."
+            icon: <Expand size={40} />,
+            title: "Descompresión Articular",
+            description: "Gracias a la tracción constante de las poleas, creamos espacio entre las vértebras y articulaciones. Fortaleces la musculatura mientras la alargas, evitando el desgaste típico del fitness tradicional."
         },
         {
-            icon: <Sparkles size={40} />,
+            icon: <Waves size={40} />,
             title: "Ritmo y Fluidez",
-            description: "Cada ejercicio fluye hacia el siguiente como una danza. Esta continuidad rítmica estimula el sistema cardiovascular de forma suave, mejora la coordinación neuromuscular y crea una sensación meditativa que calma el sistema nervioso."
+            description: "Sin paradas bruscas. Cada ejercicio fluye hacia el siguiente como una danza continua. Esta cadencia calma el sistema nervioso y mejora la coordinación neuromuscular."
         },
         {
-            icon: <BookOpen size={40} />,
+            icon: <AlignVerticalJustifyCenter size={40} />,
+            title: "El Eje Central",
+            description: "Tu columna es el pilar de tu salud. El método se enfoca en movilizarla para hacerla más elástica y resistente, corrigiendo desequilibrios y mejorando tu postura de forma natural."
+        },
+        {
+            icon: <Wind size={40} />,
             title: "Respiración Inteligente",
-            description: "Los patrones respiratorios están sincronizados con cada movimiento. Esta respiración consciente y rítmica oxigena profundamente los tejidos, estimula los órganos internos y potencia la eliminación de toxinas, creando energía desde dentro."
+            description: "Sincronizamos patrones respiratorios específicos con cada movimiento. Esto oxigena la sangre, estimula los órganos internos y proporciona un efecto de \"lavado interno\" que revitaliza."
+        },
+        {
+            icon: <Settings2 size={40} />,
+            title: "Soporte Personalizado",
+            description: "La máquina Pulley Tower actúa como un compañero de baile: te asiste si necesitas rehabilitación y te reta si buscas rendimiento. Se adapta totalmente a tu altura, fuerza y rango de movimiento."
         }
+
     ];
 
     const benefits = [
@@ -52,7 +65,7 @@ const MethodPage = () => {
                 "Reduce el estrés y la ansiedad",
                 "Mejora la concentración y la conciencia corporal",
                 "Genera una sensación profunda de bienestar",
-                "Aumenta la energía vital",
+                "Ayuda a retrasar el envejecimiento celular gracias a la oxigenación profunda.",
                 "Favorece un sueño reparador",
                 "Promueve la conexión mente-cuerpo"
             ]
@@ -61,29 +74,39 @@ const MethodPage = () => {
 
     const forWho = [
         {
-            icon: <Users size={32} />,
+            icon: <HeartPulse size={32} />,
             title: "Personas con Dolor Crónico",
             description: "Si sufres de dolores de espalda, cuello, hombros o caderas, GYROTONIC® puede ayudarte a recuperar movilidad sin dolor. El enfoque sin impacto es perfecto para rehabilitación."
         },
         {
-            icon: <TrendingUp size={32} />,
+            icon: <Medal size={32} />,
             title: "Atletas y Bailarines",
             description: "Para quienes buscan mejorar su rendimiento deportivo o artístico. El método desarrolla fuerza funcional, flexibilidad dinámica y previene lesiones."
         },
         {
-            icon: <Sparkles size={32} />,
+            icon: <Sun size={32} />,
             title: "Personas Mayores",
             description: "El movimiento suave y controlado es ideal para mantener la movilidad, fuerza y equilibrio con la edad, mejorando significativamente la calidad de vida."
         },
         {
-            icon: <Heart size={32} />,
+            icon: <Laptop size={32} />,
             title: "Personas Sedentarias",
-            description: "Si pasas muchas horas sentado/a o tienes un estilo de vida poco activo, GYROTONIC® te ayudará a descomprimir, elongar y fortalecer tu cuerpo de forma progresiva."
+            description: "Si pasas muchas horas sentado/a o tienes un estilo de vida poco activo, GYROTONIC® te ayudará a descomprimir y fortalecer tu cuerpo de forma progresiva."
         }
     ];
 
     return (
         <div className="method-page">
+            {/* SEO Optimization */}
+            <SEOHead
+                title="Método GYROTONIC® en Pozuelo | Centro Especializado Madrid"
+                description="Descubre el método GYROTONIC® en nuestro centro de Pozuelo de Alarcón. Movimiento tridimensional sin impacto para fortalecer, rehabilitar y transformar tu cuerpo. Clases personalizadas."
+                keywords="gyrotonic pozuelo, gyrotonic madrid, ejercicio tridimensional pozuelo, rehabilitación columna madrid, dolor espalda pozuelo, entrenamiento funcional madrid, gyrotonic españa, clases gyrotonic, pulley tower, movimiento circular"
+                canonical="https://gyrotonic-pozuelo.com/method"
+                ogType="article"
+            />
+            <SchemaMarkup type="method" />
+
             <PageHero
                 title="El Método GYROTONIC®"
                 subtitle="Descubre cómo este sistema revolucionario puede transformar tu cuerpo y tu bienestar"
@@ -100,12 +123,12 @@ const MethodPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="section-title-page">¿Qué Hace Único a GYROTONIC®?</h2>
+                    <h1 className="section-title-page">¿Qué hace único a GYROTONIC®?</h1>
                     <p className="intro-text">
-                        GYROTONIC® es mucho más que un método de ejercicio. Es un sistema completo de movimiento que fusiona principios de yoga, danza, natación, tai chi y gimnasia, creado por el bailarín Juliu Horvath en los años 80.
+                        GYROTONIC® es mucho más que ejercicio; es un sistema de movimiento inteligente que fusiona la fluidez de la danza, la precisión de la gimnasia y la conexión interior del yoga y el tai chi. Creado por Juliu Horvath, este método se rige por una premisa fundamental: trabajar con tu cuerpo, no contra él.
                     </p>
                     <p className="intro-text">
-                        Utilizando equipos especialmente diseñados que trabajan con resistencia constante y controlada, GYROTONIC® permite que tu cuerpo se mueva de forma tridimensional, fluida y sin impacto, al ritmo de tu propia respiración.
+                        A diferencia de cualquier otro entrenamiento, utilizamos la Pulley Tower, una torre de poleas y contrapesos diseñada para guiarte en movimientos tridimensionales sin impacto. El resultado es una columna vertebral liberada y una musculatura tonificada desde la primera sesión.
                     </p>
                 </motion.section>
 
