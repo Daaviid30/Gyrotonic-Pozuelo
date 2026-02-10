@@ -100,7 +100,7 @@ const MethodPage = () => {
             {/* SEO Optimization */}
             <SEOHead
                 title="Método GYROTONIC® en Pozuelo | Centro Especializado Madrid"
-                description="Descubre el método GYROTONIC® en nuestro centro de Pozuelo de Alarcón. Movimiento tridimensional sin impacto para fortalecer, rehabilitar y transformar tu cuerpo. Clases personalizadas."
+                description="Descubre el método GYROTONIC® en Pozuelo de Alarcón. Movimiento tridimensional sin impacto para fortalecer, rehabilitar y transformar tu cuerpo. Primera clase de prueba."
                 keywords="gyrotonic pozuelo, gyrotonic madrid, ejercicio tridimensional pozuelo, rehabilitación columna madrid, dolor espalda pozuelo, entrenamiento funcional madrid, gyrotonic españa, clases gyrotonic, pulley tower, movimiento circular"
                 canonical="https://gyrotonic-pozuelo.com/method"
                 ogType="article"

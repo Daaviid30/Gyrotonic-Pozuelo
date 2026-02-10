@@ -1,21 +1,21 @@
 // Testimonios breves para la sección Testimonials
 export const briefTestimonials = [
     {
-        name: "María Garcia",
-        role: "Paciente de Rehabilitación",
-        text: "Llegué con dolores lumbares crónicos y en pocas sesiones noté una diferencia abismal. El enfoque sin impacto es justo lo que necesitaba.",
+        name: "Meritxel",
+        role: "Alumna desde hace 3 años",
+        text: "Antes tenía que ir al fisio una vez al mes para descontracturar la espalda. Desde que estoy con ellos, no he vuelto a ir. Me han cambiado los hábitos posturales.",
         stars: 5
     },
     {
-        name: "Pablo Rodríguez",
-        role: "Corredor Amateur",
-        text: "Mejora mi flexibilidad y mi respiración. Siento que corro con más ligereza y menos tensión.",
+        name: "María",
+        role: "Llegó por recomendación médica",
+        text: "Tienen un ojo clínico para detectar cualquier dolencia. Desde el primer día notas los resultados; fortaleces y estiras sin impacto. Si a su profesionalidad añades su calidad humana, es insuperable.",
         stars: 5
     },
     {
-        name: "Ana Martínez",
-        role: "Oficinista",
-        text: "Después de estar sentada todo el día, las clases son un respiro. Me siento más alta y descomprimida al salir.",
+        name: "Fernanda",
+        role: "Bailarina Profesional",
+        text: "Como bailarina, trabajo mi cuerpo intensamente. Con ellos prevengo lesiones y mejoro sin castigarme. Es un trabajo súper personalizado con resultados geniales a corto y largo plazo.",
         stars: 5
     }
 ];
@@ -23,93 +23,52 @@ export const briefTestimonials = [
 // Testimonios detallados para la página TestimonialsPage
 export const detailedTestimonials = [
     {
-        name: "María García",
-        age: 45,
-        condition: "Hernia Discal L4-L5",
-        image: null,
+        name: "Meritxel",
+        condition: "Contracturas de espalda recurrentes",
         stars: 5,
-        quote: "Llegué a GYROTONIC® sin poder caminar más de 10 minutos sin dolor intenso.",
-        story: "Tras 8 años con dolores lumbares crónicos y una hernia discal diagnosticada, había probado fisioterapia, osteopatía e incluso me habían recomendado cirugía. Nada me daba alivio duradero. En mi primera sesión de GYROTONIC® sentí algo diferente: movimiento sin dolor. Los ejercicios circulares y la descompresión constante de la columna fueron reveladores. Ahora, 6 meses después, puedo hacer senderismo, jugar con mis hijos y he vuelto a dormir sin despertarme por el dolor. No solo mejoré, sino que entendí cómo funciona mi cuerpo y ahora sé cuidarlo.",
+        quote: "Antes tenía que ir al fisio una vez al mes para descontracturar la espalda. Desde que estoy con ellos, no he vuelto a ir.",
+        story: "Hace 3 años que voy a las clases de María José y Antonio. Estoy feliz porque antes de estas clases tenía que ir al fisioterapeuta religiosamente una vez al mes para tratar mis contracturas, y desde que entreno con ellos esa necesidad ha desaparecido. Su método es muy completo; incluso trabajan contigo ejercicios propios de profesionales del ballet. Me han cambiado malos hábitos posturales que arrastraba y la verdad es que estoy encantada con las clases y con los resultados. Además, ellos son un amor y siempre te facilitan el poder recuperar o cambiar clases.",
         benefits: [
-            "Eliminación del dolor lumbar crónico",
-            "Recuperación de movilidad total",
-            "Mejor calidad de sueño",
-            "Mayor energía en el día a día"
+            "Eliminación total de visitas recurrentes al fisioterapeuta.",
+            "Corrección de vicios posturales antiguos.",
+            "Mantenimiento de una espalda sana y descontracturada a largo plazo"
         ]
     },
     {
-        name: "Pablo Rodríguez",
-        age: 34,
-        condition: "Corredor Amateur - Prevención de Lesiones",
-        image: null,
+        name: "Macarena",
+        condition: "Problemas Articulares y Postura en Adolescentes",
         stars: 5,
-        quote: "Como corredor, siempre terminaba lesionándome. GYROTONIC® cambió eso completamente.",
-        story: "Corría maratones pero cada temporada tenía lesiones recurrentes: rodillas, caderas, espalda. Mi fisioterapeuta me recomendó GYROTONIC® como complemento. Al principio era escéptico, pero al entender que no se trata solo de estirar sino de crear fuerza en movimiento, todo cambió. Mi técnica de carrera mejoró, mi respiración es más eficiente y llevo 18 meses sin lesionarme. Ahora entreno 2 días a la semana aquí y mi rendimiento en las carreras ha aumentado significativamente.",
+        quote: "El dolor ha desaparecido y noto que me ha cambiado el cuerpo. He apuntado a mi hija de 15 años y está encantada.",
+        story: "Desde que trabajo mis problemas articulares con Antonio y Mariajo, además de haber desaparecido el dolor, noto que me ha cambiado el cuerpo. Son dos profesionales como la copa de un pino y absolutamente honestos. ¡No se les pasa nada por alto! Corrigen, corrigen y corrigen con paciencia y dedicación hasta que aprendes. Son 100% recomendables. He apuntado a mi hija de 15 años con ellos y también está muy contenta; se siente muy a gusto en sus clases. Son efectivas pero muy entretenidas.",
         benefits: [
-            "Cero lesiones en 18 meses",
-            "Mejora del tiempo personal en 12 minutos",
-            "Mayor flexibilidad y rango de movimiento",
-            "Recuperación más rápida entre entrenamientos"
+            "Desaparición del dolor articular.",
+            "Transformación física visible (\"me ha cambiado el cuerpo\").",
+            "Aprendizaje técnico detallado gracias a la corrección constante.",
+            "Adaptabilidad total a jóvenes y adolescentes."
         ]
     },
     {
-        name: "Ana Martínez",
-        age: 52,
-        condition: "Síndrome de Dolor Miofascial",
-        image: null,
+        name: "Esperanza",
+        condition: "Fidelidad (+10 años de práctica)",
         stars: 5,
-        quote: "Pasaba 8 horas diarias frente al ordenador con contracturas constantes. Ahora me siento libre.",
-        story: "El trabajo de oficina me había destruido la postura. Contracturas cervicales, dolores de cabeza casi diarios, y una sensación constante de rigidez. Los masajes solo me aliviaban temporalmente. GYROTONIC® me enseñó a moverme de verdad. Los movimientos espirales y la atención a la respiración liberaron tensiones que ni sabía que tenía. Lo más sorprendente es que después de las sesiones me siento más alta, como si me hubieran dado espacio. Ahora trabajo mejor, duermo mejor y tengo más energía para disfrutar mi vida fuera de la oficina.",
+        quote: "Después de una década, siguen innovando. Saben exactamente cómo trabajarme para hacerme sentir cada vez mejor.",
+        story: "Después de más de diez años trabajando con ellos, siguen pareciéndome los mejores profesionales. Lo que más valoro es que siempre están innovando y mejorando, nunca te estancas. Tienen un método estupendo y, sobre todo, saben leer cómo estoy cada día para trabajarme de la forma precisa que necesito para salir sintiéndome mejor. Es una garantía de bienestar a largo plazo.",
         benefits: [
-            "Eliminación de contracturas cervicales",
-            "Mejora de la postura al trabajar",
-            "Aumento de la energía vital",
-            "Reducción de dolores de cabeza"
+            "Evolución constante (sin estancamiento)",
+            "Mantenimiento de la salud a largo plazo.",
+            "Clases que se adaptan a tu estado diario."
         ]
     },
     {
-        name: "Carmen López",
-        age: 68,
-        condition: "Artrosis de Cadera",
-        image: null,
+        name: "Bárbara",
+        condition: "Exigencia Técnica y Calidad",
         stars: 5,
-        quote: "Pensé que ya no podría hacer ejercicio a mi edad. Me equivocaba.",
-        story: "Con artrosis en ambas caderas, mi médico me dijo que evitara impactos pero que me mantuviera activa. El problema es que todo me dolía. Una amiga me habló de GYROTONIC® y decidí probarlo. La primera clase fue reveladora: podía moverme sin dolor. El trabajo sin impacto, la resistencia suave y constante, y los movimientos circulares me permitieron recuperar movilidad que creía perdida. Ahora voy 3 veces por semana, bajo escaleras sin agarrarme del pasamanos y hasta he vuelto a bailar. Me siento 10 años más joven.",
+        quote: "Son los mejores profesores que he tenido en 10 años. Ya no quedan profesionales con tanto rigor y dedicación al detalle.",
+        story: "Llevo 10 años entrenando y ellos son, sin duda, los mejores profesores que he tenido. Lo que les diferencia es cómo cuidan los detalles: se preocupan obsesivamente por tu postura y por una ejecución técnica perfecta. No se limitan a dar la clase; te explican el cómo y el porqué de cada movimiento. Es difícil encontrar hoy en día profesionales en este campo con tanto rigor. Se toman su tiempo para enseñarte a hacer las cosas bien, y eso se nota en el resultado final: mi cuerpo ha mejorado infinito gracias a ello.",
         benefits: [
-            "Recuperación de movilidad articular",
-            "Fortalecimiento sin dolor",
-            "Mayor autonomía en actividades diarias",
-            "Mejora del equilibrio y estabilidad"
-        ]
-    },
-    {
-        name: "Javier Sánchez",
-        age: 41,
-        condition: "Post-operatorio de Hombro",
-        image: null,
-        stars: 5,
-        quote: "Después de la cirugía de hombro, GYROTONIC® fue clave en mi recuperación.",
-        story: "Tras una operación de manguito rotador, la rehabilitación tradicional fue dolorosa y lenta. Mi fisioterapeuta me recomendó complementar con GYROTONIC®. El enfoque tridimensional del movimiento y la descompresión articular aceleraron mi recuperación de forma increíble. No solo recuperé el rango de movimiento completo, sino que mi hombro está más fuerte que antes de la lesión. Ahora sigo viniendo porque me ayuda a prevenir futuras lesiones y me mantiene ágil.",
-        benefits: [
-            "Recuperación completa del rango de movimiento",
-            "Fortalecimiento profundo sin dolor",
-            "Prevención de futuras lesiones",
-            "Mejora de la estabilidad del hombro"
-        ]
-    },
-    {
-        name: "Laura Fernández",
-        age: 29,
-        condition: "Ansiedad y Estrés Laboral",
-        image: null,
-        stars: 5,
-        quote: "Vine por recomendación para la ansiedad. Encontré mucho más que eso.",
-        story: "El estrés laboral me tenía al límite: ansiedad, insomnio, tensión constante. Mi terapeuta me recomendó alguna actividad física consciente. Probé GYROTONIC® y fue como meditación en movimiento. La conexión respiración-movimiento calma mi sistema nervioso de una forma que no había experimentado antes. Las sesiones son mi momento de reset semanal. Además, como beneficio inesperado, mejoré mi postura y eliminé dolores de espalda que ni sabía que podían desaparecer.",
-        benefits: [
-            "Reducción significativa de la ansiedad",
-            "Mejor calidad de sueño",
-            "Mayor capacidad de gestión del estrés",
-            "Sensación de bienestar integral"
+            "Excelencia técnica",
+            "Educación corporal",
+            "Resultados visibles"
         ]
     }
 ];

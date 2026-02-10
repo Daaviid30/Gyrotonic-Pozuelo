@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Star, Quote, User } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
+import SEOHead from '../components/seo/SEOHead';
+import SchemaMarkup from '../components/seo/SchemaMarkup';
 import { detailedTestimonials } from '../constants/testimonials';
 import './TestimonialsPage.css';
 
@@ -21,6 +23,15 @@ const TestimonialsPage = () => {
 
     return (
         <div className="testimonials-page">
+            {/* SEO Optimization */}
+            <SEOHead
+                title="Testimonios GYROTONIC® Pozuelo | Opiniones Reales de Clientes Madrid"
+                description="Lee testimonios reales de alumnos de GYROTONIC® Pozuelo. Historias de transformación, rehabilitación de lesiones y mejora del bienestar. Opiniones verificadas de nuestros clientes."
+                keywords="testimonios gyrotonic pozuelo, opiniones gyrotonic madrid, reseñas gyrotonic, experiencias gyrotonic pozuelo, casos de éxito gyrotonic, valoraciones clientes gyrotonic madrid"
+                canonical="https://gyrotonic-pozuelo.com/testimonials"
+                ogType="website"
+            />
+            <SchemaMarkup type="testimonials" />
             <PageHero
                 title="Historias de Transformación"
                 subtitle="Personas reales que han cambiado su vida con GYROTONIC®"
@@ -83,7 +94,6 @@ const TestimonialsPage = () => {
                                 </div>
                                 <div className="testimonial-info">
                                     <h3 className="testimonial-name">{testimonial.name}</h3>
-                                    <p className="testimonial-age">{testimonial.age} años</p>
                                     <p className="testimonial-condition">{testimonial.condition}</p>
                                     <div className="testimonial-stars">
                                         {[...Array(testimonial.stars)].map((_, i) => (

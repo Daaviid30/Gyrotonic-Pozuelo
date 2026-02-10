@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Award, GraduationCap, Heart, Target, Mail, Phone, HeartHandshake, Fingerprint, Infinity } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
+import SEOHead from '../components/seo/SEOHead';
+import SchemaMarkup from '../components/seo/SchemaMarkup';
 import './TeamPage.css';
 
 const TeamPage = () => {
@@ -78,6 +80,15 @@ const TeamPage = () => {
 
     return (
         <div className="team-page">
+            {/* SEO Optimization */}
+            <SEOHead
+                title="Equipo GYROTONIC® Pozuelo | Instructores Certificados Madrid"
+                description="Conoce a nuestro equipo de instructores GYROTONIC® certificados en Pozuelo: María José Cruz y Antonio Castro. Experiencia profesional en danza, osteopatía y rehabilitación."
+                keywords="instructores gyrotonic madrid, entrenadores certificados gyrotonic pozuelo, antonio castro gyrotonic, maría josé cruz gyrotonic, profesores gyrotonic madrid, equipo gyrotonic pozuelo"
+                canonical="https://gyrotonic-pozuelo.com/team"
+                ogType="website"
+            />
+            <SchemaMarkup type="team" />
             <PageHero
                 title="Nuestro Equipo"
                 subtitle="Conoce a los profesionales que te guiarán en tu transformación"

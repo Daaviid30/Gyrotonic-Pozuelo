@@ -1,25 +1,45 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Check } from 'lucide-react';
 import Button from '../ui/Button';
 import './Pricing.css';
 
 const plans = [
     {
-        name: "Clase Suelta",
-        price: "60€",
-        features: ["Sesión privada (55 min)", "Evaluación inicial", "Sin compromiso"],
+        name: "Pack de Iniciación",
+        price: "175€",
+        priceDetail: "4 Sesiones + Valoración",
+        features: [
+            "4 Clases Privadas (45-60 min)",
+            "Aprendizaje de la Pulley Tower",
+            "Valoración funcional personalizada"
+        ],
+        highlight: true,
+        note: "Paso obligatorio para clases grupales"
+    },
+    {
+        name: "Clases en Grupo",
+        price: "100€/mes",
+        priceDetail: "1 día por semana",
+        features: [
+            "4 clases mensuales",
+            "Máximo 3-4 personas",
+            "Atención personalizada",
+            "Pago mensual domiciliado"
+        ],
         highlight: false
     },
     {
-        name: "Bono 5 Sesiones",
-        price: "275€",
-        features: ["55€ por sesión", "Validez 2 meses", "Reserva prioritaria"],
-        highlight: true
-    },
-    {
-        name: "Bono 10 Sesiones",
-        price: "500€",
-        features: ["50€ por sesión", "Validez 4 meses", "Evaluación de progreso"],
+        name: "Entrenamiento Privado",
+        price: "190€/mes",
+        priceDetail: "1 día por semana",
+        features: [
+            "4 clases mensuales 1 a 1",
+            "También disponible en bonos",
+            "Flexibilidad horaria",
+            "Atención exclusiva"
+        ],
         highlight: false
     }
 ];
@@ -38,6 +58,7 @@ const Pricing = () => {
                         <div key={index} className={`pricing-card ${plan.highlight ? 'highlight' : ''}`}>
                             <h3 className="plan-name">{plan.name}</h3>
                             <div className="plan-price">{plan.price}</div>
+                            {plan.priceDetail && <p className="plan-price-detail">{plan.priceDetail}</p>}
                             <ul className="plan-features">
                                 {plan.features.map((feature, i) => (
                                     <li key={i}>
@@ -46,6 +67,7 @@ const Pricing = () => {
                                     </li>
                                 ))}
                             </ul>
+                            {plan.note && <p className="plan-note">{plan.note}</p>}
                             <Button
                                 href="#contact"
                                 variant={plan.highlight ? 'primary' : 'outline'}
@@ -56,6 +78,18 @@ const Pricing = () => {
                         </div>
                     ))}
                 </div>
+
+                <motion.div
+                    className="section-cta"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                >
+                    <Link to="/precios" className="btn btn-outline">
+                        Ver Todos los Precios y Bonos
+                    </Link>
+                </motion.div>
             </div>
         </section>
     );

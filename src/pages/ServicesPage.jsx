@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { User, Users2, HeartPulse, Wind, Clock, Target, CheckCircle, ClipboardCheck } from 'lucide-react';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
+import SEOHead from '../components/seo/SEOHead';
+import SchemaMarkup from '../components/seo/SchemaMarkup';
 import './ServicesPage.css';
 
 const ServicesPage = () => {
@@ -84,6 +86,15 @@ const ServicesPage = () => {
 
     return (
         <div className="services-page">
+            {/* SEO Optimization */}
+            <SEOHead
+                title="Servicios GYROTONIC® Pozuelo | Clases Privadas y Grupales Madrid"
+                description="Descubre nuestros servicios GYROTONIC® en Pozuelo: Pack de Iniciación, Clases Privadas personalizadas y Clases Grupales. Entrenamiento adaptado a tus necesidades con instructores certificados."
+                keywords="clases gyrotonic pozuelo, sesiones gyrotonic madrid, entrenamiento personalizado pozuelo, clases grupales gyrotonic, clases privadas gyrotonic, pack iniciación gyrotonic, gyrotonic pozuelo precios"
+                canonical="https://gyrotonic-pozuelo.com/services"
+                ogType="website"
+            />
+            <SchemaMarkup type="service" />
             <PageHero
                 title="Nuestros Servicios"
                 subtitle="Encuentra el formato perfecto para tu camino hacia el bienestar"

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gyrotonic-pozuelo.com/sitemap.xml
+
+# Crawl delay (opcional, solo si hay problemas de carga)
+# Crawl-delay: 1

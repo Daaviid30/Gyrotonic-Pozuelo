@@ -1,9 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Button from '../ui/Button';
 import './Contact.css';
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        service: 'Pack de iniciación',
+        message: ''
+    });
+    const [status, setStatus] = useState(''); // '', 'loading', 'success', 'error'
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    service: formData.service,
+                    message: formData.message,
+                    from_name: 'Formulario GYROTONIC Pozuelo',
+                    subject: `Nuevo contacto: ${formData.service}`
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setStatus('success');
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    service: 'Pack de iniciación',
+                    message: ''
+                });
+                // Reset success message after 5 seconds
+                setTimeout(() => setStatus(''), 5000);
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            console.error('Error al enviar el formulario:', error);
+            setStatus('error');
+        }
+    };
+
     return (
         <section id="contact" className="section contact-section bg-off-white">
             <div className="container">
@@ -62,35 +123,103 @@ const Contact = () => {
                     </div>
 
                     {/* Contact Form */}
-                    <form className="contact-form">
+                    <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name">Nombre</label>
-                            <input type="text" id="name" placeholder="Tu nombre" />
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Tu nombre"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                            />
                         </div>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" placeholder="tu@email.com" />
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="tucorreo@email.com"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                            />
                         </div>
                         <div className="form-group">
                             <label htmlFor="phone">Teléfono</label>
-                            <input type="tel" id="phone" placeholder="+34 600..." />
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="+34 600..."
+                                value={formData.phone}
+                                onChange={handleChange}
+                            />
                         </div>
                         <div className="form-group">
                             <label htmlFor="service">Interesado en</label>
-                            <select id="service">
-                                <option>Clases Individuales</option>
-                                <option>Clases Dúo</option>
-                                <option>Rehabilitación</option>
-                                <option>Gyrokinesis</option>
+                            <select
+                                id="service"
+                                name="service"
+                                value={formData.service}
+                                onChange={handleChange}
+                            >
+                                <option>Pack de iniciación</option>
+                                <option>Clases Privadas</option>
+                                <option>Clases Grupales</option>
                                 <option>Otro</option>
                             </select>
                         </div>
                         <div className="form-group">
                             <label htmlFor="message">Mensaje</label>
-                            <textarea id="message" rows="4" placeholder="¿Cómo podemos ayudarte?"></textarea>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                placeholder="¿Cómo podemos ayudarte?"
+                                value={formData.message}
+                                onChange={handleChange}
+                                required
+                            ></textarea>
                         </div>
-                        <Button type="submit" variant="primary" className="w-full">
-                            Enviar Mensaje
+
+                        {/* Status Messages */}
+                        {status === 'success' && (
+                            <div style={{
+                                padding: '12px',
+                                marginBottom: '16px',
+                                backgroundColor: '#d4edda',
+                                color: '#155724',
+                                borderRadius: '8px',
+                                textAlign: 'center'
+                            }}>
+                                ✅ ¡Mensaje enviado correctamente! Te contactaremos pronto.
+                            </div>
+                        )}
+
+                        {status === 'error' && (
+                            <div style={{
+                                padding: '12px',
+                                marginBottom: '16px',
+                                backgroundColor: '#f8d7da',
+                                color: '#721c24',
+                                borderRadius: '8px',
+                                textAlign: 'center'
+                            }}>
+                                ❌ Error al enviar el mensaje. Por favor, intenta de nuevo.
+                            </div>
+                        )}
+
+                        <Button
+                            type="submit"
+                            variant="primary"
+                            className="w-full"
+                            disabled={status === 'loading'}
+                        >
+                            {status === 'loading' ? 'Enviando...' : 'Enviar Mensaje'}
                         </Button>
                     </form>
                 </div>

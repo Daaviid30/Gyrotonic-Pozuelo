@@ -25,6 +25,8 @@ const SEOHead = ({
             <meta name="title" content={title} />
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords} />
+            <meta name="author" content="GYROTONIC Pozuelo" />
+            <meta name="revisit-after" content="7 days" />
 
             {/* Canonical URL */}
             <link rel="canonical" href={canonical} />
@@ -54,6 +56,9 @@ const SEOHead = ({
             <meta name="geo.placename" content="Pozuelo de Alarcón" />
             <meta name="geo.position" content="40.4378;-3.8115" />
             <meta name="ICBM" content="40.4378, -3.8115" />
+
+            {/* Mobile browser theme color */}
+            <meta name="theme-color" content="#8B7355" />
 
             {/* Robots */}
             <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
