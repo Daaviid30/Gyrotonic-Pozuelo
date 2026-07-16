@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
 import SEOHead from '../components/seo/SEOHead';
+import SchemaMarkup from '../components/seo/SchemaMarkup';
 import { instructors } from '../constants/team';
 import './TeamPage.css';
 
@@ -15,6 +16,7 @@ const TeamPage = () => (
             description="Conoce a las personas que acompañan las sesiones de Gyrotonic Pozuelo con atención cercana y grupos reducidos."
             canonical="/equipo"
         />
+        <SchemaMarkup type="team" />
         <PageHero
             title="Nuestro equipo"
             subtitle="Atención cercana y acompañamiento durante todo el aprendizaje"
@@ -50,7 +52,29 @@ const TeamPage = () => (
                             </div>
                         </div>
                         <div className="profile-content">
-                            <p className="story-paragraph">{member.bio}</p>
+                            <div className="profile-story">
+                                <p className="story-paragraph">{member.bio}</p>
+                            </div>
+
+                            <div className="profile-details-grid">
+                                <section className="detail-box" aria-labelledby={`${member.name}-specialties`}>
+                                    <h3 id={`${member.name}-specialties`} className="detail-title">Áreas de experiencia</h3>
+                                    <ul className="detail-list">
+                                        {member.specialties.map((specialty) => <li key={specialty}>{specialty}</li>)}
+                                    </ul>
+                                </section>
+                                <section className="detail-box" aria-labelledby={`${member.name}-certifications`}>
+                                    <h3 id={`${member.name}-certifications`} className="detail-title">Formación y certificaciones</h3>
+                                    <ul className="detail-list">
+                                        {member.certifications.map((certification) => <li key={certification}>{certification}</li>)}
+                                    </ul>
+                                </section>
+                            </div>
+
+                            <blockquote className="philosophy-box">
+                                <p className="philosophy-title">Su forma de acompañar</p>
+                                <p className="philosophy-text">“{member.philosophy}”</p>
+                            </blockquote>
                         </div>
                     </motion.article>
                 ))}

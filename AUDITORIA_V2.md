@@ -7,14 +7,14 @@ Rama de trabajo: `codex/auditoria-visual-v2`
 
 Se realizó una segunda revisión estática integral de la aplicación React/Vite. La base ya centralizaba correctamente el dominio, contacto y tarifas; incluía rutas españolas, redirecciones de rutas antiguas, mapa bajo acción del usuario, páginas legales provisionales con `noindex` y configuración SPA para Vercel.
 
-El principal riesgo detectado era de contenido: se publicaban credenciales profesionales pendientes de verificación y testimonios con afirmaciones clínicas o resultados contundentes cuya autorización también seguía pendiente. Ambos contenidos se han retirado de la experiencia pública. Se han añadido además mejoras puntuales de accesibilidad, navegación y SEO sin alterar la identidad visual.
+El principal riesgo detectado era de contenido: se publicaban testimonios con afirmaciones clínicas o resultados contundentes cuya autorización seguía pendiente. Esos testimonios se retiraron. Los perfiles profesionales se completaron posteriormente a partir de la información existente en la rama principal, confirmada por el propietario, suavizando las promesas clínicas. Se añadieron además mejoras puntuales de accesibilidad, navegación y SEO sin alterar la identidad visual.
 
 En la segunda fase se habilitaron Node.js, npm y Chrome headless. Se completaron lint, build, auditorías de dependencias, Lighthouse sobre el build de producción y una matriz visual automatizada de nueve rutas en escritorio, tablet y móvil.
 
 ## 2. Problemas encontrados
 
 - Testimonios publicados como reales sin constar todavía la autorización y con promesas sobre dolor, fisioterapia, lesiones y resultados.
-- Credenciales, titulaciones y especialidades detalladas publicadas aunque `PENDIENTES_WEB.md` exigía verificarlas.
+- La primera versión auditada no permitía relacionar las credenciales con una fuente confirmada; posteriormente se validaron contra `origin/master`.
 - Meta description inicial con promesas de mejora de postura, flexibilidad y bienestar.
 - CTA principal con lenguaje de “reserva” cuando el flujo solo solicita información y disponibilidad.
 - El menú móvil no respondía a la tecla Escape.
@@ -26,7 +26,7 @@ En la segunda fase se habilitaron Node.js, npm y Chrome headless. Se completaron
 ## 3. Cambios visuales y justificación
 
 - Se conserva paleta, tipografía, espaciado, tarjetas, hero y estructura general; no se justificó un rediseño.
-- La página de equipo se simplifica para transmitir cercanía sin publicar credenciales no confirmadas.
+- La página de equipo combina cercanía con perfiles completos: trayectoria, áreas de experiencia, formación y filosofía.
 - Se mantiene una jerarquía clara con hero, introducción, perfiles, principios de atención y CTA.
 - Se elimina la sección pública de testimonios hasta contar con textos y permisos verificables, evitando señales de confianza artificiales.
 - Se añade un enlace de salto visible al recibir foco, sin impacto visual durante navegación con ratón.
@@ -35,7 +35,7 @@ En la segunda fase se habilitaron Node.js, npm y Chrome headless. Se completaron
 
 - `/testimonios` y `/testimonials` redirigen al equipo; la URL se retira del sitemap.
 - Se eliminan componentes, estilos y datos de testimonios que ya no debían formar parte del bundle.
-- Se retiran datos estructurados de testimonios y credenciales detalladas del equipo.
+- Se retiran los datos estructurados de testimonios; el equipo conserva breadcrumbs estructurados y contenido profesional contrastado con la rama principal.
 - Se corrigen metadatos y textos que podían interpretarse como promesas médicas o reservas confirmadas.
 - El menú móvil se puede cerrar con Escape.
 - `ScrollToTop` respeta `prefers-reduced-motion` al navegar hacia anclas.
@@ -115,7 +115,7 @@ También se verificaron menú móvil abierto/cerrado, cierre mediante Escape y `
 ## 11. Riesgos y limitaciones pendientes
 
 - Conviene repetir Lighthouse en la preview final desplegada; la medición local depende del equipo y la red.
-- Fotografías actuales provisionales y recursos de Unsplash pendientes de sustitución.
+- Fotografías generales y recursos de Unsplash pendientes de sustitución; los retratos del equipo se conservan desde la rama principal.
 - Horario final, WhatsApp oficial, reglas operativas y métodos de pago requieren confirmación.
 - Datos empresariales y revisión jurídica siguen bloqueando la publicación legal.
 - El pin exacto del portal 2 debe comprobarse con la ficha oficial de Google.

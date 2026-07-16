@@ -9,7 +9,7 @@ Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningú
 | Bloqueado | Razón social, CIF, domicilio y datos registrales | Propietarios / asesoría | Aviso legal | Entregar datos y validar el texto con un profesional |
 | Bloqueado | Email corporativo de contacto y privacidad | Propietarios | Legal y contacto | Confirmar una dirección operativa |
 | Bloqueado | Revisión jurídica de aviso legal y privacidad | Asesoría jurídica | Páginas legales | Revisar antes de retirar `noindex` |
-| Bloqueado | Titulaciones, especialidades y biografías del equipo | Cada profesional / propietarios | Equipo y SEO | Aportar documentos y texto aprobado; hasta entonces no se publican credenciales detalladas |
+| Implementado | Titulaciones, especialidades y biografías del equipo | Propietarios | Equipo y SEO | Contenido recuperado de la rama principal y confirmado por el propietario |
 | Bloqueado | Autoría, consentimiento y literal de cada testimonio | Propietarios / alumnos | Testimonios | Recopilar autorizaciones; hasta entonces la sección permanece retirada |
 | Pendiente | URL exacta de Google Maps y comprobación del portal 2 | Propietarios | Contacto y mapa | Compartir ficha oficial y probar el pin físicamente |
 | Pendiente | Políticas de cancelación, recuperación, bajas y devoluciones | Propietarios | Tarifas y condiciones | Documentar reglas operativas y revisarlas legalmente |
@@ -53,7 +53,7 @@ Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningú
 - **Pendiente:** recibir originales y registrar autorizaciones para web, redes y publicidad.
 - **Pendiente:** sustituir imágenes genéricas de Unsplash y fotografía provisional del hero.
 - **Bloqueado:** testimonios retirados de navegación, home, sitemap y ruta pública hasta confirmar textos y permisos.
-- **Bloqueado:** credenciales detalladas retiradas hasta su verificación documental.
+- **Implementado:** perfiles completos recuperados de la rama principal, con biografías, áreas de experiencia, formación y filosofía; se han suavizado las promesas clínicas.
 
 ## Reservas y horarios
 
