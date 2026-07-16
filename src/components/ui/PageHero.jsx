@@ -4,10 +4,28 @@ import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './PageHero.css';
 
-const PageHero = ({ title, subtitle, breadcrumbs = [] }) => {
+const PageHero = ({
+    title,
+    subtitle,
+    breadcrumbs = [],
+    image,
+    imagePosition = 'center',
+    imagePositionMobile,
+}) => {
+    const backgroundStyle = image
+        ? {
+            backgroundImage: `url(${image})`,
+            '--page-hero-position': imagePosition,
+            '--page-hero-position-mobile': imagePositionMobile ?? imagePosition,
+        }
+        : undefined;
+
     return (
-        <section className="page-hero">
-            <div className="page-hero-background">
+        <section className={`page-hero ${image ? 'has-image' : ''}`}>
+            <div
+                className="page-hero-background"
+                style={backgroundStyle}
+            >
                 <div className="hero-shape hero-shape-1"></div>
                 <div className="hero-shape hero-shape-2"></div>
                 <div className="hero-shape hero-shape-3"></div>

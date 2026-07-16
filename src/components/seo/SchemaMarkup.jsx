@@ -11,7 +11,7 @@ const organizationSchema = {
     url: SITE.url,
     telephone: SITE.phoneHref,
     priceRange: '€€',
-    image: absoluteUrl('/images/clase.jpg'),
+    image: absoluteUrl('/images/web/grupo-reducido.jpg'),
     address: {
         '@type': 'PostalAddress',
         streetAddress: SITE.address.street,
@@ -24,7 +24,7 @@ const organizationSchema = {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '09:00',
-        closes: '21:00',
+        closes: '21:30',
     }],
     sameAs: [SITE.instagram],
 };
@@ -67,6 +67,14 @@ const pricingFAQSchema = {
                 text: SITE.sessionDuration,
             },
         },
+        {
+            '@type': 'Question',
+            name: '¿La clase de prueba de 25 € se descuenta del pack de iniciación?',
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'No. La clase privada de prueba y el pack de iniciación son servicios independientes.',
+            },
+        },
     ],
 };
 
@@ -85,6 +93,7 @@ const schemasByType = {
     service: [serviceSchema, breadcrumbSchema('Servicios', '/servicios')],
     method: [serviceSchema, breadcrumbSchema('Método GYROTONIC®', '/metodo')],
     team: [breadcrumbSchema('Equipo', '/equipo')],
+    testimonials: [breadcrumbSchema('Testimonios', '/testimonios')],
     pricing: [pricingFAQSchema, breadcrumbSchema('Precios y bonos', '/precios')],
 };
 

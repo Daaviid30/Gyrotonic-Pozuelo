@@ -102,17 +102,29 @@
     padding: 2rem;
     text-align: center;
     background:
-        radial-gradient(circle at 20% 20%, rgba(13, 148, 136, 0.16), transparent 35%),
-        white;
+        linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.72)),
+        url('/images/web/estudio-entrada.jpg') center 46% / cover no-repeat;
+    color: white;
 }
 
 .map-consent > svg {
-    color: var(--color-accent);
+    color: var(--color-accent-soft);
 }
 
 .map-consent p {
     max-width: 330px;
-    color: var(--color-text-muted);
+    color: #e2e8f0;
+}
+
+.map-consent .btn-outline {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.72);
+}
+
+.map-consent .btn-outline:hover {
+    color: var(--color-primary);
+    background: white;
+    border-color: white;
 }
 
 @media (max-width: 600px) {

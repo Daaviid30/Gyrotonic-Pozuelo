@@ -21,6 +21,9 @@ const TeamPage = () => (
             title="Nuestro equipo"
             subtitle="Atención cercana y acompañamiento durante todo el aprendizaje"
             breadcrumbs={[{ label: 'Inicio', path: '/' }, { label: 'Nuestro equipo', path: '/equipo' }]}
+            image="/images/web/acompanamiento.jpg"
+            imagePosition="center 8%"
+            imagePositionMobile="center 34%"
         />
 
         <div className="container">

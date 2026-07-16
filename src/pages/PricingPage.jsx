@@ -15,16 +15,18 @@ const pricingOptions = [
         title: 'Primera experiencia e iniciación',
         subtitle: 'Aprende el método antes de incorporarte a un grupo',
         price: `${formatPrice(PRICING.trial.price)} / ${formatPrice(PRICING.initiation.price)}`,
-        description: 'Puedes conocer el método en una clase privada de prueba. Para acceder posteriormente a los grupos, el pack de iniciación permite aprender de forma progresiva el manejo de la Pulley Tower y los patrones básicos.',
+        description: 'Puedes conocer el método en una clase privada de prueba. La prueba y el pack de iniciación son servicios distintos. Para acceder posteriormente a los grupos, el pack permite aprender de forma progresiva el manejo de la Pulley Tower y los patrones básicos.',
         features: [
             `Clase privada de prueba: ${formatPrice(PRICING.trial.price)} (precio promocional)`,
             `Pack de iniciación: ${PRICING.initiation.sessions} clases privadas por ${formatPrice(PRICING.initiation.price)}`,
+            'La prueba de 25 € no se descuenta del pack de iniciación',
             'Acompañamiento individual y orientación sobre la modalidad más adecuada',
             'El pack de iniciación es el paso previo a las clases grupales',
         ],
         duration: '60 minutos por clase',
         idealFor: 'Personas que no han practicado GYROTONIC® o quieren conocer el centro antes de continuar.',
-        image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1000&auto=format&fit=crop',
+        image: '/images/web/torre-poleas.jpg',
+        imageAlt: 'Equipamiento del estudio de Gyrotonic Pozuelo',
     },
     {
         icon: <Users2 size={48} aria-hidden="true" />,
@@ -35,7 +37,8 @@ const pricingOptions = [
         features: PRICING.group.map((option) => `${option.frequency}: ${option.sessions} clases por ${formatPrice(option.price)}/mes`),
         duration: '60 minutos por clase',
         idealFor: 'Alumnos que buscan constancia y disfrutan de una práctica compartida sin renunciar a la atención cercana.',
-        image: 'https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=1000&auto=format&fit=crop',
+        image: '/images/web/grupo-reducido.jpg',
+        imageAlt: 'Clase en grupo reducido en el estudio',
     },
     {
         icon: <User size={48} aria-hidden="true" />,
@@ -61,7 +64,9 @@ const pricingOptions = [
         ],
         duration: '60 minutos por clase',
         idealFor: 'Personas que prefieren atención individual, necesitan flexibilidad o tienen un objetivo específico de movimiento o rendimiento.',
-        image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1000&auto=format&fit=crop',
+        image: '/images/web/atencion-personal.jpg',
+        imageAlt: 'Atención individual durante una sesión privada',
+        imageClass: 'photo-softened',
     },
 ];
 
@@ -72,7 +77,7 @@ const faqs = [
     },
     {
         question: '¿La prueba de 25 € se descuenta del pack?',
-        answer: 'Esa condición está pendiente de confirmación. Antes de reservar te explicaremos el precio y las opciones de continuidad sin sorpresas.',
+        answer: 'No. La clase privada de prueba y el pack de iniciación son servicios distintos, por lo que los 25 € de la prueba no se descuentan de los 175 € del pack.',
     },
     {
         question: '¿Cuánto dura realmente una clase?',
@@ -92,6 +97,19 @@ const faqs = [
     },
 ];
 
+const splitPricingItem = (item) => {
+    const separatorIndex = item.lastIndexOf(': ');
+
+    if (separatorIndex === -1) {
+        return { label: item, amount: null };
+    }
+
+    return {
+        label: item.slice(0, separatorIndex),
+        amount: item.slice(separatorIndex + 2),
+    };
+};
+
 const PricingPage = () => (
     <div className="pricing-page">
         <SEOHead
@@ -100,7 +118,13 @@ const PricingPage = () => (
             canonical="/precios"
         />
         <SchemaMarkup type="pricing" />
-        <PageHero title="Precios y bonos" subtitle="Tarifas claras para empezar y continuar a tu ritmo" breadcrumbs={[{ label: 'Inicio', path: '/' }, { label: 'Precios y bonos', path: '/precios' }]} />
+        <PageHero
+            title="Precios y bonos"
+            subtitle="Tarifas claras para empezar y continuar a tu ritmo"
+            breadcrumbs={[{ label: 'Inicio', path: '/' }, { label: 'Precios y bonos', path: '/precios' }]}
+            image="/images/web/pulley-tower.jpg"
+            imagePosition="center 52%"
+        />
 
         <div className="container">
             <BackButton />
@@ -115,7 +139,14 @@ const PricingPage = () => (
                 {pricingOptions.map((option, index) => (
                     <motion.article key={option.title} className={`pricing-detail ${index % 2 === 1 ? 'reverse' : ''}`} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                         <div className="pricing-detail-image">
-                            <img src={option.image} alt="" loading="lazy" width="1000" height="667" />
+                            <img
+                                src={option.image}
+                                alt={option.imageAlt}
+                                className={option.imageClass ?? ''}
+                                loading="lazy"
+                                width="1000"
+                                height="667"
+                            />
                             <div className="pricing-overlay"><div className="pricing-icon-large">{option.icon}</div></div>
                         </div>
                         <div className="pricing-detail-content">
@@ -137,7 +168,18 @@ const PricingPage = () => (
                                             <div key={pricingOption.category} className="pricing-option-block">
                                                 <h4 className="pricing-option-category">{pricingOption.category}</h4>
                                                 {pricingOption.description && <p className="pricing-option-desc">{pricingOption.description}</p>}
-                                                <ul className="pricing-option-items">{pricingOption.items.map((item) => <li key={item}>{item}</li>)}</ul>
+                                                <ul className="pricing-option-items">
+                                                    {pricingOption.items.map((item) => {
+                                                        const { label, amount } = splitPricingItem(item);
+
+                                                        return (
+                                                            <li key={item}>
+                                                                <span className="pricing-option-label">{label}</span>
+                                                                {amount && <strong className="pricing-option-amount">{amount}</strong>}
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </ul>
                                             </div>
                                         ))}
                                     </div>

@@ -8,11 +8,13 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Services from './components/sections/Services';
 import Team from './components/sections/Team';
+import Testimonials from './components/sections/Testimonials';
 import Pricing from './components/sections/Pricing';
 import Contact from './components/sections/Contact';
 import MethodPage from './pages/MethodPage';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
+import TestimonialsPage from './pages/TestimonialsPage';
 import PricingPage from './pages/PricingPage';
 import LegalPage from './pages/LegalPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -34,7 +36,7 @@ function App() {
               <Route path="/metodo" element={<MethodPage />} />
               <Route path="/servicios" element={<ServicesPage />} />
               <Route path="/equipo" element={<TeamPage />} />
-              <Route path="/testimonios" element={<Navigate to="/#team" replace />} />
+              <Route path="/testimonios" element={<TestimonialsPage />} />
               <Route path="/precios" element={<PricingPage />} />
               <Route path="/aviso-legal" element={<LegalPage type="aviso" />} />
               <Route path="/privacidad" element={<LegalPage type="privacidad" />} />
@@ -42,7 +44,7 @@ function App() {
               <Route path="/method" element={<Navigate to="/metodo" replace />} />
               <Route path="/services" element={<Navigate to="/servicios" replace />} />
               <Route path="/team" element={<Navigate to="/equipo" replace />} />
-              <Route path="/testimonials" element={<Navigate to="/#team" replace />} />
+              <Route path="/testimonials" element={<Navigate to="/testimonios" replace />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
@@ -66,6 +68,7 @@ const Home = () => (
     <About />
     <Services />
     <Team />
+    <Testimonials />
     <Pricing />
     <Contact />
   </>

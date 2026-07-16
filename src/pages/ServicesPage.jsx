@@ -27,7 +27,8 @@ const ServicesPage = () => {
             ],
             duration: "60 minutos",
             idealFor: "Cualquier persona que se inicie en GYROTONIC®, independientemente de su nivel previo en otros deportes.",
-            image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop"
+            image: "/images/web/torre-poleas.jpg",
+            imageAlt: "Pulley Tower del estudio preparada para una sesión"
         },
         {
             icon: <User size={48} />,
@@ -42,7 +43,9 @@ const ServicesPage = () => {
             ],
             duration: "60 minutos",
             idealFor: "Quienes buscan atención individual, quieren mejorar su técnica o prefieren mayor privacidad y flexibilidad.",
-            image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop"
+            image: "/images/web/atencion-personal.jpg",
+            imageAlt: "Instructora guiando de forma individual a una alumna",
+            imageClass: "photo-softened"
         },
         {
             icon: <Users2 size={48} />,
@@ -57,7 +60,8 @@ const ServicesPage = () => {
             ],
             duration: "60 minutos completos",
             idealFor: "Alumnos que ya han completado la iniciación y disfrutan de una práctica compartida en un grupo de hasta 4 personas.",
-            image: "https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=800&auto=format&fit=crop"
+            image: "/images/web/grupo-reducido.jpg",
+            imageAlt: "Tres alumnos practicando en un grupo reducido"
         }
     ];
 
@@ -98,6 +102,9 @@ const ServicesPage = () => {
                 title="Nuestros Servicios"
                 subtitle="Encuentra el formato perfecto para tu camino hacia el bienestar"
                 breadcrumbs={breadcrumbs}
+                image="/images/web/estudio-maquinas.jpg"
+                imagePosition="center 82%"
+                imagePositionMobile="center 72%"
             />
 
             <div className="container">
@@ -128,7 +135,14 @@ const ServicesPage = () => {
                             transition={{ delay: 0.2 }}
                         >
                             <div className="service-detail-image">
-                                <img src={service.image} alt="" loading="lazy" width="800" height="533" />
+                                <img
+                                    src={service.image}
+                                    alt={service.imageAlt}
+                                    className={service.imageClass ?? ''}
+                                    loading="lazy"
+                                    width="800"
+                                    height="533"
+                                />
                                 <div className="service-overlay">
                                     <div className="service-icon-large">{service.icon}</div>
                                 </div>

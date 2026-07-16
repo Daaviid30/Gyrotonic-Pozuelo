@@ -10,7 +10,7 @@ Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningú
 | Bloqueado | Email corporativo de contacto y privacidad | Propietarios | Legal y contacto | Confirmar una dirección operativa |
 | Bloqueado | Revisión jurídica de aviso legal y privacidad | Asesoría jurídica | Páginas legales | Revisar antes de retirar `noindex` |
 | Implementado | Titulaciones, especialidades y biografías del equipo | Propietarios | Equipo y SEO | Contenido recuperado de la rama principal y confirmado por el propietario |
-| Bloqueado | Autoría, consentimiento y literal de cada testimonio | Propietarios / alumnos | Testimonios | Recopilar autorizaciones; hasta entonces la sección permanece retirada |
+| Implementado | Autoría, consentimiento y literal de cada testimonio | Propietarios / alumnos | Testimonios | Autorización confirmada por el propietario; conservar el registro interno de los permisos |
 | Pendiente | URL exacta de Google Maps y comprobación del portal 2 | Propietarios | Contacto y mapa | Compartir ficha oficial y probar el pin físicamente |
 | Pendiente | Políticas de cancelación, recuperación, bajas y devoluciones | Propietarios | Tarifas y condiciones | Documentar reglas operativas y revisarlas legalmente |
 
@@ -18,7 +18,7 @@ Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningú
 
 | Estado | Pendiente o decisión | Responsable | Afecta | Próxima acción |
 |---|---|---|---|---|
-| Pendiente | Fotografías reales del centro, acceso, máquinas y equipo | Propietarios / fotografía | Toda la web | Seleccionar y optimizar originales con autorizaciones |
+| Implementado | Fotografías reales del centro, acceso, máquinas y clases | Propietarios / fotografía | Toda la web | Selección, encuadres responsive y copias web optimizadas integrados; conservar los originales sin modificar |
 | Pendiente | Imagen Open Graph de 1200 × 630 px | Diseño | Compartición social | Crear tras disponer de fotografía y marca definitivas |
 | Pendiente | Prueba completa en móviles reales | Desarrollo / propietarios | Navegación, llamadas, WhatsApp y mapa | Probar iOS y Android antes del lanzamiento |
 | Implementado | Verificación visual automatizada y Lighthouse local | Desarrollo | Responsive, accesibilidad y rendimiento | Repetir sobre la preview final desplegada |
@@ -33,11 +33,11 @@ Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningú
 | Pendiente | Seguimiento de contactos sin datos de salud | Operaciones | Definir campos, base legal y acceso |
 | Pendiente | Recordatorios o agenda en tiempo real | Operaciones / desarrollo | Abordar cuando las reglas de horarios estén estabilizadas |
 
-## Decisiones pendientes de confirmar con los propietarios
+## Decisiones y confirmaciones de los propietarios
 
-- **Pendiente — horario:** confirmar si el cierre definitivo es 21:00 o 21:30. La web muestra provisionalmente lunes a viernes, 09:00–21:00.
+- **Implementado — horario:** cierre oficial confirmado a las 21:30. La web y los datos estructurados muestran lunes a viernes, 09:00–21:30.
 - **Pendiente — WhatsApp:** confirmar que `+34 696 62 35 79` es el número oficial también para WhatsApp.
-- **Pendiente — prueba:** confirmar si los 25 € se descuentan del pack. La web no afirma que se descuenten.
+- **Implementado — prueba:** la clase privada de prueba de 25 € y el pack de iniciación son servicios distintos; los 25 € no se descuentan del pack.
 - **Pendiente — pagos:** confirmar tarjeta, efectivo y otros métodos presenciales. La web solo indica que no hay pago online.
 - **Pendiente — actividad sanitaria:** confirmar si existe autorización sanitaria. Hasta entonces no anunciar fisioterapia ni rehabilitación sanitaria.
 
@@ -48,11 +48,14 @@ Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningú
 - **Implementado:** páginas provisionales con `noindex` y aviso visible.
 - **Implementado:** no se carga analítica, publicidad ni píxeles.
 
-## Contenido e imágenes pendientes
+## Contenido e imágenes
 
-- **Pendiente:** recibir originales y registrar autorizaciones para web, redes y publicidad.
-- **Pendiente:** sustituir imágenes genéricas de Unsplash y fotografía provisional del hero.
-- **Bloqueado:** testimonios retirados de navegación, home, sitemap y ruta pública hasta confirmar textos y permisos.
+- **Implementado:** recibidos los originales del estudio y seleccionadas fotografías de clases, acompañamiento, máquinas y acceso.
+- **Implementado:** sustituidas las imágenes genéricas de Unsplash; se generaron copias JPEG optimizadas para web en `public/images/web` sin modificar los originales.
+- **Implementado:** refinados los encuadres de las cabeceras de Servicios y Equipo, reducidos los recortes de las fotografías interiores y suavizada la exposición de la imagen de atención individual.
+- **Implementado:** portada móvil aligerada con una fotografía vertical específica, texto resumido y una jerarquía más compacta; ampliado el ancho útil de textos y tarjetas en las rutas principales.
+- **Implementado:** testimonios autorizados recuperados en la home y en `/testimonios`; ruta añadida de nuevo al sitemap.
+- **Implementado:** variante blanca y turquesa del logo incorporada al pie de página; el resto de variantes queda disponible para usos futuros.
 - **Implementado:** perfiles completos recuperados de la rama principal, con biografías, áreas de experiencia, formación y filosofía; se han suavizado las promesas clínicas.
 
 ## Reservas y horarios
@@ -92,4 +95,4 @@ Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningú
 
 - **Implementado:** teléfono `+34 696 62 35 79`, dirección Avenida de Europa 7, portal 2, 28224 Pozuelo de Alarcón, Madrid.
 - **Implementado:** clases de 60 minutos, grupos de máximo 4 personas, impuestos incluidos y ausencia de contratación/pago online.
-- **Implementado:** prueba 25 €, iniciación (4) 175 €, grupo (4/8) 100 €/190 €, privadas mensuales (4/8) 190 €/375 €, bonos privados (5/10) 235 €/470 € con 2 meses de caducidad y privada suelta 55 €.
+- **Implementado:** prueba independiente 25 €, iniciación (4) 175 €, grupo (4/8) 100 €/190 €, privadas mensuales (4/8) 190 €/375 €, bonos privados (5/10) 235 €/470 € con 2 meses de caducidad y privada suelta 55 €.

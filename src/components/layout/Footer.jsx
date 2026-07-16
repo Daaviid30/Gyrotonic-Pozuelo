@@ -8,7 +8,14 @@ const Footer = () => (
     <footer className="footer">
         <div className="container footer-content">
             <div className="footer-brand">
-                <h2>GYROTONIC<span className="logo-suffix-white">POZUELO</span></h2>
+                <img
+                    className="footer-logo"
+                    src="/logos/logo-gyrotonic-pozuelo-blanco-turquesa.png"
+                    alt="Gyrotonic Pozuelo"
+                    width="450"
+                    height="510"
+                    loading="lazy"
+                />
                 <p>Movimiento consciente, atención cercana y sesiones de 60 minutos en Pozuelo de Alarcón.</p>
             </div>
 
@@ -17,6 +24,8 @@ const Footer = () => (
                 <ul>
                     <li><Link to="/#method">Método</Link></li>
                     <li><Link to="/#services">Servicios</Link></li>
+                    <li><Link to="/equipo">Equipo</Link></li>
+                    <li><Link to="/testimonios">Testimonios</Link></li>
                     <li><Link to="/precios">Precios</Link></li>
                     <li><Link to="/#contact">Contacto</Link></li>
                 </ul>

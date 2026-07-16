@@ -209,7 +209,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     .team-intro {
-        padding: 2rem 0;
+        padding: 1.75rem 0 2.5rem;
     }
 
     .profile-section {

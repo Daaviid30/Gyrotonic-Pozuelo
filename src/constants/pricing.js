@@ -2,7 +2,7 @@ export const PRICING = {
     trial: {
         name: 'Clase privada de prueba',
         price: 25,
-        note: 'Precio promocional. Su posible descuento posterior del pack está pendiente de confirmación.',
+        note: 'Precio promocional para una clase privada de prueba. Es un servicio independiente del pack de iniciación.',
     },
     initiation: {
         name: 'Pack de iniciación',

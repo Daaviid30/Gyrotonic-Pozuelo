@@ -1,0 +1,96 @@
+.testimonials-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 8% 15%, rgba(13, 148, 136, 0.1), transparent 28%),
+        var(--color-bg-warm);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 2.5rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(13, 148, 136, 0.12);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.testimonial-card::before {
+    content: '“';
+    position: absolute;
+    top: -1.5rem;
+    right: 1rem;
+    color: rgba(13, 148, 136, 0.09);
+    font-family: Georgia, serif;
+    font-size: 9rem;
+    line-height: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.stars {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-accent);
+}
+
+.testimonial-text {
+    position: relative;
+    flex-grow: 1;
+    margin-bottom: 2rem;
+    color: var(--color-text-main);
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-bg-off-white);
+}
+
+.author-name {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.author-role {
+    color: var(--color-accent-hover);
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+@media (max-width: 960px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+}

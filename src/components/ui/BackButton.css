@@ -29,3 +29,10 @@
 .back-button:hover svg {
     transform: translateX(-3px);
 }
+
+@media (max-width: 768px) {
+    .back-button {
+        margin: 1.5rem 0 0.5rem;
+        padding: 0.7rem 1.25rem;
+    }
+}

@@ -11,8 +11,8 @@ const plans = [
         name: PRICING.trial.name,
         price: formatPrice(PRICING.trial.price),
         priceDetail: 'Primera experiencia individual',
-        features: ['60 minutos completos', 'Conoce el método y la máquina', 'Orientación personal al finalizar'],
-        note: 'Promoción para nuevos alumnos',
+        features: ['60 minutos completos', 'Conoce el método y la máquina', 'Orientación personal al finalizar', 'Servicio independiente del pack de iniciación'],
+        note: 'Los 25 € no se descuentan del pack',
     },
     {
         name: PRICING.initiation.name,

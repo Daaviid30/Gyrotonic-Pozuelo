@@ -110,6 +110,8 @@ const MethodPage = () => {
                 title="El Método GYROTONIC®"
                 subtitle="Movimiento tridimensional, respiración y fuerza en secuencias fluidas"
                 breadcrumbs={breadcrumbs}
+                image="/images/web/torre-poleas.jpg"
+                imagePosition="center 64%"
             />
 
             <div className="container">

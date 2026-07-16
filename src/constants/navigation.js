@@ -14,6 +14,7 @@ export const footerLinks = {
         { label: 'Método GYROTONIC®', path: '/metodo' },
         { label: 'Nuestros Servicios', path: '/servicios' },
         { label: 'Equipo', path: '/equipo' },
+        { label: 'Testimonios', path: '/testimonios' },
     ],
     contact: [
         { label: 'Solicita información', path: '/#contact' }

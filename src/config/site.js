@@ -14,7 +14,7 @@ export const SITE = {
         region: 'Madrid',
         country: 'ES',
     },
-    openingHours: 'Lunes a viernes, de 09:00 a 21:00',
+    openingHours: 'Lunes a viernes, de 09:00 a 21:30',
     sessionDuration: '60 minutos completos',
     instagram: 'https://www.instagram.com/gyrotonicpozuelo/',
 };
