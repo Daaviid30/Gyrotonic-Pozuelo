@@ -1,0 +1,264 @@
+.method-page {
+    background-color: var(--color-bg-light);
+    min-height: 100vh;
+}
+
+/* Introducción */
+.method-intro {
+    padding: 4rem 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Títulos de Página */
+.section-title-page {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle-page {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* Principios */
+.principles-section {
+    padding: 4rem 0;
+    background-color: var(--color-bg-off-white);
+    margin: 4rem -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.principle-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-smooth);
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.principle-icon {
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.principle-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.principle-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-main);
+}
+
+/* Beneficios */
+.benefits-section {
+    padding: 4rem 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.benefit-category {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, rgba(243, 240, 235, 0.8) 100%);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(13, 148, 136, 0.1);
+}
+
+.benefit-category-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.benefit-list {
+    list-style: none;
+    padding: 0;
+}
+
+.benefit-item {
+    padding: 0.75rem 0 0.75rem 2rem;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-main);
+    border-bottom: 1px solid rgba(13, 148, 136, 0.1);
+}
+
+.benefit-item:last-child {
+    border-bottom: none;
+}
+
+.benefit-item::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Para Quién */
+.for-who-section {
+    padding: 4rem 0;
+    background-color: var(--color-bg-off-white);
+    margin: 4rem -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.for-who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.for-who-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-smooth);
+    text-align: center;
+}
+
+.for-who-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.for-who-icon {
+    color: var(--color-accent);
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.for-who-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.for-who-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-main);
+}
+
+/* CTA Final */
+.method-cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 700px;
+    margin: 4rem auto;
+    background: linear-gradient(135deg, var(--color-accent-soft) 0%, rgba(243, 240, 235, 0.5) 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.cta-text {
+    font-size: 1.15rem;
+    color: var(--color-text-main);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.cta-button {
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .method-intro {
+        padding: 2rem 0;
+    }
+
+    .section-title-page {
+        font-size: 2rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .principles-section,
+    .for-who-section {
+        margin: 2rem -1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .principles-grid,
+    .for-who-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .method-cta {
+        padding: 2.5rem 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .cta-title {
+        font-size: 1.75rem;
+    }
+}

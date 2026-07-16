@@ -1,0 +1,68 @@
+.team-section {
+    background-color: var(--color-bg-light);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    /* More space between profiles definition */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.instructor-card {
+    background: transparent;
+    text-align: center;
+    transition: transform var(--transition-smooth);
+}
+
+.instructor-card:hover {
+    transform: translateY(-10px);
+}
+
+.instructor-image-container {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.instructor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.instructor-card:hover .instructor-image {
+    transform: scale(1.05);
+}
+
+.instructor-name {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.instructor-role {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.1em;
+}
+
+.instructor-bio {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 320px;
+    margin: 0 auto;
+}

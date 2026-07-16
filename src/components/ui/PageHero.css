@@ -1,0 +1,140 @@
+.page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0f172a 100%);
+    padding: 6rem 2rem 4rem;
+}
+
+.page-hero-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+}
+
+.hero-shape-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--color-accent-soft);
+    top: -10%;
+    left: -10%;
+    animation-delay: 0s;
+}
+
+.hero-shape-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(243, 240, 235, 0.8);
+    bottom: -15%;
+    right: -15%;
+    animation-delay: 3s;
+}
+
+.hero-shape-3 {
+    width: 350px;
+    height: 350px;
+    background: rgba(13, 148, 136, 0.15);
+    top: 50%;
+    right: 20%;
+    animation-delay: 6s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition-fast);
+    font-weight: 500;
+}
+
+.breadcrumb-link:hover {
+    color: var(--color-accent-soft);
+}
+
+.breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0.5;
+}
+
+.page-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.page-hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-hero {
+        min-height: 40vh;
+        padding: 5rem 1.5rem 3rem;
+    }
+
+    .page-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .page-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-shape-1,
+    .hero-shape-2,
+    .hero-shape-3 {
+        width: 250px;
+        height: 250px;
+    }
+}

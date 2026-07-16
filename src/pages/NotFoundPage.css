@@ -1,0 +1,43 @@
+.not-found {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 8rem 2rem 4rem;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(13, 148, 136, 0.18), transparent 38%),
+        var(--color-bg-light);
+}
+
+.not-found-card {
+    max-width: 620px;
+    padding: 3rem;
+    text-align: center;
+    border: 1px solid rgba(13, 148, 136, 0.18);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: var(--shadow-lg);
+}
+
+.not-found-code {
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 16vw, 8rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.not-found-card h1 {
+    margin: 1rem 0;
+}
+
+.not-found-card p {
+    color: var(--color-text-muted);
+}
+
+.not-found-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}

@@ -1,0 +1,175 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: transparent;
+    color: white;
+    /* Default to white for transparent state on Hero */
+}
+
+.navbar.scrolled,
+.navbar.inner-page {
+    background-color: rgba(253, 251, 247, 0.95);
+    /* Warm cream bg */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-sm);
+    color: var(--color-primary);
+    /* Switch to dark text when scrolled */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar.inner-page {
+    padding: 1rem 0;
+}
+
+.navbar.inner-page.menu-open {
+    background-color: rgba(30, 41, 59, 1);
+    color: white;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    /* Larger */
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: inherit;
+    /* Inherit from navbar (white or primary) */
+}
+
+.logo-suffix {
+    font-weight: 300;
+    margin-left: 0.25rem;
+    color: var(--color-accent);
+    /* Highlight suffix */
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: inherit;
+    /* Inherit from navbar */
+    transition: color 0.2s;
+    position: relative;
+    opacity: 0.9;
+}
+
+/* Underline animation */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    /* Inherit color */
+}
+
+/* Mobile Menu Open State */
+.navbar.menu-open {
+    background-color: rgba(30, 41, 59, 1);
+    /* Solid dark background for header */
+    color: white;
+    /* Ensure logo/icon are white */
+}
+
+.mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(30, 41, 59, 0.99);
+    /* Premium Dark Glass */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.mobile-nav-links a {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Make the button pop on the dark background */
+.mobile-nav .btn-primary {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+    width: 100%;
+    /* Full width button looks better on mobile */
+    max-width: 200px;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+}
