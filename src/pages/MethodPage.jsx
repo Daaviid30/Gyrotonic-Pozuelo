@@ -51,7 +51,7 @@ const MethodPage = () => {
         {
             category: "Físicos",
             items: [
-                "Mejora la postura y alineación corporal",
+                "Exploración de la organización y coordinación corporal",
                 "Aumenta la flexibilidad y rango de movimiento",
                 "Desarrolla fuerza funcional sin crear volumen muscular excesivo",
                 "Favorece una práctica de movimiento variada y consciente",

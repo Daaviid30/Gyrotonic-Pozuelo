@@ -9,12 +9,10 @@ import About from './components/sections/About';
 import Services from './components/sections/Services';
 import Team from './components/sections/Team';
 import Pricing from './components/sections/Pricing';
-import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
 import MethodPage from './pages/MethodPage';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
-import TestimonialsPage from './pages/TestimonialsPage';
 import PricingPage from './pages/PricingPage';
 import LegalPage from './pages/LegalPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -28,14 +26,15 @@ function App() {
       <Router>
         <ScrollToTop />
         <div className="app">
+          <a className="skip-link" href="#main-content">Saltar al contenido</a>
           <Navbar />
-          <main>
+          <main id="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/metodo" element={<MethodPage />} />
               <Route path="/servicios" element={<ServicesPage />} />
               <Route path="/equipo" element={<TeamPage />} />
-              <Route path="/testimonios" element={<TestimonialsPage />} />
+              <Route path="/testimonios" element={<Navigate to="/#team" replace />} />
               <Route path="/precios" element={<PricingPage />} />
               <Route path="/aviso-legal" element={<LegalPage type="aviso" />} />
               <Route path="/privacidad" element={<LegalPage type="privacidad" />} />
@@ -43,7 +42,7 @@ function App() {
               <Route path="/method" element={<Navigate to="/metodo" replace />} />
               <Route path="/services" element={<Navigate to="/servicios" replace />} />
               <Route path="/team" element={<Navigate to="/equipo" replace />} />
-              <Route path="/testimonials" element={<Navigate to="/testimonios" replace />} />
+              <Route path="/testimonials" element={<Navigate to="/#team" replace />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
@@ -67,7 +66,6 @@ const Home = () => (
     <About />
     <Services />
     <Team />
-    <Testimonials />
     <Pricing />
     <Contact />
   </>

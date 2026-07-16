@@ -30,7 +30,7 @@ const Hero = () => {
                     </p>
 
                     <div className="hero-buttons">
-                        <Button href="#contact" variant="primary">Reserva tu primera sesión</Button>
+                        <Button href="#contact" variant="primary">Solicita tu primera sesión</Button>
                         <Button href="#method" variant="outline" className="btn-hero-outline">Descubre el método</Button>
                     </div>
                 </motion.div>

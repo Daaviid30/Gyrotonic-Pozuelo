@@ -1,214 +1,85 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Fingerprint, HeartHandshake, Infinity as InfinityIcon } from 'lucide-react';
+import { HeartHandshake, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
 import SEOHead from '../components/seo/SEOHead';
-import SchemaMarkup from '../components/seo/SchemaMarkup';
+import { instructors } from '../constants/team';
 import './TeamPage.css';
 
-const TeamPage = () => {
-    const breadcrumbs = [
-        { label: 'Inicio', path: '/' },
-        { label: 'Nuestro Equipo', path: '/equipo' }
-    ];
+const TeamPage = () => (
+    <div className="team-page">
+        <SEOHead
+            title="Equipo de Gyrotonic Pozuelo | Atención cercana"
+            description="Conoce a las personas que acompañan las sesiones de Gyrotonic Pozuelo con atención cercana y grupos reducidos."
+            canonical="/equipo"
+        />
+        <PageHero
+            title="Nuestro equipo"
+            subtitle="Atención cercana y acompañamiento durante todo el aprendizaje"
+            breadcrumbs={[{ label: 'Inicio', path: '/' }, { label: 'Nuestro equipo', path: '/equipo' }]}
+        />
 
-    const team = [
-        {
-            name: "Mª José Cruz",
-            role: "Co-Directora e Instructora Certificada",
-            image: "/images/maria_jose.jpg",
-            bio: "La trayectoria de María José está profundamente ligada al movimiento. Su carrera como bailarina profesional de ballet clásico aporta sensibilidad artística, precisión y una comprensión práctica del aprendizaje corporal. Hoy vuelca esa experiencia en sus alumnos con una enseñanza cercana y respetuosa con cada ritmo.",
-            specialties: [
-                "Trabajo con bailarines y atletas",
-                "Mejora del rendimiento artístico",
-                "Consciencia corporal y movimiento",
-                "Salud pélvica y de la mujer"
-            ],
-            certifications: [
-                "GYROTONIC® Trainer Level 1",
-                "GYROTONIC®: Pelvic Girdle y Jumping Stretching Board",
-                "Licenciada en Arte Dramático y Danza",
-                "Instructora de Pilates: Suelo, Máquinas y Rehabilitación."
-            ],
-            philosophy: "Creo que cada cuerpo tiene su propia historia y su propio potencial. Mi misión es ayudarte a descubrirlo, respetando tu ritmo y celebrando cada pequeño avance."
-        },
-        {
-            name: "Antonio Castro",
-            role: "Co-Director y Entrenador Certificado",
-            image: "/images/antonio.jpg",
-            bio: "Antonio llegó a GYROTONIC® desde el mundo del fútbol profesional y la osteopatía. Esa combinación le permite observar el movimiento con una mirada técnica y deportiva.",
-            story: "Tras retirarse del fútbol, continuó formándose en osteopatía, Pilates y técnicas manuales. En GYROTONIC® encontró un sistema que combina fuerza, movilidad, coordinación y atención al detalle.",
-            specialties: [
-                "Visión Osteopática",
-                "Preparación y movimiento deportivo",
-                "Optimización del rendimiento físico",
-                "Entrenamiento funcional y de fuerza"
-            ],
-            certifications: [
-                "GYROTONIC® Trainer Level 1 & Level 2",
-                "Diplomado en Osteopatía: Escuela Diaphragma",
-                "Instructor de Pilates Terapéutico",
-                "Certificado en Quiromasaje, Drenaje Linfático y Kinesiotape."
-            ],
-            philosophy: "El cuerpo es increíblemente inteligente cuando le das las herramientas adecuadas. Mi trabajo es guiarte hacia un movimiento que sea fuerte, eficiente y sostenible en el tiempo."
-        }
-    ];
+        <div className="container">
+            <BackButton />
+            <section className="team-intro">
+                <span className="eyebrow">Personas y método</span>
+                <h2 className="section-title-page">Conoce a quienes te acompañarán</h2>
+                <p className="intro-text">
+                    En cada sesión prestamos atención a tu experiencia, tu ritmo y tus objetivos generales. Las titulaciones y especialidades detalladas se publicarán cuando el centro termine de verificarlas.
+                </p>
+            </section>
 
-    const values = [
-        {
-            icon: <HeartHandshake size={40} />,
-            title: "Empatía en Movimiento",
-            description: "Escuchamos tu punto de partida y adaptamos el aprendizaje sin juzgar tu experiencia previa."
-        },
-        {
-            icon: <Fingerprint size={40} />,
-            title: "Atención Personalizada",
-            description: "Huimos de las rutinas estandarizadas. Cada cuerpo es un puzle único y diseñamos cada sesión como un traje a medida para tus necesidades de ese día."
-        },
-        {
-            icon: <Award size={40} />,
-            title: "Rigor Técnico",
-            description: "La pasión no basta; se necesita conocimiento. Nos formamos continuamente para ofrecerte un servicio basado en la excelencia."
-        },
-        {
-            icon: <InfinityIcon size={40} />,
-            title: "Salud Sostenible",
-            description: "No buscamos \"arreglos rápidos\" ni cuerpos de verano, sino construir una base sólida que te permita vivir con vitalidad y autonomía durante décadas."
-        }
-    ];
-
-    return (
-        <div className="team-page">
-            {/* SEO Optimization */}
-            <SEOHead
-                title="Equipo GYROTONIC® Pozuelo | Instructores Certificados Madrid"
-                description="Conoce a María José Cruz y Antonio Castro, instructores de GYROTONIC® en Pozuelo con experiencia en danza, deporte, Pilates y osteopatía."
-                canonical="/equipo"
-                ogType="website"
-            />
-            <SchemaMarkup type="team" />
-            <PageHero
-                title="Nuestro Equipo"
-                subtitle="Experiencia en movimiento, enseñanza y atención personalizada"
-                breadcrumbs={breadcrumbs}
-            />
-
-            <div className="container">
-                <BackButton />
-
-                {/* Introducción */}
-                <motion.section
-                    className="team-intro"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className="section-title-page">Experiencia y Dedicación</h2>
-                    <p className="intro-text">
-                        Nuestro equipo combina años de práctica y enseñanza con experiencia profesional en danza, deporte, Pilates y osteopatía. Esa mezcla se traduce en una atención técnica, cercana y muy pendiente de los detalles.
-                    </p>
-                </motion.section>
-
-                {/* Perfiles del Equipo */}
-                <section className="team-profiles">
-                    {team.map((member, index) => (
-                        <motion.div
-                            key={index}
-                            className="profile-section"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                        >
-                            <div className="profile-header">
-                                <div className="profile-image-wrapper">
-                                    <img src={member.image} alt={member.name} className="profile-image" loading="lazy" width="680" height="680" />
-                                </div>
-                                <div className="profile-info">
-                                    <h3 className="profile-name">{member.name}</h3>
-                                    <p className="profile-role">{member.role}</p>
-                                </div>
+            <section className="team-profiles" aria-label="Equipo del centro">
+                {instructors.map((member) => (
+                    <motion.article
+                        key={member.name}
+                        className="profile-section"
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="profile-header">
+                            <div className="profile-image-wrapper">
+                                <img src={member.image} alt={member.name} className="profile-image" loading="lazy" width="680" height="680" />
                             </div>
-
-                            <div className="profile-content">
-                                <div className="profile-story">
-                                    <p className="story-paragraph">{member.bio}</p>
-                                </div>
-
-                                <div className="profile-details-grid">
-                                    <div className="detail-box">
-                                        <h4 className="detail-title">Especialidades</h4>
-                                        <ul className="detail-list">
-                                            {member.specialties.map((specialty, i) => (
-                                                <li key={i}>{specialty}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    <div className="detail-box">
-                                        <h4 className="detail-title">Certificaciones</h4>
-                                        <ul className="detail-list">
-                                            {member.certifications.map((cert, i) => (
-                                                <li key={i}>{cert}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div className="philosophy-box">
-                                    <h4 className="philosophy-title">Filosofía</h4>
-                                    <p className="philosophy-text">“{member.philosophy}”</p>
-                                </div>
+                            <div className="profile-info">
+                                <h2 className="profile-name">{member.name}</h2>
+                                <p className="profile-role">{member.role}</p>
                             </div>
-                        </motion.div>
-                    ))}
-                </section>
+                        </div>
+                        <div className="profile-content">
+                            <p className="story-paragraph">{member.bio}</p>
+                        </div>
+                    </motion.article>
+                ))}
+            </section>
 
-                {/* Valores */}
-                <section className="values-section">
-                    <h2 className="section-title-page text-center">Nuestros Valores</h2>
-                    <p className="section-subtitle-page">
-                        Los principios que guían nuestra forma de trabajar y conectar contigo
-                    </p>
-                    <div className="values-grid">
-                        {values.map((value, index) => (
-                            <motion.div
-                                key={index}
-                                className="value-card"
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                            >
-                                <div className="value-icon">{value.icon}</div>
-                                <h3 className="value-title">{value.title}</h3>
-                                <p className="value-description">{value.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </section>
+            <section className="values-section">
+                <h2 className="section-title-page text-center">Cómo son las sesiones</h2>
+                <div className="values-grid">
+                    <article className="value-card">
+                        <div className="value-icon"><HeartHandshake size={40} aria-hidden="true" /></div>
+                        <h3 className="value-title">Atención cercana</h3>
+                        <p className="value-description">Escuchamos tu punto de partida y ajustamos el aprendizaje a tu experiencia.</p>
+                    </article>
+                    <article className="value-card">
+                        <div className="value-icon"><Users size={40} aria-hidden="true" /></div>
+                        <h3 className="value-title">Grupos reducidos</h3>
+                        <p className="value-description">Un máximo de cuatro personas permite mantener la atención durante los 60 minutos.</p>
+                    </article>
+                </div>
+            </section>
 
-                {/* CTA */}
-                <motion.section
-                    className="team-cta"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className="cta-title">¿Quieres Conocernos?</h2>
-                    <p className="cta-text">
-                        Cuéntanos tus objetivos y tu disponibilidad. Te orientaremos sobre la primera sesión y confirmaremos contigo la plaza.
-                    </p>
-                    <a href="/#contact" className="btn btn-primary cta-button">
-                        Solicitar primera sesión
-                    </a>
-                </motion.section>
-
-                <BackButton />
-            </div>
+            <section className="team-cta">
+                <h2 className="cta-title">¿Quieres conocernos?</h2>
+                <p className="cta-text">Cuéntanos qué buscas y confirma personalmente con el centro la disponibilidad.</p>
+                <Link to="/#contact" className="btn btn-primary cta-button">Solicitar información</Link>
+            </section>
+            <BackButton />
         </div>
-    );
-};
+    </div>
+);
 
 export default TeamPage;

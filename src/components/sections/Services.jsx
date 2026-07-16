@@ -30,7 +30,7 @@ const Services = () => {
                             transition={{ delay: index * 0.1 }}
                         >
                             <div className="service-image-wrapper">
-                                <img src={service.image} alt={service.title} className="service-image" />
+                                <img src={service.image} alt={service.title} className="service-image" loading="lazy" width="800" height="533" />
                             </div>
                             <div className="service-content">
                                 <h3 className="service-title">{service.title}</h3>

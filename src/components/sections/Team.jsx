@@ -19,7 +19,7 @@ const Team = () => {
                         Nuestro Equipo
                     </motion.h2>
                     <p className="section-subtitle">
-                        Profesionales certificados dedicados a tu bienestar.
+                        Las personas que te acompañarán durante las sesiones.
                     </p>
                 </div>
 
@@ -34,7 +34,7 @@ const Team = () => {
                             transition={{ delay: index * 0.2 }}
                         >
                             <div className="instructor-image-container">
-                                <img src={instructor.image} alt={instructor.name} className="instructor-image" />
+                                <img src={instructor.image} alt={instructor.name} className="instructor-image" loading="lazy" width="680" height="680" />
                             </div>
                             <div className="instructor-info">
                                 <h3 className="instructor-name">{instructor.name}</h3>

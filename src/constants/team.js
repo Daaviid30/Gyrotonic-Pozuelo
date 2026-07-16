@@ -2,14 +2,14 @@
 export const instructors = [
     {
         name: "Mª José Cruz",
-        role: "Co-Directora e Instructora",
-        bio: "Bailarina profesional y experta en movimiento. Su experiencia artística aporta sensibilidad, precisión y una manera muy cercana de ayudarte a comprender mejor tu cuerpo.",
+        role: "Equipo de Gyrotonic Pozuelo",
+        bio: "Acompaña las sesiones con una atención cercana, respetando el ritmo y el punto de partida de cada persona.",
         image: "/images/maria_jose.jpg"
     },
     {
         name: "Antonio Castro",
-        role: "Co-Director y Entrenador",
-        bio: "Del fútbol profesional a la osteopatía. Antonio combina su visión de entrenador deportivo con un enfoque técnico y preciso, adaptado al punto de partida de cada alumno.",
+        role: "Equipo de Gyrotonic Pozuelo",
+        bio: "Acompaña las sesiones con un enfoque atento y progresivo, adaptado a la experiencia de cada alumno.",
         image: "/images/antonio.jpg"
     }
 ];

@@ -1,97 +1,95 @@
 # Pendientes para publicar Gyrotonic Pozuelo
 
-Este documento concentra los datos y decisiones que todavía faltan. No se deben sustituir por información inventada en producción.
+Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningún dato pendiente por información inventada.
 
-## Bloqueantes de publicación
+## P0 — Bloqueos antes de publicar
 
-- [ ] Confirmar razón social completa de la sociedad.
-- [ ] Confirmar CIF.
-- [ ] Confirmar domicilio social o profesional que debe aparecer en el aviso legal.
-- [ ] Añadir datos registrales de la sociedad, si corresponden.
-- [ ] Confirmar el email corporativo para contacto y privacidad.
-- [ ] Confirmar si el horario general termina a las 21:00 o a las 21:30.
-- [ ] Confirmar que `+34 696 62 35 79` es también el WhatsApp oficial.
-- [ ] Obtener la URL exacta de la ficha de Google Maps y regenerar el mapa si la búsqueda por dirección no apunta al portal correcto.
-- [ ] Confirmar si la clase privada de prueba de 25 € se descuenta del pack de iniciación.
-- [ ] Confirmar métodos de pago aceptados. Por ahora solo consta tarjeta en el centro, pendiente de verificar efectivo y otros métodos.
-- [ ] Documentar cancelaciones, recuperaciones, no asistencia, bajas y devoluciones.
-- [ ] Revisar profesionalmente aviso legal, privacidad y condiciones antes de retirar `noindex` de las páginas legales.
-- [ ] Verificar una por una las titulaciones y certificaciones publicadas del equipo.
-- [ ] Confirmar si el negocio es un centro sanitario autorizado. Hasta entonces no anunciar fisioterapia ni rehabilitación sanitaria como servicios.
+| Estado | Pendiente o decisión | Responsable | Afecta | Próxima acción |
+|---|---|---|---|---|
+| Bloqueado | Razón social, CIF, domicilio y datos registrales | Propietarios / asesoría | Aviso legal | Entregar datos y validar el texto con un profesional |
+| Bloqueado | Email corporativo de contacto y privacidad | Propietarios | Legal y contacto | Confirmar una dirección operativa |
+| Bloqueado | Revisión jurídica de aviso legal y privacidad | Asesoría jurídica | Páginas legales | Revisar antes de retirar `noindex` |
+| Bloqueado | Titulaciones, especialidades y biografías del equipo | Cada profesional / propietarios | Equipo y SEO | Aportar documentos y texto aprobado; hasta entonces no se publican credenciales detalladas |
+| Bloqueado | Autoría, consentimiento y literal de cada testimonio | Propietarios / alumnos | Testimonios | Recopilar autorizaciones; hasta entonces la sección permanece retirada |
+| Pendiente | URL exacta de Google Maps y comprobación del portal 2 | Propietarios | Contacto y mapa | Compartir ficha oficial y probar el pin físicamente |
+| Pendiente | Políticas de cancelación, recuperación, bajas y devoluciones | Propietarios | Tarifas y condiciones | Documentar reglas operativas y revisarlas legalmente |
 
-## Datos ya confirmados
+## P1 — Mejoras importantes para el lanzamiento
 
-- Dominio: `gyrotonicpozuelo.es`.
-- Teléfono: `+34 696 62 35 79`.
-- Dirección: Avenida de Europa 7, portal 2, 28224 Pozuelo de Alarcón, Madrid.
-- Las clases duran 60 minutos completos.
-- Los grupos tienen un máximo de 4 personas.
-- Los precios publicados incluyen impuestos.
-- No existe contratación ni pago online en esta fase.
-- Las fichas de alumnos se conservan actualmente en papel y las gestiona el centro.
-- Existen formularios de autorización para el uso de imágenes.
+| Estado | Pendiente o decisión | Responsable | Afecta | Próxima acción |
+|---|---|---|---|---|
+| Pendiente | Fotografías reales del centro, acceso, máquinas y equipo | Propietarios / fotografía | Toda la web | Seleccionar y optimizar originales con autorizaciones |
+| Pendiente | Imagen Open Graph de 1200 × 630 px | Diseño | Compartición social | Crear tras disponer de fotografía y marca definitivas |
+| Pendiente | Prueba completa en móviles reales | Desarrollo / propietarios | Navegación, llamadas, WhatsApp y mapa | Probar iOS y Android antes del lanzamiento |
+| Pendiente | Verificación visual automatizada y Lighthouse | Desarrollo | Responsive, accesibilidad y rendimiento | Ejecutar en un entorno con Node y navegador |
+| Pendiente | Redirección entre `www` y el dominio canónico | Desarrollo / DNS | SEO | Elegir variante canónica y configurar en Vercel |
 
-## Tarifas Gyrotonic confirmadas
+## P2 — Mejoras posteriores
 
-- Clase privada de prueba: 25 €.
-- Pack de iniciación de 4 clases privadas: 175 €.
-- Grupo, 4 clases al mes: 100 €.
-- Grupo, 8 clases al mes: 190 €.
-- Privada, 4 clases al mes: 190 €.
-- Privada, 8 clases al mes: 375 €.
-- Bono privado de 5 clases: 235 €, caducidad de 2 meses.
-- Bono privado de 10 clases: 470 €, caducidad de 2 meses.
-- Clase privada suelta: 55 €.
+| Estado | Mejora | Responsable | Próxima acción |
+|---|---|---|---|
+| Pendiente | Orientador por objetivo, experiencia y horario | Producto | Validar utilidad con consultas reales |
+| Pendiente | Contenido local y preguntas frecuentes | SEO / propietarios | Basarse en preguntas y búsquedas reales |
+| Pendiente | Seguimiento de contactos sin datos de salud | Operaciones | Definir campos, base legal y acceso |
+| Pendiente | Recordatorios o agenda en tiempo real | Operaciones / desarrollo | Abordar cuando las reglas de horarios estén estabilizadas |
 
-## Imágenes y contenido
+## Decisiones pendientes de confirmar con los propietarios
 
-- [ ] Recibir enlace de Drive con las imágenes reales.
-- [ ] Seleccionar una fotografía horizontal para el hero.
-- [ ] Sustituir las fotografías genéricas de Unsplash en servicios y precios.
-- [ ] Preparar una imagen Open Graph de 1200 × 630 px.
-- [ ] Registrar qué autorizaciones cubren web, redes sociales y publicidad.
-- [ ] Confirmar el texto y autorización de cada testimonio.
-- [ ] Añadir fotografías del acceso, portal 2, interior, máquinas y profesores.
+- **Pendiente — horario:** confirmar si el cierre definitivo es 21:00 o 21:30. La web muestra provisionalmente lunes a viernes, 09:00–21:00.
+- **Pendiente — WhatsApp:** confirmar que `+34 696 62 35 79` es el número oficial también para WhatsApp.
+- **Pendiente — prueba:** confirmar si los 25 € se descuentan del pack. La web no afirma que se descuenten.
+- **Pendiente — pagos:** confirmar tarjeta, efectivo y otros métodos presenciales. La web solo indica que no hay pago online.
+- **Pendiente — actividad sanitaria:** confirmar si existe autorización sanitaria. Hasta entonces no anunciar fisioterapia ni rehabilitación sanitaria.
+
+## Datos legales pendientes
+
+- **Bloqueado:** identidad empresarial, CIF, domicilio, registro y email.
+- **Bloqueado:** revisión profesional de todos los textos legales.
+- **Implementado:** páginas provisionales con `noindex` y aviso visible.
+- **Implementado:** no se carga analítica, publicidad ni píxeles.
+
+## Contenido e imágenes pendientes
+
+- **Pendiente:** recibir originales y registrar autorizaciones para web, redes y publicidad.
+- **Pendiente:** sustituir imágenes genéricas de Unsplash y fotografía provisional del hero.
+- **Bloqueado:** testimonios retirados de navegación, home, sitemap y ruta pública hasta confirmar textos y permisos.
+- **Bloqueado:** credenciales detalladas retiradas hasta su verificación documental.
 
 ## Reservas y horarios
 
-### Fase actual
-
-La web solicita una franja preferida y abre un mensaje de WhatsApp. La plaza se confirma manualmente; no se muestra disponibilidad en tiempo real.
-
-- [ ] Crear cuadrante base con día, hora, profesor, aforo, alumnos y plazas libres.
-- [ ] Definir cómo se registran cambios semanales y recuperaciones.
-- [ ] Identificar las franjas que se quieren promocionar.
-- [ ] Definir el tiempo máximo de respuesta a una solicitud.
-
-### Fase futura
-
-- [ ] Valorar agenda en tiempo real cuando las reglas operativas estén estabilizadas.
-- [ ] Valorar recordatorios automáticos.
-- [ ] Valorar pagos online solo después de definir contratación, devoluciones y protección de datos.
-
-## SEO local y lanzamiento
-
-- [ ] Añadir al usuario como administrador de los perfiles de Google de Gyrotonic y Synergy.
-- [ ] Confirmar nombre, categoría, horario, teléfono y dirección en Google Business Profile.
-- [ ] Añadir instrucciones para encontrar el portal 2 y fotografías del acceso.
-- [ ] Conectar Google Search Console después del despliegue.
-- [ ] Enviar `https://gyrotonicpozuelo.es/sitemap.xml` a Search Console.
-- [ ] Crear redirección del dominio `www` al dominio canónico o viceversa.
-- [ ] Probar todas las rutas, llamadas, WhatsApp y mapa en móvil real.
+- **Implementado:** formulario que prepara WhatsApp; no almacena datos ni confirma una reserva.
+- **Implementado:** mensaje expreso de que la solicitud no confirma plaza ni implica pago.
+- **Pendiente:** cuadrante de día, hora, profesor, aforo y plazas.
+- **Pendiente:** reglas de cambios, recuperaciones y tiempo máximo de respuesta.
+- **Pendiente:** decidir franjas prioritarias para promoción.
 
 ## Dominio, DNS y correo
 
-- [ ] Recuperar credenciales del registrador y proveedor de correo.
-- [ ] Exportar los registros DNS antes de modificar nada.
-- [ ] Conservar MX, SPF, DKIM y DMARC del correo.
-- [ ] Añadir únicamente los registros solicitados por Vercel.
-- [ ] Probar recepción y envío de correo después del cambio.
+- **Implementado:** dominio canónico `.es` en SEO, schema, robots y sitemap.
+- **Implementado:** rutas SPA configuradas en `vercel.json`.
+- **Pendiente:** recuperar accesos, exportar DNS y conservar MX, SPF, DKIM y DMARC.
+- **Pendiente:** añadir solo los registros de Vercel y probar envío/recepción después.
 
-## Mejoras futuras
+## SEO local y Google Business Profile
 
-- Orientador interactivo según objetivo, experiencia y horario.
-- Páginas de contenido local y preguntas frecuentes basadas en búsquedas reales.
-- Analítica sin publicidad y con configuración respetuosa con la privacidad.
-- Sistema de seguimiento de contactos y origen de cada alta.
-- Web independiente de Synergy Pilates reutilizando el sistema visual, no el contenido ni el embudo de Gyrotonic.
+- **Pendiente:** confirmar nombre, categoría, horario, teléfono y dirección de la ficha.
+- **Pendiente:** añadir fotografías e indicaciones para localizar el portal 2.
+- **Pendiente:** conectar Search Console y enviar `https://gyrotonicpozuelo.es/sitemap.xml` tras desplegar.
+- **Pendiente:** validar enlaces, datos estructurados y redirecciones en producción.
+
+## Medición y marketing futuro
+
+- **Pendiente:** definir objetivos y métricas antes de incorporar medición.
+- **Pendiente:** evaluar analítica respetuosa con la privacidad y actualizar textos/consentimiento si procede.
+- **Pendiente:** no incorporar publicidad, cookies o servicios externos sin decisión expresa y revisión legal.
+
+## Web futura de Synergy Pilates
+
+- **Pendiente:** crear proyecto independiente reutilizando únicamente el sistema visual y los componentes adecuados.
+- **Pendiente:** definir marca, dominio, contenido, servicios, datos legales y embudo propios; no copiar datos de Gyrotonic.
+
+## Datos y tarifas implementados
+
+- **Implementado:** teléfono `+34 696 62 35 79`, dirección Avenida de Europa 7, portal 2, 28224 Pozuelo de Alarcón, Madrid.
+- **Implementado:** clases de 60 minutos, grupos de máximo 4 personas, impuestos incluidos y ausencia de contratación/pago online.
+- **Implementado:** prueba 25 €, iniciación (4) 175 €, grupo (4/8) 100 €/190 €, privadas mensuales (4/8) 190 €/375 €, bonos privados (5/10) 235 €/470 € con 2 meses de caducidad y privada suelta 55 €.

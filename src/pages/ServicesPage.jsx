@@ -70,12 +70,12 @@ const ServicesPage = () => {
         {
             step: "2",
             title: "Tu Primera Sesión",
-            description: "En la primera clase del pack de iniciación, no solo nos movemos. Evaluamos tu postura y rango de movimiento para entender \"el mapa\" de tu cuerpo y sus necesidades."
+            description: "En la primera clase del pack de iniciación conocemos tu experiencia, practicamos movimientos básicos y ajustamos el punto de partida."
         },
         {
             step: "3",
             title: "Aprendizaje y Orientación",
-            description: "Durante las siguientes sesiones del pack, te enseñamos a \"respirar\" el método y a usar la máquina. Es vital para garantizar tu aprendizaje y confianza."
+            description: "Durante las siguientes sesiones del pack, te enseñamos la respiración, los movimientos y el uso de la máquina de forma progresiva."
         },
         {
             step: "4",
@@ -89,7 +89,7 @@ const ServicesPage = () => {
             {/* SEO Optimization */}
             <SEOHead
                 title="Servicios GYROTONIC® Pozuelo | Clases Privadas y Grupales Madrid"
-                description="Descubre nuestros servicios GYROTONIC® en Pozuelo: Pack de Iniciación, Clases Privadas personalizadas y Clases Grupales. Entrenamiento adaptado a tus necesidades con instructores certificados."
+                description="Descubre las modalidades de Gyrotonic Pozuelo: pack de iniciación, clases privadas y grupos de hasta cuatro personas."
                 canonical="/servicios"
                 ogType="website"
             />

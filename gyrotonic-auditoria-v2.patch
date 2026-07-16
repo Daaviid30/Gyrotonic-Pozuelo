@@ -1,0 +1,1580 @@
+diff --git a/AUDITORIA_V2.md b/AUDITORIA_V2.md
+new file mode 100644
+index 0000000..5e4365c
+--- /dev/null
++++ b/AUDITORIA_V2.md
+@@ -0,0 +1,135 @@
++# Auditoría V2 — Gyrotonic Pozuelo
++
++Fecha: 16 de julio de 2026  
++Rama de trabajo: `codex/auditoria-visual-v2`
++
++## 1. Resumen ejecutivo
++
++Se realizó una segunda revisión estática integral de la aplicación React/Vite. La base ya centralizaba correctamente el dominio, contacto y tarifas; incluía rutas españolas, redirecciones de rutas antiguas, mapa bajo acción del usuario, páginas legales provisionales con `noindex` y configuración SPA para Vercel.
++
++El principal riesgo detectado era de contenido: se publicaban credenciales profesionales pendientes de verificación y testimonios con afirmaciones clínicas o resultados contundentes cuya autorización también seguía pendiente. Ambos contenidos se han retirado de la experiencia pública. Se han añadido además mejoras puntuales de accesibilidad, navegación y SEO sin alterar la identidad visual.
++
++El entorno de ejecución no dispone de Node.js ni `npm`, ni de navegador automatizado. Por ello no fue posible levantar la web, ejecutar Lighthouse, lint, build o las auditorías de npm. Esta limitación se declara expresamente y esas comprobaciones no se dan por superadas.
++
++## 2. Problemas encontrados
++
++- Testimonios publicados como reales sin constar todavía la autorización y con promesas sobre dolor, fisioterapia, lesiones y resultados.
++- Credenciales, titulaciones y especialidades detalladas publicadas aunque `PENDIENTES_WEB.md` exigía verificarlas.
++- Meta description inicial con promesas de mejora de postura, flexibilidad y bienestar.
++- CTA principal con lenguaje de “reserva” cuando el flujo solo solicita información y disponibilidad.
++- El menú móvil no respondía a la tecla Escape.
++- El desplazamiento a anclas solicitaba animación incluso con reducción de movimiento.
++- Faltaba un enlace para saltar directamente al contenido principal.
++- Dos imágenes de secciones no declaraban dimensiones ni carga diferida.
++- `PENDIENTES_WEB.md` no distinguía claramente prioridad, estado, responsable, área afectada y siguiente acción.
++
++## 3. Cambios visuales y justificación
++
++- Se conserva paleta, tipografía, espaciado, tarjetas, hero y estructura general; no se justificó un rediseño.
++- La página de equipo se simplifica para transmitir cercanía sin publicar credenciales no confirmadas.
++- Se mantiene una jerarquía clara con hero, introducción, perfiles, principios de atención y CTA.
++- Se elimina la sección pública de testimonios hasta contar con textos y permisos verificables, evitando señales de confianza artificiales.
++- Se añade un enlace de salto visible al recibir foco, sin impacto visual durante navegación con ratón.
++
++## 4. Cambios técnicos
++
++- `/testimonios` y `/testimonials` redirigen al equipo; la URL se retira del sitemap.
++- Se eliminan componentes, estilos y datos de testimonios que ya no debían formar parte del bundle.
++- Se retiran datos estructurados de testimonios y credenciales detalladas del equipo.
++- Se corrigen metadatos y textos que podían interpretarse como promesas médicas o reservas confirmadas.
++- El menú móvil se puede cerrar con Escape.
++- `ScrollToTop` respeta `prefers-reduced-motion` al navegar hacia anclas.
++- Se incorpora `#main-content` y un enlace “Saltar al contenido”.
++- Se añaden `loading`, `width` y `height` a imágenes de servicios y equipo en la home.
++
++## 5. Comprobación de la auditoría anterior
++
++Verificado estáticamente:
++
++- Dominio canónico `https://gyrotonicpozuelo.es` centralizado y usado por SEO/schema.
++- Teléfono `+34 696 62 35 79` y dirección completa correctos.
++- Horario provisional 09:00–21:00, sesiones de 60 minutos y grupos de máximo 4.
++- Tarifas centralizadas y coincidentes con todas las cantidades indicadas.
++- Impuestos incluidos y ausencia de contratación/pago online comunicados.
++- La prueba de 25 € no se presenta como descontable del pack.
++- El formulario abre WhatsApp y aclara que no confirma plaza ni implica pago.
++- El mapa solo se carga tras pulsar el botón y usa la dirección centralizada.
++- Rutas principales en español y redirecciones de rutas antiguas en inglés.
++- Páginas legales con `noindex` y aviso de provisionalidad.
++- `robots.txt`, sitemap, canonical, Open Graph y schema usan el dominio `.es`.
++- `vercel.json` contiene rewrite SPA y cabeceras de seguridad básicas.
++
++## 6. Vulnerabilidades antes y después
++
++No evaluables en este entorno: `npm` no está instalado. No se aplicó `npm audit fix` ni se modificaron dependencias. Es obligatorio ejecutar `npm audit` y `npm audit --omit=dev` en un entorno con Node antes de publicar.
++
++## 7. Dependencias actualizadas
++
++Ninguna. No se realizaron actualizaciones sin disponer de instalación, auditoría y build para comprobar compatibilidad.
++
++## 8. Resultado de lint y build
++
++- `npm run lint`: no ejecutado; comando `npm` no disponible.
++- `npm run build`: no ejecutado; comando `npm` no disponible.
++- `npm audit`: no ejecutado; comando `npm` no disponible.
++- `npm audit --omit=dev`: no ejecutado; comando `npm` no disponible.
++- `npm outdated`: no ejecutado; comando `npm` no disponible.
++- `git diff --check`: correcto, sin errores de espacios; Git solo informa de la futura conversión LF/CRLF en Windows.
++
++## 9. Responsive y accesibilidad
++
++Revisión estática realizada sobre breakpoints y reglas de escritorio, tablet y móvil, menú abierto/cerrado, formulario, mapa, foco y reducción de movimiento. Se verificaron etiquetas, campos asociados, estado con `role=status`, texto del botón del mapa, foco visible y semántica general.
++
++No se pudo hacer inspección renderizada a 390 px, tablet, portátil y escritorio, ni validar hover, teclado completo, consola o Lighthouse, porque no hay Node ni navegador automatizado disponible. Debe completarse antes del lanzamiento.
++
++## 10. Archivos modificados
++
++- `AUDITORIA_V2.md`
++- `PENDIENTES_WEB.md`
++- `index.html`
++- `public/sitemap.xml`
++- `src/App.jsx`
++- `src/components/layout/Navbar.jsx`
++- `src/components/sections/Hero.jsx`
++- `src/components/sections/Services.jsx`
++- `src/components/sections/Team.jsx`
++- `src/components/seo/SchemaMarkup.jsx`
++- `src/components/ui/ScrollToTop.jsx`
++- `src/constants/navigation.js`
++- `src/constants/team.js`
++- `src/pages/MethodPage.jsx`
++- `src/pages/ServicesPage.jsx`
++- `src/pages/TeamPage.jsx`
++- `src/styles/global.css`
++- Eliminados: componentes, estilos, página y datos de testimonios.
++
++## 11. Riesgos y limitaciones pendientes
++
++- Falta verificación renderizada, lint, build, consola, Lighthouse y auditoría de dependencias.
++- Fotografías actuales provisionales y recursos de Unsplash pendientes de sustitución.
++- Horario final, WhatsApp oficial, reglas operativas y métodos de pago requieren confirmación.
++- Datos empresariales y revisión jurídica siguen bloqueando la publicación legal.
++- El pin exacto del portal 2 debe comprobarse con la ficha oficial de Google.
++- La publicación remota depende de disponer de GitHub CLI o de una URL y credenciales de GitHub.
++
++## 12. Recomendaciones para la siguiente iteración
++
++1. Instalar una versión LTS de Node.js compatible con Vite 7 y ejecutar todas las comprobaciones.
++2. Revisar visualmente cada ruta en 1440, 1280, 768 y 390 px y con teclado.
++3. Obtener datos legales, verificaciones profesionales y autorizaciones antes de reintroducir contenido.
++4. Sustituir fotografías provisionales y generar la imagen Open Graph.
++5. Probar WhatsApp, llamada, mapa, anclas, 404 y rutas directas en un móvil real y en preview de Vercel.
++
++## 13. Ejecución y revisión local
++
++```bash
++npm ci
++npm run lint
++npm run build
++npm audit
++npm audit --omit=dev
++npm outdated
++npm run dev
++```
++
++Abrir la URL indicada por Vite y revisar `/`, `/metodo`, `/servicios`, `/equipo`, `/precios`, `/aviso-legal`, `/privacidad`, `/cookies`, una ruta inexistente y las redirecciones antiguas. Confirmar también el menú móvil, el formulario sin/enviar, la carga voluntaria del mapa, foco visible, Escape y reducción de movimiento.
+diff --git a/PENDIENTES_WEB.md b/PENDIENTES_WEB.md
+index bbd0305..f1b5dc0 100644
+--- a/PENDIENTES_WEB.md
++++ b/PENDIENTES_WEB.md
+@@ -1,97 +1,95 @@
+ # Pendientes para publicar Gyrotonic Pozuelo
+ 
+-Este documento concentra los datos y decisiones que todavía faltan. No se deben sustituir por información inventada en producción.
+-
+-## Bloqueantes de publicación
+-
+-- [ ] Confirmar razón social completa de la sociedad.
+-- [ ] Confirmar CIF.
+-- [ ] Confirmar domicilio social o profesional que debe aparecer en el aviso legal.
+-- [ ] Añadir datos registrales de la sociedad, si corresponden.
+-- [ ] Confirmar el email corporativo para contacto y privacidad.
+-- [ ] Confirmar si el horario general termina a las 21:00 o a las 21:30.
+-- [ ] Confirmar que `+34 696 62 35 79` es también el WhatsApp oficial.
+-- [ ] Obtener la URL exacta de la ficha de Google Maps y regenerar el mapa si la búsqueda por dirección no apunta al portal correcto.
+-- [ ] Confirmar si la clase privada de prueba de 25 € se descuenta del pack de iniciación.
+-- [ ] Confirmar métodos de pago aceptados. Por ahora solo consta tarjeta en el centro, pendiente de verificar efectivo y otros métodos.
+-- [ ] Documentar cancelaciones, recuperaciones, no asistencia, bajas y devoluciones.
+-- [ ] Revisar profesionalmente aviso legal, privacidad y condiciones antes de retirar `noindex` de las páginas legales.
+-- [ ] Verificar una por una las titulaciones y certificaciones publicadas del equipo.
+-- [ ] Confirmar si el negocio es un centro sanitario autorizado. Hasta entonces no anunciar fisioterapia ni rehabilitación sanitaria como servicios.
+-
+-## Datos ya confirmados
+-
+-- Dominio: `gyrotonicpozuelo.es`.
+-- Teléfono: `+34 696 62 35 79`.
+-- Dirección: Avenida de Europa 7, portal 2, 28224 Pozuelo de Alarcón, Madrid.
+-- Las clases duran 60 minutos completos.
+-- Los grupos tienen un máximo de 4 personas.
+-- Los precios publicados incluyen impuestos.
+-- No existe contratación ni pago online en esta fase.
+-- Las fichas de alumnos se conservan actualmente en papel y las gestiona el centro.
+-- Existen formularios de autorización para el uso de imágenes.
+-
+-## Tarifas Gyrotonic confirmadas
+-
+-- Clase privada de prueba: 25 €.
+-- Pack de iniciación de 4 clases privadas: 175 €.
+-- Grupo, 4 clases al mes: 100 €.
+-- Grupo, 8 clases al mes: 190 €.
+-- Privada, 4 clases al mes: 190 €.
+-- Privada, 8 clases al mes: 375 €.
+-- Bono privado de 5 clases: 235 €, caducidad de 2 meses.
+-- Bono privado de 10 clases: 470 €, caducidad de 2 meses.
+-- Clase privada suelta: 55 €.
+-
+-## Imágenes y contenido
+-
+-- [ ] Recibir enlace de Drive con las imágenes reales.
+-- [ ] Seleccionar una fotografía horizontal para el hero.
+-- [ ] Sustituir las fotografías genéricas de Unsplash en servicios y precios.
+-- [ ] Preparar una imagen Open Graph de 1200 × 630 px.
+-- [ ] Registrar qué autorizaciones cubren web, redes sociales y publicidad.
+-- [ ] Confirmar el texto y autorización de cada testimonio.
+-- [ ] Añadir fotografías del acceso, portal 2, interior, máquinas y profesores.
++Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningún dato pendiente por información inventada.
+ 
+-## Reservas y horarios
++## P0 — Bloqueos antes de publicar
++
++| Estado | Pendiente o decisión | Responsable | Afecta | Próxima acción |
++|---|---|---|---|---|
++| Bloqueado | Razón social, CIF, domicilio y datos registrales | Propietarios / asesoría | Aviso legal | Entregar datos y validar el texto con un profesional |
++| Bloqueado | Email corporativo de contacto y privacidad | Propietarios | Legal y contacto | Confirmar una dirección operativa |
++| Bloqueado | Revisión jurídica de aviso legal y privacidad | Asesoría jurídica | Páginas legales | Revisar antes de retirar `noindex` |
++| Bloqueado | Titulaciones, especialidades y biografías del equipo | Cada profesional / propietarios | Equipo y SEO | Aportar documentos y texto aprobado; hasta entonces no se publican credenciales detalladas |
++| Bloqueado | Autoría, consentimiento y literal de cada testimonio | Propietarios / alumnos | Testimonios | Recopilar autorizaciones; hasta entonces la sección permanece retirada |
++| Pendiente | URL exacta de Google Maps y comprobación del portal 2 | Propietarios | Contacto y mapa | Compartir ficha oficial y probar el pin físicamente |
++| Pendiente | Políticas de cancelación, recuperación, bajas y devoluciones | Propietarios | Tarifas y condiciones | Documentar reglas operativas y revisarlas legalmente |
++
++## P1 — Mejoras importantes para el lanzamiento
++
++| Estado | Pendiente o decisión | Responsable | Afecta | Próxima acción |
++|---|---|---|---|---|
++| Pendiente | Fotografías reales del centro, acceso, máquinas y equipo | Propietarios / fotografía | Toda la web | Seleccionar y optimizar originales con autorizaciones |
++| Pendiente | Imagen Open Graph de 1200 × 630 px | Diseño | Compartición social | Crear tras disponer de fotografía y marca definitivas |
++| Pendiente | Prueba completa en móviles reales | Desarrollo / propietarios | Navegación, llamadas, WhatsApp y mapa | Probar iOS y Android antes del lanzamiento |
++| Pendiente | Verificación visual automatizada y Lighthouse | Desarrollo | Responsive, accesibilidad y rendimiento | Ejecutar en un entorno con Node y navegador |
++| Pendiente | Redirección entre `www` y el dominio canónico | Desarrollo / DNS | SEO | Elegir variante canónica y configurar en Vercel |
++
++## P2 — Mejoras posteriores
++
++| Estado | Mejora | Responsable | Próxima acción |
++|---|---|---|---|
++| Pendiente | Orientador por objetivo, experiencia y horario | Producto | Validar utilidad con consultas reales |
++| Pendiente | Contenido local y preguntas frecuentes | SEO / propietarios | Basarse en preguntas y búsquedas reales |
++| Pendiente | Seguimiento de contactos sin datos de salud | Operaciones | Definir campos, base legal y acceso |
++| Pendiente | Recordatorios o agenda en tiempo real | Operaciones / desarrollo | Abordar cuando las reglas de horarios estén estabilizadas |
++
++## Decisiones pendientes de confirmar con los propietarios
+ 
+-### Fase actual
++- **Pendiente — horario:** confirmar si el cierre definitivo es 21:00 o 21:30. La web muestra provisionalmente lunes a viernes, 09:00–21:00.
++- **Pendiente — WhatsApp:** confirmar que `+34 696 62 35 79` es el número oficial también para WhatsApp.
++- **Pendiente — prueba:** confirmar si los 25 € se descuentan del pack. La web no afirma que se descuenten.
++- **Pendiente — pagos:** confirmar tarjeta, efectivo y otros métodos presenciales. La web solo indica que no hay pago online.
++- **Pendiente — actividad sanitaria:** confirmar si existe autorización sanitaria. Hasta entonces no anunciar fisioterapia ni rehabilitación sanitaria.
+ 
+-La web solicita una franja preferida y abre un mensaje de WhatsApp. La plaza se confirma manualmente; no se muestra disponibilidad en tiempo real.
++## Datos legales pendientes
+ 
+-- [ ] Crear cuadrante base con día, hora, profesor, aforo, alumnos y plazas libres.
+-- [ ] Definir cómo se registran cambios semanales y recuperaciones.
+-- [ ] Identificar las franjas que se quieren promocionar.
+-- [ ] Definir el tiempo máximo de respuesta a una solicitud.
++- **Bloqueado:** identidad empresarial, CIF, domicilio, registro y email.
++- **Bloqueado:** revisión profesional de todos los textos legales.
++- **Implementado:** páginas provisionales con `noindex` y aviso visible.
++- **Implementado:** no se carga analítica, publicidad ni píxeles.
+ 
+-### Fase futura
++## Contenido e imágenes pendientes
+ 
+-- [ ] Valorar agenda en tiempo real cuando las reglas operativas estén estabilizadas.
+-- [ ] Valorar recordatorios automáticos.
+-- [ ] Valorar pagos online solo después de definir contratación, devoluciones y protección de datos.
++- **Pendiente:** recibir originales y registrar autorizaciones para web, redes y publicidad.
++- **Pendiente:** sustituir imágenes genéricas de Unsplash y fotografía provisional del hero.
++- **Bloqueado:** testimonios retirados de navegación, home, sitemap y ruta pública hasta confirmar textos y permisos.
++- **Bloqueado:** credenciales detalladas retiradas hasta su verificación documental.
+ 
+-## SEO local y lanzamiento
++## Reservas y horarios
+ 
+-- [ ] Añadir al usuario como administrador de los perfiles de Google de Gyrotonic y Synergy.
+-- [ ] Confirmar nombre, categoría, horario, teléfono y dirección en Google Business Profile.
+-- [ ] Añadir instrucciones para encontrar el portal 2 y fotografías del acceso.
+-- [ ] Conectar Google Search Console después del despliegue.
+-- [ ] Enviar `https://gyrotonicpozuelo.es/sitemap.xml` a Search Console.
+-- [ ] Crear redirección del dominio `www` al dominio canónico o viceversa.
+-- [ ] Probar todas las rutas, llamadas, WhatsApp y mapa en móvil real.
++- **Implementado:** formulario que prepara WhatsApp; no almacena datos ni confirma una reserva.
++- **Implementado:** mensaje expreso de que la solicitud no confirma plaza ni implica pago.
++- **Pendiente:** cuadrante de día, hora, profesor, aforo y plazas.
++- **Pendiente:** reglas de cambios, recuperaciones y tiempo máximo de respuesta.
++- **Pendiente:** decidir franjas prioritarias para promoción.
+ 
+ ## Dominio, DNS y correo
+ 
+-- [ ] Recuperar credenciales del registrador y proveedor de correo.
+-- [ ] Exportar los registros DNS antes de modificar nada.
+-- [ ] Conservar MX, SPF, DKIM y DMARC del correo.
+-- [ ] Añadir únicamente los registros solicitados por Vercel.
+-- [ ] Probar recepción y envío de correo después del cambio.
++- **Implementado:** dominio canónico `.es` en SEO, schema, robots y sitemap.
++- **Implementado:** rutas SPA configuradas en `vercel.json`.
++- **Pendiente:** recuperar accesos, exportar DNS y conservar MX, SPF, DKIM y DMARC.
++- **Pendiente:** añadir solo los registros de Vercel y probar envío/recepción después.
++
++## SEO local y Google Business Profile
++
++- **Pendiente:** confirmar nombre, categoría, horario, teléfono y dirección de la ficha.
++- **Pendiente:** añadir fotografías e indicaciones para localizar el portal 2.
++- **Pendiente:** conectar Search Console y enviar `https://gyrotonicpozuelo.es/sitemap.xml` tras desplegar.
++- **Pendiente:** validar enlaces, datos estructurados y redirecciones en producción.
++
++## Medición y marketing futuro
++
++- **Pendiente:** definir objetivos y métricas antes de incorporar medición.
++- **Pendiente:** evaluar analítica respetuosa con la privacidad y actualizar textos/consentimiento si procede.
++- **Pendiente:** no incorporar publicidad, cookies o servicios externos sin decisión expresa y revisión legal.
++
++## Web futura de Synergy Pilates
++
++- **Pendiente:** crear proyecto independiente reutilizando únicamente el sistema visual y los componentes adecuados.
++- **Pendiente:** definir marca, dominio, contenido, servicios, datos legales y embudo propios; no copiar datos de Gyrotonic.
+ 
+-## Mejoras futuras
++## Datos y tarifas implementados
+ 
+-- Orientador interactivo según objetivo, experiencia y horario.
+-- Páginas de contenido local y preguntas frecuentes basadas en búsquedas reales.
+-- Analítica sin publicidad y con configuración respetuosa con la privacidad.
+-- Sistema de seguimiento de contactos y origen de cada alta.
+-- Web independiente de Synergy Pilates reutilizando el sistema visual, no el contenido ni el embudo de Gyrotonic.
++- **Implementado:** teléfono `+34 696 62 35 79`, dirección Avenida de Europa 7, portal 2, 28224 Pozuelo de Alarcón, Madrid.
++- **Implementado:** clases de 60 minutos, grupos de máximo 4 personas, impuestos incluidos y ausencia de contratación/pago online.
++- **Implementado:** prueba 25 €, iniciación (4) 175 €, grupo (4/8) 100 €/190 €, privadas mensuales (4/8) 190 €/375 €, bonos privados (5/10) 235 €/470 € con 2 meses de caducidad y privada suelta 55 €.
+diff --git a/index.html b/index.html
+index cc613ae..937589d 100644
+--- a/index.html
++++ b/index.html
+@@ -10,7 +10,7 @@
+   <meta name="theme-color" content="#0f766e" />
+   <title>GYROTONIC® Pozuelo</title>
+   <meta name="description"
+-    content="Estudio especializado en GYROTONIC® y GYROKINESIS® en Pozuelo de Alarcón. Mejora tu postura, flexibilidad y bienestar sin impacto. ¡Reserva tu sesión!" />
++    content="Clases de GYROTONIC® de 60 minutos en Pozuelo de Alarcón, individuales y en grupos de hasta 4 personas. Solicita información por WhatsApp." />
+ </head>
+ 
+ <body>
+diff --git a/public/sitemap.xml b/public/sitemap.xml
+index a80d38a..92cc975 100644
+--- a/public/sitemap.xml
++++ b/public/sitemap.xml
+@@ -24,12 +24,6 @@
+     <changefreq>monthly</changefreq>
+     <priority>0.8</priority>
+   </url>
+-  <url>
+-    <loc>https://gyrotonicpozuelo.es/testimonios</loc>
+-    <lastmod>2026-07-15</lastmod>
+-    <changefreq>monthly</changefreq>
+-    <priority>0.7</priority>
+-  </url>
+   <url>
+     <loc>https://gyrotonicpozuelo.es/precios</loc>
+     <lastmod>2026-07-15</lastmod>
+diff --git a/src/App.jsx b/src/App.jsx
+index 4a525e5..16c97d1 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -9,12 +9,10 @@ import About from './components/sections/About';
+ import Services from './components/sections/Services';
+ import Team from './components/sections/Team';
+ import Pricing from './components/sections/Pricing';
+-import Testimonials from './components/sections/Testimonials';
+ import Contact from './components/sections/Contact';
+ import MethodPage from './pages/MethodPage';
+ import ServicesPage from './pages/ServicesPage';
+ import TeamPage from './pages/TeamPage';
+-import TestimonialsPage from './pages/TestimonialsPage';
+ import PricingPage from './pages/PricingPage';
+ import LegalPage from './pages/LegalPage';
+ import NotFoundPage from './pages/NotFoundPage';
+@@ -28,14 +26,15 @@ function App() {
+       <Router>
+         <ScrollToTop />
+         <div className="app">
++          <a className="skip-link" href="#main-content">Saltar al contenido</a>
+           <Navbar />
+-          <main>
++          <main id="main-content">
+             <Routes>
+               <Route path="/" element={<Home />} />
+               <Route path="/metodo" element={<MethodPage />} />
+               <Route path="/servicios" element={<ServicesPage />} />
+               <Route path="/equipo" element={<TeamPage />} />
+-              <Route path="/testimonios" element={<TestimonialsPage />} />
++              <Route path="/testimonios" element={<Navigate to="/#team" replace />} />
+               <Route path="/precios" element={<PricingPage />} />
+               <Route path="/aviso-legal" element={<LegalPage type="aviso" />} />
+               <Route path="/privacidad" element={<LegalPage type="privacidad" />} />
+@@ -43,7 +42,7 @@ function App() {
+               <Route path="/method" element={<Navigate to="/metodo" replace />} />
+               <Route path="/services" element={<Navigate to="/servicios" replace />} />
+               <Route path="/team" element={<Navigate to="/equipo" replace />} />
+-              <Route path="/testimonials" element={<Navigate to="/testimonios" replace />} />
++              <Route path="/testimonials" element={<Navigate to="/#team" replace />} />
+               <Route path="*" element={<NotFoundPage />} />
+             </Routes>
+           </main>
+@@ -67,7 +66,6 @@ const Home = () => (
+     <About />
+     <Services />
+     <Team />
+-    <Testimonials />
+     <Pricing />
+     <Contact />
+   </>
+diff --git a/src/components/layout/Navbar.jsx b/src/components/layout/Navbar.jsx
+index 53eaa9e..bfc4558 100644
+--- a/src/components/layout/Navbar.jsx
++++ b/src/components/layout/Navbar.jsx
+@@ -29,6 +29,15 @@ const Navbar = () => {
+         return () => { document.body.style.overflow = ''; };
+     }, [isMobileMenuOpen]);
+ 
++    useEffect(() => {
++        if (!isMobileMenuOpen) return undefined;
++        const closeOnEscape = (event) => {
++            if (event.key === 'Escape') setIsMobileMenuOpen(false);
++        };
++        document.addEventListener('keydown', closeOnEscape);
++        return () => document.removeEventListener('keydown', closeOnEscape);
++    }, [isMobileMenuOpen]);
++
+     const closeMenu = () => setIsMobileMenuOpen(false);
+ 
+     return (
+diff --git a/src/components/sections/Hero.jsx b/src/components/sections/Hero.jsx
+index 26bf415..124c8b2 100644
+--- a/src/components/sections/Hero.jsx
++++ b/src/components/sections/Hero.jsx
+@@ -30,7 +30,7 @@ const Hero = () => {
+                     </p>
+ 
+                     <div className="hero-buttons">
+-                        <Button href="#contact" variant="primary">Reserva tu primera sesión</Button>
++                        <Button href="#contact" variant="primary">Solicita tu primera sesión</Button>
+                         <Button href="#method" variant="outline" className="btn-hero-outline">Descubre el método</Button>
+                     </div>
+                 </motion.div>
+diff --git a/src/components/sections/Services.jsx b/src/components/sections/Services.jsx
+index 5d0c5c5..701e869 100644
+--- a/src/components/sections/Services.jsx
++++ b/src/components/sections/Services.jsx
+@@ -30,7 +30,7 @@ const Services = () => {
+                             transition={{ delay: index * 0.1 }}
+                         >
+                             <div className="service-image-wrapper">
+-                                <img src={service.image} alt={service.title} className="service-image" />
++                                <img src={service.image} alt={service.title} className="service-image" loading="lazy" width="800" height="533" />
+                             </div>
+                             <div className="service-content">
+                                 <h3 className="service-title">{service.title}</h3>
+diff --git a/src/components/sections/Team.jsx b/src/components/sections/Team.jsx
+index 6d00bba..f93d516 100644
+--- a/src/components/sections/Team.jsx
++++ b/src/components/sections/Team.jsx
+@@ -19,7 +19,7 @@ const Team = () => {
+                         Nuestro Equipo
+                     </motion.h2>
+                     <p className="section-subtitle">
+-                        Profesionales certificados dedicados a tu bienestar.
++                        Las personas que te acompañarán durante las sesiones.
+                     </p>
+                 </div>
+ 
+@@ -34,7 +34,7 @@ const Team = () => {
+                             transition={{ delay: index * 0.2 }}
+                         >
+                             <div className="instructor-image-container">
+-                                <img src={instructor.image} alt={instructor.name} className="instructor-image" />
++                                <img src={instructor.image} alt={instructor.name} className="instructor-image" loading="lazy" width="680" height="680" />
+                             </div>
+                             <div className="instructor-info">
+                                 <h3 className="instructor-name">{instructor.name}</h3>
+diff --git a/src/components/sections/Testimonials.css b/src/components/sections/Testimonials.css
+deleted file mode 100644
+index 3722c4a..0000000
+--- a/src/components/sections/Testimonials.css
++++ /dev/null
+@@ -1,82 +0,0 @@
+-.testimonials-section {
+-    position: relative;
+-    overflow: hidden;
+-    background-color: var(--color-bg-warm);
+-    /* Warmer background for human element */
+-}
+-
+-.testimonials-grid {
+-    display: grid;
+-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+-    gap: 2.5rem;
+-}
+-
+-.testimonial-card {
+-    background: white;
+-    padding: 3rem;
+-    border-radius: var(--radius-lg);
+-    box-shadow: var(--shadow-sm);
+-    position: relative;
+-    border: 1px solid transparent;
+-    transition: all var(--transition-smooth);
+-}
+-
+-.testimonial-card:hover {
+-    transform: translateY(-5px);
+-    box-shadow: var(--shadow-lg);
+-    border-color: var(--color-accent-soft);
+-}
+-
+-/* Quote mark decoration */
+-.testimonial-card::before {
+-    content: '"';
+-    position: absolute;
+-    top: 1rem;
+-    left: 2rem;
+-    font-size: 6rem;
+-    color: var(--color-bg-off-white);
+-    font-family: serif;
+-    line-height: 1;
+-    z-index: 0;
+-}
+-
+-.stars {
+-    display: flex;
+-    gap: 0.25rem;
+-    margin-bottom: 1.5rem;
+-    position: relative;
+-    z-index: 1;
+-}
+-
+-.testimonial-text {
+-    font-style: italic;
+-    color: var(--color-text-main);
+-    margin-bottom: 2rem;
+-    font-size: 1.1rem;
+-    line-height: 1.8;
+-    position: relative;
+-    z-index: 1;
+-}
+-
+-.testimonial-author {
+-    display: flex;
+-    flex-direction: column;
+-    position: relative;
+-    z-index: 1;
+-    border-top: 1px solid var(--color-bg-off-white);
+-    padding-top: 1rem;
+-}
+-
+-.author-name {
+-    font-weight: 600;
+-    color: var(--color-primary);
+-    font-family: var(--font-heading);
+-    font-size: 1.1rem;
+-}
+-
+-.author-role {
+-    font-size: 0.9rem;
+-    color: var(--color-accent);
+-    /* Highlight role */
+-    font-weight: 500;
+-}
+\ No newline at end of file
+diff --git a/src/components/sections/Testimonials.jsx b/src/components/sections/Testimonials.jsx
+deleted file mode 100644
+index db03f03..0000000
+--- a/src/components/sections/Testimonials.jsx
++++ /dev/null
+@@ -1,57 +0,0 @@
+-import React from 'react';
+-import { motion } from 'framer-motion';
+-import { Star } from 'lucide-react';
+-import { Link } from 'react-router-dom';
+-import { briefTestimonials } from '../../constants/testimonials';
+-import './Testimonials.css';
+-
+-const Testimonials = () => {
+-    return (
+-        <section id="testimonials" className="section testimonials-section bg-off-white">
+-            <div className="container">
+-                <div className="text-center mb-16">
+-                    <h2 className="section-title">Lo que dicen nuestros alumnos</h2>
+-                    <p className="section-subtitle">Experiencias reales de alumnos del centro.</p>
+-                </div>
+-
+-                <div className="testimonials-grid">
+-                    {briefTestimonials.map((review, index) => (
+-                        <motion.div
+-                            key={index}
+-                            className="testimonial-card"
+-                            initial={{ opacity: 0, y: 20 }}
+-                            whileInView={{ opacity: 1, y: 0 }}
+-                            viewport={{ once: true }}
+-                            transition={{ delay: index * 0.1 }}
+-                        >
+-                            <div className="stars">
+-                                {[...Array(review.stars)].map((_, i) => (
+-                                    <Star key={i} size={18} fill="var(--color-accent)" stroke="none" />
+-                                ))}
+-                            </div>
+-                            <p className="testimonial-text">“{review.text}”</p>
+-                            <div className="testimonial-author">
+-                                <span className="author-name">{review.name}</span>
+-                                <span className="author-role">{review.role}</span>
+-                            </div>
+-                        </motion.div>
+-                    ))}
+-                </div>
+-
+-                <motion.div
+-                    className="section-cta"
+-                    initial={{ opacity: 0, y: 20 }}
+-                    whileInView={{ opacity: 1, y: 0 }}
+-                    viewport={{ once: true }}
+-                    transition={{ delay: 0.5 }}
+-                >
+-                    <Link to="/testimonios" className="btn btn-outline">
+-                        Lee Más Historias de Éxito
+-                    </Link>
+-                </motion.div>
+-            </div>
+-        </section>
+-    );
+-};
+-
+-export default Testimonials;
+diff --git a/src/components/seo/SchemaMarkup.jsx b/src/components/seo/SchemaMarkup.jsx
+index 4e6aab6..ee700ca 100644
+--- a/src/components/seo/SchemaMarkup.jsx
++++ b/src/components/seo/SchemaMarkup.jsx
+@@ -85,7 +85,6 @@ const schemasByType = {
+     service: [serviceSchema, breadcrumbSchema('Servicios', '/servicios')],
+     method: [serviceSchema, breadcrumbSchema('Método GYROTONIC®', '/metodo')],
+     team: [breadcrumbSchema('Equipo', '/equipo')],
+-    testimonials: [breadcrumbSchema('Testimonios', '/testimonios')],
+     pricing: [pricingFAQSchema, breadcrumbSchema('Precios y bonos', '/precios')],
+ };
+ 
+diff --git a/src/components/ui/ScrollToTop.jsx b/src/components/ui/ScrollToTop.jsx
+index f60fe7e..478e2ea 100644
+--- a/src/components/ui/ScrollToTop.jsx
++++ b/src/components/ui/ScrollToTop.jsx
+@@ -7,7 +7,8 @@ const ScrollToTop = () => {
+     useEffect(() => {
+         if (hash) {
+             const frame = requestAnimationFrame(() => {
+-                document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
++                const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
++                document.querySelector(hash)?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+             });
+             return () => cancelAnimationFrame(frame);
+         }
+diff --git a/src/constants/navigation.js b/src/constants/navigation.js
+index 0cc8d12..dbf868b 100644
+--- a/src/constants/navigation.js
++++ b/src/constants/navigation.js
+@@ -4,7 +4,6 @@ export const navLinks = [
+     { label: 'Método', path: '/', hash: '#method' },
+     { label: 'Servicios', path: '/', hash: '#services' },
+     { label: 'Equipo', path: '/', hash: '#team' },
+-    { label: 'Testimonios', path: '/', hash: '#testimonials' },
+     { label: 'Precios', path: '/', hash: '#pricing' },
+     { label: 'Contacto', path: '/', hash: '#contact' }
+ ];
+@@ -15,10 +14,8 @@ export const footerLinks = {
+         { label: 'Método GYROTONIC®', path: '/metodo' },
+         { label: 'Nuestros Servicios', path: '/servicios' },
+         { label: 'Equipo', path: '/equipo' },
+-        { label: 'Testimonios', path: '/testimonios' }
+     ],
+     contact: [
+-        { label: 'Reserva tu clase', path: '/#contact' },
+-        { label: 'Consulta gratuita', path: '/#contact' }
++        { label: 'Solicita información', path: '/#contact' }
+     ]
+ };
+diff --git a/src/constants/team.js b/src/constants/team.js
+index 37c1a40..41e77b4 100644
+--- a/src/constants/team.js
++++ b/src/constants/team.js
+@@ -2,14 +2,14 @@
+ export const instructors = [
+     {
+         name: "Mª José Cruz",
+-        role: "Co-Directora e Instructora",
+-        bio: "Bailarina profesional y experta en movimiento. Su experiencia artística aporta sensibilidad, precisión y una manera muy cercana de ayudarte a comprender mejor tu cuerpo.",
++        role: "Equipo de Gyrotonic Pozuelo",
++        bio: "Acompaña las sesiones con una atención cercana, respetando el ritmo y el punto de partida de cada persona.",
+         image: "/images/maria_jose.jpg"
+     },
+     {
+         name: "Antonio Castro",
+-        role: "Co-Director y Entrenador",
+-        bio: "Del fútbol profesional a la osteopatía. Antonio combina su visión de entrenador deportivo con un enfoque técnico y preciso, adaptado al punto de partida de cada alumno.",
++        role: "Equipo de Gyrotonic Pozuelo",
++        bio: "Acompaña las sesiones con un enfoque atento y progresivo, adaptado a la experiencia de cada alumno.",
+         image: "/images/antonio.jpg"
+     }
+ ];
+diff --git a/src/constants/testimonials.js b/src/constants/testimonials.js
+deleted file mode 100644
+index 5dac213..0000000
+--- a/src/constants/testimonials.js
++++ /dev/null
+@@ -1,74 +0,0 @@
+-// Testimonios breves para la sección Testimonials
+-export const briefTestimonials = [
+-    {
+-        name: "Meritxel",
+-        role: "Alumna desde hace 3 años",
+-        text: "Antes tenía que ir al fisio una vez al mes para descontracturar la espalda. Desde que estoy con ellos, no he vuelto a ir. Me han cambiado los hábitos posturales.",
+-        stars: 5
+-    },
+-    {
+-        name: "María",
+-        role: "Llegó por recomendación médica",
+-        text: "Tienen un ojo clínico para detectar cualquier dolencia. Desde el primer día notas los resultados; fortaleces y estiras sin impacto. Si a su profesionalidad añades su calidad humana, es insuperable.",
+-        stars: 5
+-    },
+-    {
+-        name: "Fernanda",
+-        role: "Bailarina Profesional",
+-        text: "Como bailarina, trabajo mi cuerpo intensamente. Con ellos prevengo lesiones y mejoro sin castigarme. Es un trabajo súper personalizado con resultados geniales a corto y largo plazo.",
+-        stars: 5
+-    }
+-];
+-
+-// Testimonios detallados para la página TestimonialsPage
+-export const detailedTestimonials = [
+-    {
+-        name: "Meritxel",
+-        condition: "Contracturas de espalda recurrentes",
+-        stars: 5,
+-        quote: "Antes tenía que ir al fisio una vez al mes para descontracturar la espalda. Desde que estoy con ellos, no he vuelto a ir.",
+-        story: "Hace 3 años que voy a las clases de María José y Antonio. Estoy feliz porque antes de estas clases tenía que ir al fisioterapeuta religiosamente una vez al mes para tratar mis contracturas, y desde que entreno con ellos esa necesidad ha desaparecido. Su método es muy completo; incluso trabajan contigo ejercicios propios de profesionales del ballet. Me han cambiado malos hábitos posturales que arrastraba y la verdad es que estoy encantada con las clases y con los resultados. Además, ellos son un amor y siempre te facilitan el poder recuperar o cambiar clases.",
+-        benefits: [
+-            "Valora haber reducido sus visitas recurrentes al fisioterapeuta.",
+-            "Percibe cambios positivos en sus hábitos posturales.",
+-            "Destaca la continuidad y la adaptación de las clases."
+-        ]
+-    },
+-    {
+-        name: "Macarena",
+-        condition: "Problemas Articulares y Postura en Adolescentes",
+-        stars: 5,
+-        quote: "El dolor ha desaparecido y noto que me ha cambiado el cuerpo. He apuntado a mi hija de 15 años y está encantada.",
+-        story: "Desde que trabajo mis problemas articulares con Antonio y Mariajo, además de haber desaparecido el dolor, noto que me ha cambiado el cuerpo. Son dos profesionales como la copa de un pino y absolutamente honestos. ¡No se les pasa nada por alto! Corrigen, corrigen y corrigen con paciencia y dedicación hasta que aprendes. Son 100% recomendables. He apuntado a mi hija de 15 años con ellos y también está muy contenta; se siente muy a gusto en sus clases. Son efectivas pero muy entretenidas.",
+-        benefits: [
+-            "Percibe una mejora personal en sus molestias articulares.",
+-            "Valora los cambios que nota en su cuerpo.",
+-            "Destaca la corrección constante y el aprendizaje técnico.",
+-            "Su hija también se siente cómoda en las clases."
+-        ]
+-    },
+-    {
+-        name: "Esperanza",
+-        condition: "Fidelidad (+10 años de práctica)",
+-        stars: 5,
+-        quote: "Después de una década, siguen innovando. Saben exactamente cómo trabajarme para hacerme sentir cada vez mejor.",
+-        story: "Después de más de diez años trabajando con ellos, siguen pareciéndome los mejores profesionales. Lo que más valoro es que siempre están innovando y mejorando, nunca te estancas. Tienen un método estupendo y, sobre todo, saben leer cómo estoy cada día para trabajarme de la forma precisa que necesito para salir sintiéndome mejor. Es una garantía de bienestar a largo plazo.",
+-        benefits: [
+-            "Evolución constante (sin estancamiento)",
+-            "Continuidad de la práctica a largo plazo.",
+-            "Clases que se adaptan a tu estado diario."
+-        ]
+-    },
+-    {
+-        name: "Bárbara",
+-        condition: "Exigencia Técnica y Calidad",
+-        stars: 5,
+-        quote: "Son los mejores profesores que he tenido en 10 años. Ya no quedan profesionales con tanto rigor y dedicación al detalle.",
+-        story: "Llevo 10 años entrenando y ellos son, sin duda, los mejores profesores que he tenido. Lo que les diferencia es cómo cuidan los detalles: se preocupan obsesivamente por tu postura y por una ejecución técnica perfecta. No se limitan a dar la clase; te explican el cómo y el porqué de cada movimiento. Es difícil encontrar hoy en día profesionales en este campo con tanto rigor. Se toman su tiempo para enseñarte a hacer las cosas bien, y eso se nota en el resultado final: mi cuerpo ha mejorado infinito gracias a ello.",
+-        benefits: [
+-            "Excelencia técnica",
+-            "Educación corporal",
+-            "Resultados visibles"
+-        ]
+-    }
+-];
+diff --git a/src/pages/MethodPage.jsx b/src/pages/MethodPage.jsx
+index 7be0e4f..6719f71 100644
+--- a/src/pages/MethodPage.jsx
++++ b/src/pages/MethodPage.jsx
+@@ -51,7 +51,7 @@ const MethodPage = () => {
+         {
+             category: "Físicos",
+             items: [
+-                "Mejora la postura y alineación corporal",
++                "Exploración de la organización y coordinación corporal",
+                 "Aumenta la flexibilidad y rango de movimiento",
+                 "Desarrolla fuerza funcional sin crear volumen muscular excesivo",
+                 "Favorece una práctica de movimiento variada y consciente",
+diff --git a/src/pages/ServicesPage.jsx b/src/pages/ServicesPage.jsx
+index 55446ea..c848f3b 100644
+--- a/src/pages/ServicesPage.jsx
++++ b/src/pages/ServicesPage.jsx
+@@ -70,12 +70,12 @@ const ServicesPage = () => {
+         {
+             step: "2",
+             title: "Tu Primera Sesión",
+-            description: "En la primera clase del pack de iniciación, no solo nos movemos. Evaluamos tu postura y rango de movimiento para entender \"el mapa\" de tu cuerpo y sus necesidades."
++            description: "En la primera clase del pack de iniciación conocemos tu experiencia, practicamos movimientos básicos y ajustamos el punto de partida."
+         },
+         {
+             step: "3",
+             title: "Aprendizaje y Orientación",
+-            description: "Durante las siguientes sesiones del pack, te enseñamos a \"respirar\" el método y a usar la máquina. Es vital para garantizar tu aprendizaje y confianza."
++            description: "Durante las siguientes sesiones del pack, te enseñamos la respiración, los movimientos y el uso de la máquina de forma progresiva."
+         },
+         {
+             step: "4",
+@@ -89,7 +89,7 @@ const ServicesPage = () => {
+             {/* SEO Optimization */}
+             <SEOHead
+                 title="Servicios GYROTONIC® Pozuelo | Clases Privadas y Grupales Madrid"
+-                description="Descubre nuestros servicios GYROTONIC® en Pozuelo: Pack de Iniciación, Clases Privadas personalizadas y Clases Grupales. Entrenamiento adaptado a tus necesidades con instructores certificados."
++                description="Descubre las modalidades de Gyrotonic Pozuelo: pack de iniciación, clases privadas y grupos de hasta cuatro personas."
+                 canonical="/servicios"
+                 ogType="website"
+             />
+diff --git a/src/pages/TeamPage.jsx b/src/pages/TeamPage.jsx
+index dd04322..9d2a474 100644
+--- a/src/pages/TeamPage.jsx
++++ b/src/pages/TeamPage.jsx
+@@ -1,214 +1,85 @@
+ import React from 'react';
+ import { motion } from 'framer-motion';
+-import { Award, Fingerprint, HeartHandshake, Infinity as InfinityIcon } from 'lucide-react';
++import { HeartHandshake, Users } from 'lucide-react';
++import { Link } from 'react-router-dom';
+ import PageHero from '../components/ui/PageHero';
+ import BackButton from '../components/ui/BackButton';
+ import SEOHead from '../components/seo/SEOHead';
+-import SchemaMarkup from '../components/seo/SchemaMarkup';
++import { instructors } from '../constants/team';
+ import './TeamPage.css';
+ 
+-const TeamPage = () => {
+-    const breadcrumbs = [
+-        { label: 'Inicio', path: '/' },
+-        { label: 'Nuestro Equipo', path: '/equipo' }
+-    ];
++const TeamPage = () => (
++    <div className="team-page">
++        <SEOHead
++            title="Equipo de Gyrotonic Pozuelo | Atención cercana"
++            description="Conoce a las personas que acompañan las sesiones de Gyrotonic Pozuelo con atención cercana y grupos reducidos."
++            canonical="/equipo"
++        />
++        <PageHero
++            title="Nuestro equipo"
++            subtitle="Atención cercana y acompañamiento durante todo el aprendizaje"
++            breadcrumbs={[{ label: 'Inicio', path: '/' }, { label: 'Nuestro equipo', path: '/equipo' }]}
++        />
+ 
+-    const team = [
+-        {
+-            name: "Mª José Cruz",
+-            role: "Co-Directora e Instructora Certificada",
+-            image: "/images/maria_jose.jpg",
+-            bio: "La trayectoria de María José está profundamente ligada al movimiento. Su carrera como bailarina profesional de ballet clásico aporta sensibilidad artística, precisión y una comprensión práctica del aprendizaje corporal. Hoy vuelca esa experiencia en sus alumnos con una enseñanza cercana y respetuosa con cada ritmo.",
+-            specialties: [
+-                "Trabajo con bailarines y atletas",
+-                "Mejora del rendimiento artístico",
+-                "Consciencia corporal y movimiento",
+-                "Salud pélvica y de la mujer"
+-            ],
+-            certifications: [
+-                "GYROTONIC® Trainer Level 1",
+-                "GYROTONIC®: Pelvic Girdle y Jumping Stretching Board",
+-                "Licenciada en Arte Dramático y Danza",
+-                "Instructora de Pilates: Suelo, Máquinas y Rehabilitación."
+-            ],
+-            philosophy: "Creo que cada cuerpo tiene su propia historia y su propio potencial. Mi misión es ayudarte a descubrirlo, respetando tu ritmo y celebrando cada pequeño avance."
+-        },
+-        {
+-            name: "Antonio Castro",
+-            role: "Co-Director y Entrenador Certificado",
+-            image: "/images/antonio.jpg",
+-            bio: "Antonio llegó a GYROTONIC® desde el mundo del fútbol profesional y la osteopatía. Esa combinación le permite observar el movimiento con una mirada técnica y deportiva.",
+-            story: "Tras retirarse del fútbol, continuó formándose en osteopatía, Pilates y técnicas manuales. En GYROTONIC® encontró un sistema que combina fuerza, movilidad, coordinación y atención al detalle.",
+-            specialties: [
+-                "Visión Osteopática",
+-                "Preparación y movimiento deportivo",
+-                "Optimización del rendimiento físico",
+-                "Entrenamiento funcional y de fuerza"
+-            ],
+-            certifications: [
+-                "GYROTONIC® Trainer Level 1 & Level 2",
+-                "Diplomado en Osteopatía: Escuela Diaphragma",
+-                "Instructor de Pilates Terapéutico",
+-                "Certificado en Quiromasaje, Drenaje Linfático y Kinesiotape."
+-            ],
+-            philosophy: "El cuerpo es increíblemente inteligente cuando le das las herramientas adecuadas. Mi trabajo es guiarte hacia un movimiento que sea fuerte, eficiente y sostenible en el tiempo."
+-        }
+-    ];
++        <div className="container">
++            <BackButton />
++            <section className="team-intro">
++                <span className="eyebrow">Personas y método</span>
++                <h2 className="section-title-page">Conoce a quienes te acompañarán</h2>
++                <p className="intro-text">
++                    En cada sesión prestamos atención a tu experiencia, tu ritmo y tus objetivos generales. Las titulaciones y especialidades detalladas se publicarán cuando el centro termine de verificarlas.
++                </p>
++            </section>
+ 
+-    const values = [
+-        {
+-            icon: <HeartHandshake size={40} />,
+-            title: "Empatía en Movimiento",
+-            description: "Escuchamos tu punto de partida y adaptamos el aprendizaje sin juzgar tu experiencia previa."
+-        },
+-        {
+-            icon: <Fingerprint size={40} />,
+-            title: "Atención Personalizada",
+-            description: "Huimos de las rutinas estandarizadas. Cada cuerpo es un puzle único y diseñamos cada sesión como un traje a medida para tus necesidades de ese día."
+-        },
+-        {
+-            icon: <Award size={40} />,
+-            title: "Rigor Técnico",
+-            description: "La pasión no basta; se necesita conocimiento. Nos formamos continuamente para ofrecerte un servicio basado en la excelencia."
+-        },
+-        {
+-            icon: <InfinityIcon size={40} />,
+-            title: "Salud Sostenible",
+-            description: "No buscamos \"arreglos rápidos\" ni cuerpos de verano, sino construir una base sólida que te permita vivir con vitalidad y autonomía durante décadas."
+-        }
+-    ];
+-
+-    return (
+-        <div className="team-page">
+-            {/* SEO Optimization */}
+-            <SEOHead
+-                title="Equipo GYROTONIC® Pozuelo | Instructores Certificados Madrid"
+-                description="Conoce a María José Cruz y Antonio Castro, instructores de GYROTONIC® en Pozuelo con experiencia en danza, deporte, Pilates y osteopatía."
+-                canonical="/equipo"
+-                ogType="website"
+-            />
+-            <SchemaMarkup type="team" />
+-            <PageHero
+-                title="Nuestro Equipo"
+-                subtitle="Experiencia en movimiento, enseñanza y atención personalizada"
+-                breadcrumbs={breadcrumbs}
+-            />
+-
+-            <div className="container">
+-                <BackButton />
+-
+-                {/* Introducción */}
+-                <motion.section
+-                    className="team-intro"
+-                    initial={{ opacity: 0, y: 20 }}
+-                    whileInView={{ opacity: 1, y: 0 }}
+-                    viewport={{ once: true }}
+-                >
+-                    <h2 className="section-title-page">Experiencia y Dedicación</h2>
+-                    <p className="intro-text">
+-                        Nuestro equipo combina años de práctica y enseñanza con experiencia profesional en danza, deporte, Pilates y osteopatía. Esa mezcla se traduce en una atención técnica, cercana y muy pendiente de los detalles.
+-                    </p>
+-                </motion.section>
+-
+-                {/* Perfiles del Equipo */}
+-                <section className="team-profiles">
+-                    {team.map((member, index) => (
+-                        <motion.div
+-                            key={index}
+-                            className="profile-section"
+-                            initial={{ opacity: 0, y: 30 }}
+-                            whileInView={{ opacity: 1, y: 0 }}
+-                            viewport={{ once: true }}
+-                            transition={{ delay: 0.2 }}
+-                        >
+-                            <div className="profile-header">
+-                                <div className="profile-image-wrapper">
+-                                    <img src={member.image} alt={member.name} className="profile-image" loading="lazy" width="680" height="680" />
+-                                </div>
+-                                <div className="profile-info">
+-                                    <h3 className="profile-name">{member.name}</h3>
+-                                    <p className="profile-role">{member.role}</p>
+-                                </div>
++            <section className="team-profiles" aria-label="Equipo del centro">
++                {instructors.map((member) => (
++                    <motion.article
++                        key={member.name}
++                        className="profile-section"
++                        initial={{ opacity: 0, y: 24 }}
++                        whileInView={{ opacity: 1, y: 0 }}
++                        viewport={{ once: true }}
++                    >
++                        <div className="profile-header">
++                            <div className="profile-image-wrapper">
++                                <img src={member.image} alt={member.name} className="profile-image" loading="lazy" width="680" height="680" />
+                             </div>
+-
+-                            <div className="profile-content">
+-                                <div className="profile-story">
+-                                    <p className="story-paragraph">{member.bio}</p>
+-                                </div>
+-
+-                                <div className="profile-details-grid">
+-                                    <div className="detail-box">
+-                                        <h4 className="detail-title">Especialidades</h4>
+-                                        <ul className="detail-list">
+-                                            {member.specialties.map((specialty, i) => (
+-                                                <li key={i}>{specialty}</li>
+-                                            ))}
+-                                        </ul>
+-                                    </div>
+-
+-                                    <div className="detail-box">
+-                                        <h4 className="detail-title">Certificaciones</h4>
+-                                        <ul className="detail-list">
+-                                            {member.certifications.map((cert, i) => (
+-                                                <li key={i}>{cert}</li>
+-                                            ))}
+-                                        </ul>
+-                                    </div>
+-                                </div>
+-
+-                                <div className="philosophy-box">
+-                                    <h4 className="philosophy-title">Filosofía</h4>
+-                                    <p className="philosophy-text">“{member.philosophy}”</p>
+-                                </div>
++                            <div className="profile-info">
++                                <h2 className="profile-name">{member.name}</h2>
++                                <p className="profile-role">{member.role}</p>
+                             </div>
+-                        </motion.div>
+-                    ))}
+-                </section>
+-
+-                {/* Valores */}
+-                <section className="values-section">
+-                    <h2 className="section-title-page text-center">Nuestros Valores</h2>
+-                    <p className="section-subtitle-page">
+-                        Los principios que guían nuestra forma de trabajar y conectar contigo
+-                    </p>
+-                    <div className="values-grid">
+-                        {values.map((value, index) => (
+-                            <motion.div
+-                                key={index}
+-                                className="value-card"
+-                                initial={{ opacity: 0, scale: 0.95 }}
+-                                whileInView={{ opacity: 1, scale: 1 }}
+-                                viewport={{ once: true }}
+-                                transition={{ delay: index * 0.1 }}
+-                            >
+-                                <div className="value-icon">{value.icon}</div>
+-                                <h3 className="value-title">{value.title}</h3>
+-                                <p className="value-description">{value.description}</p>
+-                            </motion.div>
+-                        ))}
+-                    </div>
+-                </section>
++                        </div>
++                        <div className="profile-content">
++                            <p className="story-paragraph">{member.bio}</p>
++                        </div>
++                    </motion.article>
++                ))}
++            </section>
+ 
+-                {/* CTA */}
+-                <motion.section
+-                    className="team-cta"
+-                    initial={{ opacity: 0, y: 20 }}
+-                    whileInView={{ opacity: 1, y: 0 }}
+-                    viewport={{ once: true }}
+-                >
+-                    <h2 className="cta-title">¿Quieres Conocernos?</h2>
+-                    <p className="cta-text">
+-                        Cuéntanos tus objetivos y tu disponibilidad. Te orientaremos sobre la primera sesión y confirmaremos contigo la plaza.
+-                    </p>
+-                    <a href="/#contact" className="btn btn-primary cta-button">
+-                        Solicitar primera sesión
+-                    </a>
+-                </motion.section>
++            <section className="values-section">
++                <h2 className="section-title-page text-center">Cómo son las sesiones</h2>
++                <div className="values-grid">
++                    <article className="value-card">
++                        <div className="value-icon"><HeartHandshake size={40} aria-hidden="true" /></div>
++                        <h3 className="value-title">Atención cercana</h3>
++                        <p className="value-description">Escuchamos tu punto de partida y ajustamos el aprendizaje a tu experiencia.</p>
++                    </article>
++                    <article className="value-card">
++                        <div className="value-icon"><Users size={40} aria-hidden="true" /></div>
++                        <h3 className="value-title">Grupos reducidos</h3>
++                        <p className="value-description">Un máximo de cuatro personas permite mantener la atención durante los 60 minutos.</p>
++                    </article>
++                </div>
++            </section>
+ 
+-                <BackButton />
+-            </div>
++            <section className="team-cta">
++                <h2 className="cta-title">¿Quieres conocernos?</h2>
++                <p className="cta-text">Cuéntanos qué buscas y confirma personalmente con el centro la disponibilidad.</p>
++                <Link to="/#contact" className="btn btn-primary cta-button">Solicitar información</Link>
++            </section>
++            <BackButton />
+         </div>
+-    );
+-};
++    </div>
++);
+ 
+ export default TeamPage;
+diff --git a/src/pages/TestimonialsPage.css b/src/pages/TestimonialsPage.css
+deleted file mode 100644
+index 74f6611..0000000
+--- a/src/pages/TestimonialsPage.css
++++ /dev/null
+@@ -1,282 +0,0 @@
+-.testimonials-page {
+-    background-color: var(--color-bg-light);
+-    min-height: 100vh;
+-}
+-
+-/* Introducción */
+-.testimonials-intro {
+-    padding: 4rem 0;
+-    max-width: 800px;
+-    margin: 0 auto;
+-}
+-
+-/* Estadísticas */
+-.stats-section {
+-    padding: 3rem 0 5rem;
+-}
+-
+-.stats-grid {
+-    display: grid;
+-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+-    gap: 2rem;
+-    max-width: 1000px;
+-    margin: 0 auto;
+-}
+-
+-.stat-card {
+-    text-align: center;
+-    padding: 2rem;
+-    background: linear-gradient(135deg, var(--color-accent-soft) 0%, white 100%);
+-    border-radius: var(--radius-lg);
+-    box-shadow: var(--shadow-md);
+-    transition: all var(--transition-smooth);
+-}
+-
+-.stat-card:hover {
+-    transform: translateY(-5px);
+-    box-shadow: var(--shadow-hover);
+-}
+-
+-.stat-number {
+-    font-size: 3rem;
+-    font-weight: 700;
+-    color: var(--color-accent);
+-    margin-bottom: 0.5rem;
+-    line-height: 1;
+-}
+-
+-.stat-label {
+-    font-size: 0.95rem;
+-    color: var(--color-text-main);
+-    line-height: 1.5;
+-}
+-
+-/* Testimonios Detallados */
+-.detailed-testimonials {
+-    padding: 2rem 0;
+-}
+-
+-.testimonial-detailed {
+-    background: white;
+-    border-radius: var(--radius-lg);
+-    box-shadow: var(--shadow-lg);
+-    padding: 3rem;
+-    margin-bottom: 3rem;
+-    border-left: 5px solid var(--color-accent);
+-}
+-
+-.testimonial-header {
+-    display: flex;
+-    align-items: center;
+-    gap: 2rem;
+-    margin-bottom: 2rem;
+-    padding-bottom: 2rem;
+-    border-bottom: 1px solid var(--color-bg-off-white);
+-}
+-
+-.testimonial-avatar {
+-    width: 80px;
+-    height: 80px;
+-    border-radius: 50%;
+-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+-    display: flex;
+-    align-items: center;
+-    justify-content: center;
+-    color: white;
+-    flex-shrink: 0;
+-    box-shadow: 0 4px 10px rgba(13, 148, 136, 0.3);
+-}
+-
+-.testimonial-avatar img {
+-    width: 100%;
+-    height: 100%;
+-    object-fit: cover;
+-    border-radius: 50%;
+-}
+-
+-.testimonial-info {
+-    flex: 1;
+-}
+-
+-.testimonial-name {
+-    font-size: 1.75rem;
+-    font-weight: 700;
+-    color: var(--color-primary);
+-    margin-bottom: 0.25rem;
+-}
+-
+-.testimonial-age {
+-    font-size: 0.95rem;
+-    color: var(--color-text-muted);
+-    margin-bottom: 0.25rem;
+-}
+-
+-.testimonial-condition {
+-    font-size: 1rem;
+-    color: var(--color-accent);
+-    font-weight: 600;
+-    margin-bottom: 0.75rem;
+-}
+-
+-.testimonial-stars {
+-    display: flex;
+-    gap: 0.25rem;
+-}
+-
+-.testimonial-quote {
+-    background: linear-gradient(135deg, var(--color-accent-soft) 0%, rgba(243, 240, 235, 0.5) 100%);
+-    padding: 2rem;
+-    border-radius: var(--radius-md);
+-    margin-bottom: 2rem;
+-    position: relative;
+-}
+-
+-.quote-icon {
+-    color: var(--color-accent);
+-    opacity: 0.3;
+-    position: absolute;
+-    top: 1rem;
+-    right: 1rem;
+-}
+-
+-.testimonial-quote p {
+-    font-size: 1.25rem;
+-    line-height: 1.7;
+-    color: var(--color-primary);
+-    font-weight: 500;
+-    font-style: italic;
+-    margin: 0;
+-}
+-
+-.testimonial-story {
+-    margin-bottom: 2rem;
+-}
+-
+-.story-title {
+-    font-size: 1.35rem;
+-    font-weight: 600;
+-    color: var(--color-primary);
+-    margin-bottom: 1rem;
+-}
+-
+-.testimonial-story p {
+-    font-size: 1.05rem;
+-    line-height: 1.9;
+-    color: var(--color-text-main);
+-    text-align: justify;
+-}
+-
+-.testimonial-benefits {
+-    background-color: var(--color-bg-off-white);
+-    padding: 2rem;
+-    border-radius: var(--radius-md);
+-}
+-
+-.benefits-title {
+-    font-size: 1.25rem;
+-    font-weight: 600;
+-    color: var(--color-primary);
+-    margin-bottom: 1rem;
+-}
+-
+-.benefits-list {
+-    list-style: none;
+-    padding: 0;
+-    display: grid;
+-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+-    gap: 0.75rem;
+-}
+-
+-.benefits-list li {
+-    padding: 0.5rem 0 0.5rem 1.75rem;
+-    position: relative;
+-    font-size: 0.95rem;
+-    line-height: 1.6;
+-    color: var(--color-text-main);
+-}
+-
+-.benefits-list li::before {
+-    content: "✓";
+-    position: absolute;
+-    left: 0;
+-    color: var(--color-accent);
+-    font-weight: bold;
+-    font-size: 1.3rem;
+-}
+-
+-/* CTA */
+-.testimonials-cta {
+-    text-align: center;
+-    padding: 4rem 2rem;
+-    max-width: 700px;
+-    margin: 4rem auto;
+-    background: linear-gradient(135deg, var(--color-accent-soft) 0%, rgba(243, 240, 235, 0.5) 100%);
+-    border-radius: var(--radius-lg);
+-    box-shadow: var(--shadow-lg);
+-}
+-
+-/* Responsive */
+-@media (max-width: 768px) {
+-    .testimonials-intro {
+-        padding: 2rem 0;
+-    }
+-
+-    .stats-grid {
+-        grid-template-columns: repeat(2, 1fr);
+-        gap: 1rem;
+-    }
+-
+-    .stat-number {
+-        font-size: 2.25rem;
+-    }
+-
+-    .stat-label {
+-        font-size: 0.85rem;
+-    }
+-
+-    .testimonial-detailed {
+-        padding: 2rem 1.5rem;
+-    }
+-
+-    .testimonial-header {
+-        flex-direction: column;
+-        text-align: center;
+-        gap: 1rem;
+-    }
+-
+-    .testimonial-avatar {
+-        width: 70px;
+-        height: 70px;
+-    }
+-
+-    .testimonial-name {
+-        font-size: 1.5rem;
+-    }
+-
+-    .testimonial-stars {
+-        justify-content: center;
+-    }
+-
+-    .testimonial-quote p {
+-        font-size: 1.1rem;
+-    }
+-
+-    .testimonial-story p {
+-        text-align: left;
+-    }
+-
+-    .benefits-list {
+-        grid-template-columns: 1fr;
+-    }
+-
+-    .testimonials-cta {
+-        padding: 2.5rem 1.5rem;
+-        margin: 2rem auto;
+-    }
+-}
+-
+-@media (max-width: 480px) {
+-    .stats-grid {
+-        grid-template-columns: 1fr;
+-    }
+-}
+\ No newline at end of file
+diff --git a/src/pages/TestimonialsPage.jsx b/src/pages/TestimonialsPage.jsx
+deleted file mode 100644
+index e2d09da..0000000
+--- a/src/pages/TestimonialsPage.jsx
++++ /dev/null
+@@ -1,149 +0,0 @@
+-import React from 'react';
+-import { motion } from 'framer-motion';
+-import { Star, Quote, User } from 'lucide-react';
+-import PageHero from '../components/ui/PageHero';
+-import BackButton from '../components/ui/BackButton';
+-import SEOHead from '../components/seo/SEOHead';
+-import SchemaMarkup from '../components/seo/SchemaMarkup';
+-import { detailedTestimonials } from '../constants/testimonials';
+-import './TestimonialsPage.css';
+-
+-const TestimonialsPage = () => {
+-    const breadcrumbs = [
+-        { label: 'Inicio', path: '/' },
+-        { label: 'Testimonios', path: '/testimonios' }
+-    ];
+-
+-    const stats = [
+-        { number: "60 min", label: "De práctica en cada clase" },
+-        { number: "4", label: "Personas como máximo por grupo" },
+-        { number: "1:1", label: "Atención en las sesiones privadas" },
+-        { number: "2", label: "Formas de continuar: grupo o privado" }
+-    ];
+-
+-    return (
+-        <div className="testimonials-page">
+-            {/* SEO Optimization */}
+-            <SEOHead
+-                title="Testimonios GYROTONIC® Pozuelo | Opiniones Reales de Clientes Madrid"
+-                description="Conoce experiencias compartidas por alumnos de GYROTONIC® Pozuelo sobre las clases, el acompañamiento y la atención del equipo."
+-                canonical="/testimonios"
+-                ogType="website"
+-            />
+-            <SchemaMarkup type="testimonials" />
+-            <PageHero
+-                title="Experiencias de alumnos"
+-                subtitle="Lo que más valoran de las clases y del acompañamiento"
+-                breadcrumbs={breadcrumbs}
+-            />
+-
+-            <div className="container">
+-                <BackButton />
+-
+-                {/* Introducción */}
+-                <motion.section
+-                    className="testimonials-intro"
+-                    initial={{ opacity: 0, y: 20 }}
+-                    whileInView={{ opacity: 1, y: 0 }}
+-                    viewport={{ once: true }}
+-                >
+-                    <h2 className="section-title-page">Experiencias personales</h2>
+-                    <p className="intro-text">
+-                        Cada testimonio refleja una experiencia individual. Los resultados pueden variar, pero todos ayudan a entender cómo se vive una clase y qué diferencia al equipo del centro.
+-                    </p>
+-                </motion.section>
+-
+-                {/* Estadísticas */}
+-                <section className="stats-section">
+-                    <div className="stats-grid">
+-                        {stats.map((stat, index) => (
+-                            <motion.div
+-                                key={index}
+-                                className="stat-card"
+-                                initial={{ opacity: 0, scale: 0.9 }}
+-                                whileInView={{ opacity: 1, scale: 1 }}
+-                                viewport={{ once: true }}
+-                                transition={{ delay: index * 0.1 }}
+-                            >
+-                                <div className="stat-number">{stat.number}</div>
+-                                <div className="stat-label">{stat.label}</div>
+-                            </motion.div>
+-                        ))}
+-                    </div>
+-                </section>
+-
+-                {/* Testimonios Detallados */}
+-                <section className="detailed-testimonials">
+-                    {detailedTestimonials.map((testimonial, index) => (
+-                        <motion.article
+-                            key={index}
+-                            className="testimonial-detailed"
+-                            initial={{ opacity: 0, y: 30 }}
+-                            whileInView={{ opacity: 1, y: 0 }}
+-                            viewport={{ once: true }}
+-                            transition={{ delay: 0.2 }}
+-                        >
+-                            <div className="testimonial-header">
+-                                <div className="testimonial-avatar">
+-                                    {testimonial.image ? (
+-                                        <img src={testimonial.image} alt={testimonial.name} />
+-                                    ) : (
+-                                        <User size={40} />
+-                                    )}
+-                                </div>
+-                                <div className="testimonial-info">
+-                                    <h3 className="testimonial-name">{testimonial.name}</h3>
+-                                    <p className="testimonial-condition">{testimonial.condition}</p>
+-                                    <div className="testimonial-stars">
+-                                        {[...Array(testimonial.stars)].map((_, i) => (
+-                                            <Star key={i} size={18} fill="var(--color-accent)" stroke="none" />
+-                                        ))}
+-                                    </div>
+-                                </div>
+-                            </div>
+-
+-                            <div className="testimonial-quote">
+-                                <Quote className="quote-icon" size={32} />
+-                                <p>{testimonial.quote}</p>
+-                            </div>
+-
+-                            <div className="testimonial-story">
+-                                <h4 className="story-title">Su Historia</h4>
+-                                <p>{testimonial.story}</p>
+-                            </div>
+-
+-                            <div className="testimonial-benefits">
+-                                <h4 className="benefits-title">Lo que destaca de su experiencia</h4>
+-                                <ul className="benefits-list">
+-                                    {testimonial.benefits.map((benefit, i) => (
+-                                        <li key={i}>{benefit}</li>
+-                                    ))}
+-                                </ul>
+-                            </div>
+-                        </motion.article>
+-                    ))}
+-                </section>
+-
+-                {/* CTA */}
+-                <motion.section
+-                    className="testimonials-cta"
+-                    initial={{ opacity: 0, y: 20 }}
+-                    whileInView={{ opacity: 1, y: 0 }}
+-                    viewport={{ once: true }}
+-                >
+-                    <h2 className="cta-title">¿Quieres conocer el método?</h2>
+-                    <p className="cta-text">
+-                        Solicita una primera sesión y descubre cómo se siente el movimiento con atención individual.
+-                    </p>
+-                    <a href="/#contact" className="btn btn-primary cta-button">
+-                        Solicitar primera sesión
+-                    </a>
+-                </motion.section>
+-
+-                <BackButton />
+-            </div>
+-        </div>
+-    );
+-};
+-
+-export default TestimonialsPage;
+diff --git a/src/styles/global.css b/src/styles/global.css
+index 9e1a552..deaa07f 100644
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@ -20,6 +20,24 @@ body {
+     -moz-osx-font-smoothing: grayscale;
+ }
+ 
++.skip-link {
++    position: fixed;
++    top: 0.75rem;
++    left: 0.75rem;
++    z-index: 2000;
++    padding: 0.75rem 1rem;
++    border-radius: var(--radius-sm);
++    background: white;
++    color: var(--color-primary);
++    font-weight: 700;
++    box-shadow: var(--shadow-lg);
++    transform: translateY(-150%);
++}
++
++.skip-link:focus {
++    transform: translateY(0);
++}
++
+ h1,
+ h2,
+ h3,

@@ -85,7 +85,6 @@ const schemasByType = {
     service: [serviceSchema, breadcrumbSchema('Servicios', '/servicios')],
     method: [serviceSchema, breadcrumbSchema('Método GYROTONIC®', '/metodo')],
     team: [breadcrumbSchema('Equipo', '/equipo')],
-    testimonials: [breadcrumbSchema('Testimonios', '/testimonios')],
     pricing: [pricingFAQSchema, breadcrumbSchema('Precios y bonos', '/precios')],
 };
 

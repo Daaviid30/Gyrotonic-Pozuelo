@@ -7,7 +7,8 @@ const ScrollToTop = () => {
     useEffect(() => {
         if (hash) {
             const frame = requestAnimationFrame(() => {
-                document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
+                const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                document.querySelector(hash)?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
             });
             return () => cancelAnimationFrame(frame);
         }

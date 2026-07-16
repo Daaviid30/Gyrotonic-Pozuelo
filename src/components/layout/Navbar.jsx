@@ -29,6 +29,15 @@ const Navbar = () => {
         return () => { document.body.style.overflow = ''; };
     }, [isMobileMenuOpen]);
 
+    useEffect(() => {
+        if (!isMobileMenuOpen) return undefined;
+        const closeOnEscape = (event) => {
+            if (event.key === 'Escape') setIsMobileMenuOpen(false);
+        };
+        document.addEventListener('keydown', closeOnEscape);
+        return () => document.removeEventListener('keydown', closeOnEscape);
+    }, [isMobileMenuOpen]);
+
     const closeMenu = () => setIsMobileMenuOpen(false);
 
     return (
