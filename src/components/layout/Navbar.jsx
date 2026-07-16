@@ -43,7 +43,7 @@ const Navbar = () => {
     return (
         <header className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''} ${isHome ? '' : 'inner-page'}`}>
             <div className="container navbar-container">
-                <Link to="/" className="logo" onClick={closeMenu} aria-label="Gyrotonic Pozuelo, inicio">
+                <Link to="/" className="logo" onClick={closeMenu}>
                     GYROTONIC<span className="logo-suffix">POZUELO</span>
                 </Link>
 

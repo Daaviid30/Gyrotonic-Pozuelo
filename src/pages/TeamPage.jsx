@@ -27,7 +27,7 @@ const TeamPage = () => (
                 <span className="eyebrow">Personas y método</span>
                 <h2 className="section-title-page">Conoce a quienes te acompañarán</h2>
                 <p className="intro-text">
-                    En cada sesión prestamos atención a tu experiencia, tu ritmo y tus objetivos generales. Las titulaciones y especialidades detalladas se publicarán cuando el centro termine de verificarlas.
+                    En cada sesión prestamos atención a tu experiencia, tu ritmo y tus objetivos generales para acompañarte de forma cercana y progresiva.
                 </p>
             </section>
 

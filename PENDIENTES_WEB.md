@@ -21,7 +21,7 @@ Documento operativo actualizado el 16 de julio de 2026. No se sustituirá ningú
 | Pendiente | Fotografías reales del centro, acceso, máquinas y equipo | Propietarios / fotografía | Toda la web | Seleccionar y optimizar originales con autorizaciones |
 | Pendiente | Imagen Open Graph de 1200 × 630 px | Diseño | Compartición social | Crear tras disponer de fotografía y marca definitivas |
 | Pendiente | Prueba completa en móviles reales | Desarrollo / propietarios | Navegación, llamadas, WhatsApp y mapa | Probar iOS y Android antes del lanzamiento |
-| Pendiente | Verificación visual automatizada y Lighthouse | Desarrollo | Responsive, accesibilidad y rendimiento | Ejecutar en un entorno con Node y navegador |
+| Implementado | Verificación visual automatizada y Lighthouse local | Desarrollo | Responsive, accesibilidad y rendimiento | Repetir sobre la preview final desplegada |
 | Pendiente | Redirección entre `www` y el dominio canónico | Desarrollo / DNS | SEO | Elegir variante canónica y configurar en Vercel |
 
 ## P2 — Mejoras posteriores

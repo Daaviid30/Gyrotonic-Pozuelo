@@ -9,7 +9,7 @@ Se realizó una segunda revisión estática integral de la aplicación React/Vit
 
 El principal riesgo detectado era de contenido: se publicaban credenciales profesionales pendientes de verificación y testimonios con afirmaciones clínicas o resultados contundentes cuya autorización también seguía pendiente. Ambos contenidos se han retirado de la experiencia pública. Se han añadido además mejoras puntuales de accesibilidad, navegación y SEO sin alterar la identidad visual.
 
-El entorno de ejecución no dispone de Node.js ni `npm`, ni de navegador automatizado. Por ello no fue posible levantar la web, ejecutar Lighthouse, lint, build o las auditorías de npm. Esta limitación se declara expresamente y esas comprobaciones no se dan por superadas.
+En la segunda fase se habilitaron Node.js, npm y Chrome headless. Se completaron lint, build, auditorías de dependencias, Lighthouse sobre el build de producción y una matriz visual automatizada de nueve rutas en escritorio, tablet y móvil.
 
 ## 2. Problemas encontrados
 
@@ -61,26 +61,31 @@ Verificado estáticamente:
 
 ## 6. Vulnerabilidades antes y después
 
-No evaluables en este entorno: `npm` no está instalado. No se aplicó `npm audit fix` ni se modificaron dependencias. Es obligatorio ejecutar `npm audit` y `npm audit --omit=dev` en un entorno con Node antes de publicar.
+- Antes: 10 vulnerabilidades de desarrollo (1 baja, 4 moderadas y 5 altas); producción: 0.
+- Paquetes transitivos afectados: `@babel/core`, `ajv`, `brace-expansion`, `flatted`, `js-yaml`, `minimatch`, `picomatch`, `postcss` y `rollup`.
+- Dependencia directa afectada: Vite 7.3.0, por vulnerabilidades del servidor de desarrollo. No afectaban al sitio estático generado, pero sí al uso local de Vite.
+- Decisión: se ejecutó `npm audit fix` sin `--force`, manteniendo las versiones mayores declaradas.
+- Después: 0 vulnerabilidades totales y 0 en producción.
 
 ## 7. Dependencias actualizadas
 
-Ninguna. No se realizaron actualizaciones sin disponer de instalación, auditoría y build para comprobar compatibilidad.
+`npm audit fix` actualizó 34 paquetes compatibles del lockfile. Entre ellos, Vite pasó de 7.3.0 a 7.3.6 y se actualizaron las dependencias transitivas vulnerables. No se aplicaron actualizaciones mayores ni se utilizó `--force`.
 
 ## 8. Resultado de lint y build
 
-- `npm run lint`: no ejecutado; comando `npm` no disponible.
-- `npm run build`: no ejecutado; comando `npm` no disponible.
-- `npm audit`: no ejecutado; comando `npm` no disponible.
-- `npm audit --omit=dev`: no ejecutado; comando `npm` no disponible.
-- `npm outdated`: no ejecutado; comando `npm` no disponible.
+- `npm run lint`: correcto, sin errores ni avisos.
+- `npm run build`: correcto con Vite 7.3.6; JS 422,82 kB (134,65 kB gzip) y CSS 39,08 kB (7,40 kB gzip).
+- `npm audit`: 0 vulnerabilidades después de la corrección.
+- `npm audit --omit=dev`: 0 vulnerabilidades.
+- `npm outdated`: revisado; se evitaron actualizaciones mayores automáticas de Vite, ESLint, plugin React, globals y Lucide.
+- Lighthouse final sobre build de producción: rendimiento 96, accesibilidad 100, buenas prácticas 100 y SEO 100. En la medición inmediatamente anterior: FCP 1,5 s, LCP 2,6 s, TBT 20 ms y CLS 0.
 - `git diff --check`: correcto, sin errores de espacios; Git solo informa de la futura conversión LF/CRLF en Windows.
 
 ## 9. Responsive y accesibilidad
 
-Revisión estática realizada sobre breakpoints y reglas de escritorio, tablet y móvil, menú abierto/cerrado, formulario, mapa, foco y reducción de movimiento. Se verificaron etiquetas, campos asociados, estado con `role=status`, texto del botón del mapa, foco visible y semántica general.
+Se revisaron visual y automáticamente nueve rutas en 1440 × 1000, 768 × 1024 y 390 × 844: home, método, servicios, equipo, precios, tres páginas legales y 404. No se detectaron desbordamientos horizontales, errores de consola, imágenes sin dimensiones ni encabezados principales ausentes.
 
-No se pudo hacer inspección renderizada a 390 px, tablet, portátil y escritorio, ni validar hover, teclado completo, consola o Lighthouse, porque no hay Node ni navegador automatizado disponible. Debe completarse antes del lanzamiento.
+También se verificaron menú móvil abierto/cerrado, cierre mediante Escape y `prefers-reduced-motion`. La prueba reveló y permitió corregir que ciertos bloques animados quedaban transparentes hasta entrar en viewport. Se mejoró el contraste del texto secundario, el nombre accesible del logotipo y el tamaño del CTA móvil.
 
 ## 10. Archivos modificados
 
@@ -90,6 +95,8 @@ No se pudo hacer inspección renderizada a 390 px, tablet, portátil y escritori
 - `public/sitemap.xml`
 - `src/App.jsx`
 - `src/components/layout/Navbar.jsx`
+- `src/components/layout/Navbar.css`
+- `src/components/layout/Footer.css`
 - `src/components/sections/Hero.jsx`
 - `src/components/sections/Services.jsx`
 - `src/components/sections/Team.jsx`
@@ -101,11 +108,13 @@ No se pudo hacer inspección renderizada a 390 px, tablet, portátil y escritori
 - `src/pages/ServicesPage.jsx`
 - `src/pages/TeamPage.jsx`
 - `src/styles/global.css`
+- `src/styles/variables.css`
+- `package-lock.json`
 - Eliminados: componentes, estilos, página y datos de testimonios.
 
 ## 11. Riesgos y limitaciones pendientes
 
-- Falta verificación renderizada, lint, build, consola, Lighthouse y auditoría de dependencias.
+- Conviene repetir Lighthouse en la preview final desplegada; la medición local depende del equipo y la red.
 - Fotografías actuales provisionales y recursos de Unsplash pendientes de sustitución.
 - Horario final, WhatsApp oficial, reglas operativas y métodos de pago requieren confirmación.
 - Datos empresariales y revisión jurídica siguen bloqueando la publicación legal.
