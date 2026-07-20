@@ -181,6 +181,18 @@
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+}
+
+.process-grid::before {
+    content: '';
+    position: absolute;
+    top: 4.35rem;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(13, 148, 136, 0.35) 12%, rgba(13, 148, 136, 0.35) 88%, transparent);
+    z-index: 0;
 }
 
 .process-card {
@@ -191,6 +203,7 @@
     text-align: center;
     transition: all var(--transition-smooth);
     position: relative;
+    z-index: 1;
 }
 
 .process-card:hover {
@@ -278,6 +291,10 @@
     .process-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .process-grid::before {
+        display: none;
     }
 
     .services-cta {

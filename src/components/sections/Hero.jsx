@@ -39,10 +39,10 @@ const Hero = () => {
                     </p>
                     <p className="hero-description">
                         <span className="hero-copy-desktop">
-                            Clases individuales y grupos de hasta 4 personas en Pozuelo de Alarcón. Una hora completa para moverte con atención y propósito.
+                            ¡Da un gyro a tu vida en Pozuelo! Movimiento tridimensional para desarrollar movilidad, fuerza, coordinación y bienestar.
                         </span>
                         <span className="hero-copy-mobile">
-                            Clases individuales y grupos reducidos en Pozuelo de Alarcón.
+                            ¡Da un gyro a tu vida en Pozuelo!
                         </span>
                     </p>
 

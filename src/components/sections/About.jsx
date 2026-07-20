@@ -2,12 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import TextReveal from '../ui/TextReveal';
+import GyroSignature from '../ui/GyroSignature';
 import { methodFeatures } from '../../constants/method';
 import './About.css';
 
 const About = () => {
     return (
         <section id="method" className="section about-section" itemScope itemType="https://schema.org/Service">
+            <GyroSignature className="about-signature" />
             <div className="container">
                 <div className="text-center mb-16">
                     <TextReveal className="section-title">
@@ -21,7 +23,7 @@ const About = () => {
                         transition={{ delay: 0.2 }}
                         itemProp="description"
                     >
-                        Un método de movimiento fluido y tridimensional que combina respiración, coordinación, movilidad y fuerza de forma progresiva.
+                        Un sistema de movimiento tridimensional que integra la fluidez de la danza, la precisión de la gimnasia y la conexión entre respiración y movimiento para trabajar el cuerpo de forma global.
                     </motion.p>
                 </div>
 
@@ -56,7 +58,7 @@ const About = () => {
                     transition={{ delay: 0.5 }}
                 >
                     <Link to="/metodo" className="btn btn-outline">
-                        Saber Más sobre el Método
+                        Saber más sobre el método
                     </Link>
                 </motion.div>
             </div>

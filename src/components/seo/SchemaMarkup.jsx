@@ -1,5 +1,6 @@
 import React from 'react';
 import { PRICING } from '../../constants/pricing';
+import { instructors } from '../../constants/team';
 import { SITE, SITE_ADDRESS, absoluteUrl } from '../../config/site';
 
 const organizationSchema = {
@@ -7,7 +8,7 @@ const organizationSchema = {
     '@type': 'SportsActivityLocation',
     '@id': `${SITE.url}/#organization`,
     name: SITE.name,
-    description: 'Centro especializado en el método GYROTONIC® con clases individuales y grupos reducidos en Pozuelo de Alarcón.',
+    description: 'Centro especializado en GYROTONIC® en Pozuelo de Alarcón, con clases individuales y grupos de hasta cuatro personas en sesiones de 60 minutos.',
     url: SITE.url,
     telephone: SITE.phoneHref,
     priceRange: '€€',
@@ -36,8 +37,54 @@ const serviceSchema = {
     serviceType: 'Entrenamiento GYROTONIC®',
     provider: { '@id': `${SITE.url}/#organization` },
     areaServed: { '@type': 'City', name: SITE.address.locality },
-    description: 'Sesiones de movimiento de 60 minutos, individuales o en grupos reducidos, con acompañamiento adaptado a la experiencia y objetivos de cada persona.',
+    description: 'Sistema de movimiento tridimensional con Pulley Tower. Sesiones de 60 minutos, individuales o en grupos reducidos, adaptadas a la experiencia y los objetivos de cada persona.',
+    hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Modalidades GYROTONIC®',
+        itemListElement: [
+            {
+                '@type': 'Offer',
+                itemOffered: {
+                    '@type': 'Service',
+                    name: 'Pack de iniciación GYROTONIC®',
+                    description: 'Cuatro sesiones privadas para aprender los patrones fundamentales y el manejo de la Pulley Tower.',
+                },
+            },
+            {
+                '@type': 'Offer',
+                itemOffered: {
+                    '@type': 'Service',
+                    name: 'Clases privadas GYROTONIC®',
+                    description: 'Sesiones individuales con resistencia, ritmo y progresión personalizados.',
+                },
+            },
+            {
+                '@type': 'Offer',
+                itemOffered: {
+                    '@type': 'Service',
+                    name: 'Clases grupales GYROTONIC®',
+                    description: 'Sesiones de 60 minutos en grupos de hasta cuatro personas.',
+                },
+            },
+        ],
+    },
 };
+
+const personSchemas = instructors.map((instructor) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE.url}/equipo#${instructor.slug}`,
+    name: instructor.name,
+    jobTitle: instructor.role,
+    description: instructor.summary,
+    image: absoluteUrl(instructor.image),
+    worksFor: { '@id': `${SITE.url}/#organization` },
+    knowsAbout: instructor.specialties,
+    hasCredential: instructor.certifications.map((certification) => ({
+        '@type': 'EducationalOccupationalCredential',
+        name: certification,
+    })),
+}));
 
 const pricingFAQSchema = {
     '@context': 'https://schema.org',
@@ -92,7 +139,7 @@ const schemasByType = {
     organization: [organizationSchema],
     service: [serviceSchema, breadcrumbSchema('Servicios', '/servicios')],
     method: [serviceSchema, breadcrumbSchema('Método GYROTONIC®', '/metodo')],
-    team: [breadcrumbSchema('Equipo', '/equipo')],
+    team: [...personSchemas, breadcrumbSchema('Equipo', '/equipo')],
     testimonials: [breadcrumbSchema('Testimonios', '/testimonios')],
     pricing: [pricingFAQSchema, breadcrumbSchema('Precios y bonos', '/precios')],
 };

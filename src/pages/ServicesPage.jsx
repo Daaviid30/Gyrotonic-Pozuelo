@@ -16,12 +16,12 @@ const ServicesPage = () => {
     const services = [
         {
             icon: <ClipboardCheck size={48} />,
-            title: "Pack de Iniciación",
-            subtitle: "Comienza tu Viaje con Sólidas Bases",
-            description: "Es el punto de partida obligatorio y esencial para todos los nuevos alumnos. Antes de unirte a un grupo, necesitamos que tu cuerpo entienda el lenguaje de la máquina y los principios del movimiento. Es un periodo de aprendizaje y autodescubrimiento.",
+            title: "Pack de iniciación",
+            subtitle: "Comienza tu viaje con bases sólidas",
+            description: "Es el punto de partida esencial para todos los nuevos alumnos. Antes de incorporarte a un grupo, tu cuerpo necesita comprender el lenguaje de la máquina y los principios del movimiento. Es un periodo de aprendizaje técnico y autodescubrimiento.",
             features: [
-                "4 Sesiones Fundamentales: Un recorrido privado por las bases del sistema.",
-                "Observación Inicial: Conocemos tu experiencia, forma de moverte y objetivos para orientar la práctica.",
+                "4 Sesiones Fundamentales: Un recorrido privado y progresivo por las bases del sistema.",
+                "Valoración Inicial del Movimiento: Observamos postura, movilidad, experiencia y objetivos para orientar la práctica.",
                 "Manejo de la Pulley Tower: Aprenderás a usar la máquina y a moverte con seguridad.",
                 "Atención 1 a 1: Un instructor dedicado exclusivamente a ti durante este proceso."
             ],
@@ -32,31 +32,31 @@ const ServicesPage = () => {
         },
         {
             icon: <User size={48} />,
-            title: "Clases Privadas",
-            subtitle: "Máxima Precisión y Personalización",
-            description: "En estas sesiones toda la atención del instructor está centrada en ti. Es un espacio para aprender con detalle y adaptar el ritmo a tus objetivos y experiencia.",
+            title: "Clases privadas",
+            subtitle: "Máxima precisión y personalización",
+            description: "En estas sesiones toda la atención del instructor está centrada en ti. Es el espacio donde se pulen detalles, se personaliza cada secuencia y se avanza con precisión hacia tus objetivos.",
             features: [
                 "Diseño a Medida: Cada ejercicio se selecciona según cómo te sientas ese día y tus metas a largo plazo.",
-                "Progresión Individual: El ritmo y la complejidad se ajustan a tu evolución.",
+                "Progresión Individual: El ritmo, la resistencia y la complejidad se ajustan a tu evolución.",
                 "Corrección Milimétrica: Ajustes táctiles constantes para asegurar la máxima eficacia del movimiento.",
-                "Horario Flexible: Adaptado totalmente a tu agenda."
+                "Horario Flexible: Diferentes opciones para encajarlo en tu agenda."
             ],
             duration: "60 minutos",
-            idealFor: "Quienes buscan atención individual, quieren mejorar su técnica o prefieren mayor privacidad y flexibilidad.",
+            idealFor: "Quienes buscan un aprendizaje técnico intensivo, quieren trabajar un objetivo concreto o prefieren mayor privacidad y flexibilidad.",
             image: "/images/web/atencion-personal.jpg",
             imageAlt: "Instructora guiando de forma individual a una alumna",
             imageClass: "photo-softened"
         },
         {
             icon: <Users2 size={48} />,
-            title: "Clases en Grupo",
-            subtitle: "Fluidez y Energía Compartida",
-            description: "Una vez completado el Pack de Iniciación, puedes unirte a nuestras clases grupales reducidas. Aquí el ritmo es más continuo y dinámico, permitiéndote disfrutar del movimiento en un ambiente motivador.",
+            title: "Clases en grupo",
+            subtitle: "Fluidez y energía compartida",
+            description: "Una vez completado el Pack de Iniciación, puedes unirte a nuestras clases grupales reducidas. Aquí el ritmo es más continuo y dinámico, para disfrutar de secuencias fluidas en un ambiente motivador.",
             features: [
-                "Grupos Reducidos: Pocos alumnos por sesión para no perder la calidad de la supervisión.",
-                "Ritmo y Coreografía: Clases más fluidas donde el movimiento no se detiene, aumentando el trabajo cardiovascular.",
+                "Grupos Reducidos: Un máximo de cuatro alumnos permite mantener la calidad de la supervisión.",
+                "Ritmo y Secuencias: Clases más fluidas donde los ejercicios se enlazan y el movimiento gana continuidad.",
                 "Autonomía Guiada: Ya conoces la máquina, por lo que el instructor te guía verbalmente y con toques puntuales.",
-                "Comunidad: La energía del grupo te impulsa a dar un poco más en cada sesión."
+                "Energía Compartida: La dinámica del grupo aporta ritmo, motivación y constancia a la práctica."
             ],
             duration: "60 minutos completos",
             idealFor: "Alumnos que ya han completado la iniciación y disfrutan de una práctica compartida en un grupo de hasta 4 personas.",
@@ -68,23 +68,23 @@ const ServicesPage = () => {
     const process = [
         {
             step: "1",
-            title: "Contacto y Bienvenida",
-            description: "Escríbenos o llámanos. Resolveremos tus dudas iniciales y agendaremos tu primera cita para el Pack de Iniciación."
+            title: "Contacto y bienvenida",
+            description: "Escríbenos o llámanos. Resolveremos tus dudas iniciales y te orientaremos sobre la clase de prueba o el Pack de Iniciación."
         },
         {
             step: "2",
-            title: "Tu Primera Sesión",
-            description: "En la primera clase del pack de iniciación conocemos tu experiencia, practicamos movimientos básicos y ajustamos el punto de partida."
+            title: "Tu primera sesión",
+            description: "Conocemos tu experiencia, observamos tu postura y rango de movimiento, practicamos los patrones básicos y definimos un punto de partida."
         },
         {
             step: "3",
-            title: "Aprendizaje y Orientación",
-            description: "Durante las siguientes sesiones del pack, te enseñamos la respiración, los movimientos y el uso de la máquina de forma progresiva."
+            title: "Aprendizaje técnico",
+            description: "Durante las siguientes sesiones del pack aprendes la respiración, los patrones de movimiento y el uso de la Pulley Tower con seguridad y confianza."
         },
         {
             step: "4",
-            title: "Elige tu Continuidad",
-            description: "Al finalizar el pack, tu instructor te asesorará: ¿Estás listo para la dinámica de las Clases Grupales o tu cuerpo agradecería continuar con Clases Privadas un tiempo más? Tú decides cómo seguir."
+            title: "Elige tu continuidad",
+            description: "Al finalizar el pack, tu instructor te orientará sobre la dinámica de las clases grupales o la conveniencia de continuar con clases privadas. Tú decides cómo seguir."
         }
     ];
 
@@ -92,15 +92,15 @@ const ServicesPage = () => {
         <div className="services-page">
             {/* SEO Optimization */}
             <SEOHead
-                title="Servicios GYROTONIC® Pozuelo | Clases Privadas y Grupales Madrid"
-                description="Descubre las modalidades de Gyrotonic Pozuelo: pack de iniciación, clases privadas y grupos de hasta cuatro personas."
+                title="Clases GYROTONIC® en Pozuelo | Privadas y grupos"
+                description="Pack de iniciación y clases de GYROTONIC® privadas o en grupos de hasta cuatro personas en Pozuelo. Sesiones técnicas de 60 minutos con Pulley Tower."
                 canonical="/servicios"
                 ogType="website"
             />
             <SchemaMarkup type="service" />
             <PageHero
-                title="Nuestros Servicios"
-                subtitle="Encuentra el formato perfecto para tu camino hacia el bienestar"
+                title="Nuestros servicios"
+                subtitle="Encuentra el formato adecuado para tus objetivos, experiencia y ritmo"
                 breadcrumbs={breadcrumbs}
                 image="/images/web/estudio-maquinas.jpg"
                 imagePosition="center 82%"
@@ -117,9 +117,9 @@ const ServicesPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="section-title-page">Experiencias a Tú Medida</h2>
+                    <h2 className="section-title-page">Experiencias a tu medida</h2>
                     <p className="intro-text">
-                        Hemos diseñado una estructura progresiva para facilitar el aprendizaje. Puedes comenzar de forma individual y elegir después entre sesiones privadas o grupos de hasta 4 personas.
+                        Hemos diseñado una estructura progresiva para garantizar el aprendizaje y la seguridad técnica. Comienza de forma individual y, cuando domines las bases, elige entre sesiones privadas o grupos de hasta cuatro personas.
                     </p>
                 </motion.section>
 
@@ -189,7 +189,7 @@ const ServicesPage = () => {
 
                 {/* Proceso */}
                 <section className="process-section">
-                    <h2 className="section-title-page text-center">¿Cómo Empezar?</h2>
+                    <h2 className="section-title-page text-center">¿Cómo empezar?</h2>
                     <p className="section-subtitle-page">
                         Tu viaje con GYROTONIC® comienza con estos sencillos pasos
                     </p>
@@ -218,9 +218,9 @@ const ServicesPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="cta-title">¿Tienes Dudas?</h2>
+                    <h2 className="cta-title">¿Tienes dudas?</h2>
                     <p className="cta-text">
-                        Estamos aquí para ayudarte a elegir el servicio perfecto para ti. Contáctanos y te asesoraremos sin compromiso.
+                        Estamos aquí para ayudarte a elegir el formato más adecuado para ti. Cuéntanos tu punto de partida y te orientaremos sin compromiso.
                     </p>
                     <a href="/#contact" className="btn btn-primary cta-button">
                         Contáctanos

@@ -16,7 +16,7 @@ const Footer = () => (
                     height="510"
                     loading="lazy"
                 />
-                <p>Movimiento consciente, atención cercana y sesiones de 60 minutos en Pozuelo de Alarcón.</p>
+                <p>Movimiento inteligente para una vida mejor. Sesiones de 60 minutos en Pozuelo de Alarcón.</p>
             </div>
 
             <div className="footer-links">

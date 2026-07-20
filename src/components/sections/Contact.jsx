@@ -44,8 +44,8 @@ const Contact = () => {
             <div className="container">
                 <div className="text-center mb-16">
                     <span className="eyebrow">Primera experiencia</span>
-                    <h2 className="section-title">Cuéntanos qué necesitas</h2>
-                    <p className="section-subtitle">Te orientamos personalmente y confirmamos contigo la plaza y el horario.</p>
+                    <h2 className="section-title">Contáctanos</h2>
+                    <p className="section-subtitle">Estamos aquí para resolver tus dudas, conocer tus objetivos y orientarte personalmente.</p>
                 </div>
 
                 <div className="contact-grid">

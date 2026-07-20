@@ -4,31 +4,31 @@ export const methodFeatures = [
     {
         icon: Orbit,
         title: 'Movimiento tridimensional',
-        description: 'Secuencias circulares y espirales que exploran el movimiento de la columna y las articulaciones en distintas direcciones.',
+        description: 'Secuencias circulares, espirales y ondulatorias que exploran la biomecánica natural de la columna y las articulaciones en todos los planos.',
     },
     {
         icon: HeartHandshake,
-        title: 'Acompañamiento cercano',
-        description: 'Grupos muy reducidos y correcciones cuidadas para adaptar la práctica a tu experiencia y forma de moverte.',
+        title: 'Movilidad y recuperación',
+        description: 'Un trabajo progresivo, sin impactos bruscos, orientado a recuperar amplitud de movimiento, reducir rigidez y volver a moverte con confianza.',
     },
     {
         icon: Sparkles,
-        title: 'Fuerza y movilidad',
-        description: 'Un trabajo progresivo que combina control, coordinación, amplitud de movimiento y activación muscular.',
+        title: 'Fuerza profunda y movilidad',
+        description: 'La resistencia uniforme de las poleas combina control, coordinación y activación de la musculatura profunda sin renunciar a la fluidez.',
     },
     {
         icon: BrainCircuit,
         title: 'Conexión mente-cuerpo',
-        description: 'La respiración y el movimiento se coordinan para favorecer la concentración y la conciencia corporal.',
+        description: 'La respiración se sincroniza con cada secuencia para favorecer la concentración, el ritmo y una mayor consciencia corporal.',
     },
     {
         icon: TrendingUp,
-        title: 'Complemento para deporte y danza',
-        description: 'Una forma diferente de trabajar movilidad, coordinación y eficiencia de movimiento junto a otras disciplinas.',
+        title: 'Alto rendimiento',
+        description: 'Un complemento técnico para danza y deporte que trabaja rango de movimiento, coordinación, resistencia y eficiencia del gesto.',
     },
     {
         icon: Sun,
-        title: 'Bienestar y continuidad',
-        description: 'Una práctica adaptable que busca que avances con constancia y disfrutes del proceso.',
+        title: 'Vitalidad y bienestar',
+        description: 'Una práctica adaptable y dinámica que invita a avanzar con constancia y terminar cada sesión con mayor sensación de ligereza.',
     },
 ];

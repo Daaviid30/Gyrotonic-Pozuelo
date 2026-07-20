@@ -39,6 +39,17 @@
     margin-bottom: 3rem;
 }
 
+.about-signature {
+    position: absolute;
+    top: 1.5rem;
+    right: max(-8rem, -8vw);
+    width: clamp(300px, 35vw, 520px);
+    color: var(--color-accent);
+    opacity: 0.34;
+    transform: rotate(-8deg);
+    z-index: 0;
+}
+
 .mb-16 {
     margin-bottom: 3rem;
     /* Increased margin */
@@ -78,10 +89,28 @@
     overflow: hidden;
 }
 
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: -48px;
+    right: -48px;
+    width: 92px;
+    height: 92px;
+    border: 1px solid rgba(13, 148, 136, 0.18);
+    border-radius: 50%;
+    box-shadow: 0 0 0 12px rgba(13, 148, 136, 0.035);
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
 .feature-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
     background-color: white;
+}
+
+.feature-card:hover::after {
+    opacity: 0.8;
+    transform: translate(-8px, 8px) scale(1.08);
 }
 
 .feature-icon {
@@ -127,4 +156,13 @@
 .section-cta .btn {
     font-size: 1rem;
     padding: 1rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .about-signature {
+        top: 4rem;
+        right: -8rem;
+        width: 300px;
+        opacity: 0.16;
+    }
 }

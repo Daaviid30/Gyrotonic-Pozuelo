@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HeartHandshake, Users } from 'lucide-react';
+import { Award, Fingerprint, HeartHandshake, Infinity as InfinityIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/ui/PageHero';
 import BackButton from '../components/ui/BackButton';
@@ -12,14 +12,14 @@ import './TeamPage.css';
 const TeamPage = () => (
     <div className="team-page">
         <SEOHead
-            title="Equipo de Gyrotonic Pozuelo | Atención cercana"
-            description="Conoce a las personas que acompañan las sesiones de Gyrotonic Pozuelo con atención cercana y grupos reducidos."
+            title="Equipo GYROTONIC® Pozuelo | Instructores certificados"
+            description="Conoce a María José Cruz y Antonio Castro, instructores certificados de GYROTONIC® en Pozuelo con experiencia en danza, osteopatía y entrenamiento."
             canonical="/equipo"
         />
         <SchemaMarkup type="team" />
         <PageHero
             title="Nuestro equipo"
-            subtitle="Atención cercana y acompañamiento durante todo el aprendizaje"
+            subtitle="Profesionales certificados que te guiarán con rigor técnico y atención cercana"
             breadcrumbs={[{ label: 'Inicio', path: '/' }, { label: 'Nuestro equipo', path: '/equipo' }]}
             image="/images/web/acompanamiento.jpg"
             imagePosition="center 8%"
@@ -29,10 +29,10 @@ const TeamPage = () => (
         <div className="container">
             <BackButton />
             <section className="team-intro">
-                <span className="eyebrow">Personas y método</span>
-                <h2 className="section-title-page">Conoce a quienes te acompañarán</h2>
+                <span className="eyebrow">Experiencia y dedicación</span>
+                <h2 className="section-title-page">Un equipo que conoce el movimiento</h2>
                 <p className="intro-text">
-                    En cada sesión prestamos atención a tu experiencia, tu ritmo y tus objetivos generales para acompañarte de forma cercana y progresiva.
+                    Nuestro equipo está formado por profesionales certificados con trayectorias complementarias en danza, deporte, osteopatía y enseñanza. Esa experiencia compartida se traduce en una atención precisa, cercana y adaptada a cada alumno.
                 </p>
             </section>
 
@@ -60,14 +60,14 @@ const TeamPage = () => (
                             </div>
 
                             <div className="profile-details-grid">
-                                <section className="detail-box" aria-labelledby={`${member.name}-specialties`}>
-                                    <h3 id={`${member.name}-specialties`} className="detail-title">Áreas de experiencia</h3>
+                                <section className="detail-box" aria-labelledby={`${member.slug}-specialties`}>
+                                    <h3 id={`${member.slug}-specialties`} className="detail-title">Áreas de experiencia</h3>
                                     <ul className="detail-list">
                                         {member.specialties.map((specialty) => <li key={specialty}>{specialty}</li>)}
                                     </ul>
                                 </section>
-                                <section className="detail-box" aria-labelledby={`${member.name}-certifications`}>
-                                    <h3 id={`${member.name}-certifications`} className="detail-title">Formación y certificaciones</h3>
+                                <section className="detail-box" aria-labelledby={`${member.slug}-certifications`}>
+                                    <h3 id={`${member.slug}-certifications`} className="detail-title">Formación y certificaciones</h3>
                                     <ul className="detail-list">
                                         {member.certifications.map((certification) => <li key={certification}>{certification}</li>)}
                                     </ul>
@@ -84,25 +84,36 @@ const TeamPage = () => (
             </section>
 
             <section className="values-section">
-                <h2 className="section-title-page text-center">Cómo son las sesiones</h2>
+                <h2 className="section-title-page text-center">Nuestros valores</h2>
+                <p className="section-subtitle-page">Los principios que guían nuestra forma de enseñar y acompañarte</p>
                 <div className="values-grid">
                     <article className="value-card">
                         <div className="value-icon"><HeartHandshake size={40} aria-hidden="true" /></div>
-                        <h3 className="value-title">Atención cercana</h3>
-                        <p className="value-description">Escuchamos tu punto de partida y ajustamos el aprendizaje a tu experiencia.</p>
+                        <h3 className="value-title">Empatía en movimiento</h3>
+                        <p className="value-description">Entendemos que cada persona llega con una historia distinta. Escuchamos tu punto de partida y acompañamos tu proceso sin juicios.</p>
                     </article>
                     <article className="value-card">
-                        <div className="value-icon"><Users size={40} aria-hidden="true" /></div>
-                        <h3 className="value-title">Grupos reducidos</h3>
-                        <p className="value-description">Un máximo de cuatro personas permite mantener la atención durante los 60 minutos.</p>
+                        <div className="value-icon"><Fingerprint size={40} aria-hidden="true" /></div>
+                        <h3 className="value-title">Atención personalizada</h3>
+                        <p className="value-description">Cada cuerpo es único. Ajustamos la resistencia, el ritmo y las secuencias a lo que necesitas en cada sesión.</p>
+                    </article>
+                    <article className="value-card">
+                        <div className="value-icon"><Award size={40} aria-hidden="true" /></div>
+                        <h3 className="value-title">Rigor técnico</h3>
+                        <p className="value-description">La pasión se apoya en el conocimiento. Cuidamos la ejecución y continuamos formándonos para enseñar con precisión.</p>
+                    </article>
+                    <article className="value-card">
+                        <div className="value-icon"><InfinityIcon size={40} aria-hidden="true" /></div>
+                        <h3 className="value-title">Bienestar sostenible</h3>
+                        <p className="value-description">Buscamos construir una base de movilidad, fuerza y autonomía que puedas mantener a lo largo del tiempo.</p>
                     </article>
                 </div>
             </section>
 
             <section className="team-cta">
                 <h2 className="cta-title">¿Quieres conocernos?</h2>
-                <p className="cta-text">Cuéntanos qué buscas y confirma personalmente con el centro la disponibilidad.</p>
-                <Link to="/#contact" className="btn btn-primary cta-button">Solicitar información</Link>
+                <p className="cta-text">Cuéntanos tus objetivos y te orientaremos sobre la mejor forma de empezar a trabajar con nosotros.</p>
+                <Link to="/#contact" className="btn btn-primary cta-button">Solicitar primera sesión</Link>
             </section>
             <BackButton />
         </div>

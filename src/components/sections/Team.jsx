@@ -19,7 +19,7 @@ const Team = () => {
                         Nuestro Equipo
                     </motion.h2>
                     <p className="section-subtitle">
-                        Las personas que te acompañarán durante las sesiones.
+                        Profesionales certificados dedicados a tu bienestar.
                     </p>
                 </div>
 
@@ -39,7 +39,7 @@ const Team = () => {
                             <div className="instructor-info">
                                 <h3 className="instructor-name">{instructor.name}</h3>
                                 <p className="instructor-role">{instructor.role}</p>
-                                <p className="instructor-bio">{instructor.bio}</p>
+                                <p className="instructor-bio">{instructor.summary}</p>
                             </div>
                         </motion.div>
                     ))}
@@ -53,7 +53,7 @@ const Team = () => {
                     transition={{ delay: 0.5 }}
                 >
                     <Link to="/equipo" className="btn btn-outline">
-                        Conoce Más sobre Nuestro Equipo
+                        Conoce más sobre nuestro equipo
                     </Link>
                 </motion.div>
             </div>

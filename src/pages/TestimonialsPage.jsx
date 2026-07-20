@@ -18,8 +18,8 @@ const TestimonialsPage = () => (
         />
         <SchemaMarkup type="testimonials" />
         <PageHero
-            title="Testimonios"
-            subtitle="Experiencias personales compartidas por nuestros alumnos"
+            title="Historias de transformación"
+            subtitle="Personas reales que comparten su experiencia con GYROTONIC®"
             breadcrumbs={[{ label: 'Inicio', path: '/' }, { label: 'Testimonios', path: '/testimonios' }]}
             image="/images/web/grupo-reducido.jpg"
             imagePosition="center 48%"
@@ -30,8 +30,8 @@ const TestimonialsPage = () => (
 
             <motion.section className="testimonials-intro" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <span className="eyebrow">Sus propias palabras</span>
-                <h2 className="section-title-page">La experiencia de quienes entrenan con nosotros</h2>
-                <p className="intro-text">Recuperamos aquí los testimonios de la web anterior, publicados con autorización y manteniendo el relato de cada alumno.</p>
+                <h2 className="section-title-page">Experiencias reales, personas reales</h2>
+                <p className="intro-text">Estas son historias auténticas de alumnos que buscaban moverse mejor, recuperar confianza o enriquecer su práctica. Publicamos sus testimonios con autorización y respetando el relato original de cada persona.</p>
                 <p className="testimonial-disclaimer">Cada testimonio describe una experiencia personal; los resultados pueden variar de una persona a otra.</p>
             </motion.section>
 
@@ -79,9 +79,9 @@ const TestimonialsPage = () => (
             </section>
 
             <section className="testimonials-cta">
-                <h2 className="cta-title">Conoce el método en persona</h2>
-                <p className="cta-text">Cuéntanos qué buscas y te orientaremos sobre la primera sesión y la disponibilidad actual.</p>
-                <Link to="/#contact" className="btn btn-primary cta-button">Solicitar información</Link>
+                <h2 className="cta-title">Cada proceso comienza con un primer paso</h2>
+                <p className="cta-text">Conoce el método en persona y descubre cómo se adapta a tu forma de moverte, tu experiencia y tus objetivos.</p>
+                <Link to="/#contact" className="btn btn-primary cta-button">Solicitar primera sesión</Link>
             </section>
             <BackButton />
         </div>

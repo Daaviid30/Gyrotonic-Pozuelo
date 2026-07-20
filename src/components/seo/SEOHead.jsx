@@ -2,10 +2,10 @@ import React from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { SITE, absoluteUrl } from '../../config/site';
 
-const DEFAULT_DESCRIPTION = 'Clases de GYROTONIC® individuales y en grupos reducidos en Pozuelo de Alarcón. Sesiones de 60 minutos con acompañamiento cercano y adaptado.';
+const DEFAULT_DESCRIPTION = 'Centro especializado en GYROTONIC® en Pozuelo de Alarcón. Movimiento tridimensional con Pulley Tower en clases individuales y grupos reducidos.';
 
 const SEOHead = ({
-    title = 'GYROTONIC® Pozuelo | Movimiento y atención personalizada',
+    title = 'GYROTONIC® Pozuelo | Clases y movimiento tridimensional',
     description = DEFAULT_DESCRIPTION,
     canonical = '/',
     ogImage = '/images/web/grupo-reducido.jpg',

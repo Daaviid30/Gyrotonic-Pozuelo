@@ -11,7 +11,7 @@ const Testimonials = () => (
             <div className="text-center mb-16">
                 <span className="eyebrow">Experiencias reales</span>
                 <h2 className="section-title">Lo que dicen nuestros alumnos</h2>
-                <p className="section-subtitle">Testimonios personales publicados con autorización.</p>
+                <p className="section-subtitle">Historias reales de transformación, aprendizaje y constancia.</p>
             </div>
 
             <div className="testimonials-grid">
@@ -39,7 +39,7 @@ const Testimonials = () => (
             </div>
 
             <motion.div className="section-cta" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <Link to="/testimonios" className="btn btn-outline">Leer todos los testimonios</Link>
+                <Link to="/testimonios" className="btn btn-outline">Leer más historias</Link>
             </motion.div>
         </div>
     </section>

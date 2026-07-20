@@ -59,7 +59,7 @@ const Services = () => {
                     transition={{ delay: 0.5 }}
                 >
                     <Link to="/servicios" className="btn btn-outline">
-                        Conoce Todos Nuestros Servicios
+                        Conoce todos nuestros servicios
                     </Link>
                 </motion.div>
             </div>

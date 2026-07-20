@@ -58,8 +58,8 @@ function App() {
 const Home = () => (
   <>
     <SEOHead
-      title="GYROTONIC® Pozuelo | Clases individuales y grupos reducidos"
-      description="Clases de GYROTONIC® de 60 minutos en Pozuelo de Alarcón. Atención individual y grupos de hasta 4 personas, con una primera sesión para conocer el método."
+      title="GYROTONIC® Pozuelo | Clases y movimiento tridimensional"
+      description="Centro especializado en GYROTONIC® en Pozuelo de Alarcón. Clases individuales y grupos de hasta 4 personas con Pulley Tower y sesiones de 60 minutos."
       canonical="/"
     />
     <SchemaMarkup type="all" />

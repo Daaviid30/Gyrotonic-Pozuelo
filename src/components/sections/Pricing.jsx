@@ -41,8 +41,8 @@ const Pricing = () => (
         <div className="container">
             <div className="text-center mb-16">
                 <span className="eyebrow">Tarifas transparentes</span>
-                <h2 className="section-title">Elige cómo empezar</h2>
-                <p className="section-subtitle">Todas las opciones incluyen sesiones completas de 60 minutos e impuestos.</p>
+                <h2 className="section-title">Precios y bonos</h2>
+                <p className="section-subtitle">Invierte en tu bienestar con tarifas flexibles, claras y sesiones completas de 60 minutos.</p>
             </div>
 
             <div className="pricing-grid">

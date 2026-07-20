@@ -120,7 +120,7 @@ const PricingPage = () => (
         <SchemaMarkup type="pricing" />
         <PageHero
             title="Precios y bonos"
-            subtitle="Tarifas claras para empezar y continuar a tu ritmo"
+            subtitle="Invierte en tu bienestar con tarifas flexibles y transparentes"
             breadcrumbs={[{ label: 'Inicio', path: '/' }, { label: 'Precios y bonos', path: '/precios' }]}
             image="/images/web/pulley-tower.jpg"
             imagePosition="center 52%"
@@ -131,8 +131,8 @@ const PricingPage = () => (
 
             <motion.section className="pricing-intro" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <span className="eyebrow">Sin letra pequeña</span>
-                <h2 className="section-title-page">Una hora completa en cada sesión</h2>
-                <p className="intro-text">Todos los precios incluyen impuestos. No se realizan pagos online: primero hablamos contigo, confirmamos la plaza y te explicamos la mejor forma de comenzar.</p>
+                <h2 className="section-title-page">Tarifas claras y sin sorpresas</h2>
+                <p className="intro-text">Todas las modalidades incluyen sesiones completas de 60 minutos y los precios muestran los impuestos incluidos. Primero hablamos contigo, confirmamos la plaza y te orientamos sobre la mejor forma de comenzar.</p>
             </motion.section>
 
             <section className="detailed-pricing" aria-label="Modalidades y tarifas">
@@ -210,9 +210,9 @@ const PricingPage = () => (
             </section>
 
             <section className="pricing-cta">
-                <h2 className="cta-title">¿No sabes qué opción elegir?</h2>
-                <p className="cta-text">Cuéntanos qué buscas y qué horarios te encajan. Te orientaremos sin compromiso y confirmaremos personalmente la disponibilidad.</p>
-                <Link to="/#contact" className="btn btn-primary cta-button">Solicitar orientación</Link>
+                <h2 className="cta-title">¿Listo para empezar?</h2>
+                <p className="cta-text">Cuéntanos qué buscas y qué horarios te encajan. Te ayudaremos a elegir la modalidad más adecuada y confirmaremos personalmente la disponibilidad.</p>
+                <Link to="/#contact" className="btn btn-primary cta-button">Solicitar primera sesión</Link>
             </section>
             <BackButton />
         </div>
